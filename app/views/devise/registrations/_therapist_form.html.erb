@@ -1,0 +1,57 @@
+<div class="d-none container mt-3 justify-content-between" data-signup-target="therapist">
+  <h2 class="my-4">Comece agora</h2>
+  <div class="sub-container d-flex justify-content-between">
+    <div class="signup-patient col-12 col-md-5">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :username,
+                      required: true,
+                      autofocus: true,
+                      input_html: { placeholder: "Escolha um username", class:"mb-3" }%>
+          <%= f.input :name,
+                      required: true,
+                      autofocus: true,
+                      input_html: { placeholder: "Primeiro nome", class:"mb-3" }%>
+          <%= f.input :surname,
+                      required: true,
+                      autofocus: true,
+                      input_html: { placeholder: "Sobrenome", class:"mb-3" }%>
+          <%= f.input :birthdate,
+                      required: true,
+                      autofocus: true,
+                      input_html: { placeholder: "Data de nascimento", class:"mb-3" }%>
+          <%= f.input :role, as: :hidden,
+                      required: true,
+                      autofocus: true,
+                      input_html: { value: User.roles[:therapist] } %>
+          <%= f.input :description,
+                      required: true,
+                      autofocus: true,
+                      input_html: { placeholder: "Faça uma pequena descrição de você", class:"mb-3" }%>
+          <%= f.input :specialty,
+                      required: true,
+                      autofocus: true,
+                      input_html: { placeholder: "Tem alguma especialidade?", class:"mb-3" }%>
+          <%= f.input :email,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email", placeholder: "Escreva seu email", class:"mb-3" }%>
+          <%= f.input :password,
+                      required: true,
+                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                      input_html: { autocomplete: "new-password", placeholder: "Digite sua senha", class:"mb-3" } %>
+          <%= f.input :password_confirmation,
+                      required: true,
+                      input_html: { autocomplete: "new-password", placeholder: "Confirme sua senha", class:"mb-3" } %>
+        </div>
+
+        <div class="form-actions mt-4 d-flex justify-content-between col-12 ">
+          <%= render "devise/shared/links" %>
+          <%= f.button :submit, "Sign up", class: "btn btn-success text-white px-4 mt-3" %>
+        <% end %>
+        </div>
+    </div>
+  </div>
+</div>
