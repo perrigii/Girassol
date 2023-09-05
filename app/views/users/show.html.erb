@@ -1,0 +1,34 @@
+<div class="container-show-user">
+  <% if current_user.patient? %>
+    <div class="card-patient-profile">
+      <p class="text-center mt-5">aqui vai o avatar</p>
+      <h1 class="text-center my-3"><%= current_user.name.capitalize %> <%= current_user.surname.capitalize %> </h1>
+    </div>
+  <% else %>
+    <div class="card-therapist-profile">
+      <p class="text-center mt-5">aqui vai o avatar</p>
+      <h1 class="text-center my-3"><%= current_user.name.capitalize %> <%= current_user.surname.capitalize %> </h1>
+      <div></div>
+      <div class="birthdate text-center my-3">
+        <p> Data de Nascimento: <%= current_user.birthdate %> </p>
+      </div>
+      <div class="birthdate text-center my-3">
+        <p> Descrição: <%= current_user.description %> </p>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+<%# if @user == current_user
+edit
+consultas %>
+
+<%# se é paciente: ele ve e edita o seu perfil e pode marcar consulta no do terapeuta
+
+ se é paciente e current_user
+   posso editar meu perfil
+ se é 
+
+
+%>
