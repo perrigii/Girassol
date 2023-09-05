@@ -8,4 +8,9 @@ class User < ApplicationRecord
   has_many :appointments_as_therapist, class_name: "Appointment", foreign_key: :therapist_id
 
   enum role: { paciente: 'patient', terapeuta: 'therapist' }
+  validates :name, presence: true, length: { maximum: 50 }
+  validates :surname, presence: true, length: { maximum: 50 }
+  validates :role, presence: true
+
+  before_save { self.email = email.downcase }
 end
