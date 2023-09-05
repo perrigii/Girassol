@@ -1,0 +1,44 @@
+<% @users.each do |user| %>
+  <main class="container" role="main" data-id="main-content">
+      <div class="d-flex flex-column flex-md-row justify-content-between my-2 align-items-md-end">
+
+        <div class="col-md-4">
+          <div class="user-card card card-shadow-1 mb-1">
+            <div class="card-body p-0">
+              <div class="row mx-0 d-flex" data-id="search-listing-container">
+
+                <div class="d-flex gap-2">
+                  <span class=" mb-1 avatar avatar-circle" style="background-image: url('<%= user.picture_url ? user.picture_url : "https://e7.pngegg.com/pngimages/722/477/png-clipart-computer-icons-user-profile-avatar-face-heroes.png" %>')"></span>
+
+
+                  <div>
+                    <div class="user-card-title">
+                      <h4><%= user.name%></h4>
+                    </div>
+
+                    <div class="flex">
+                      <div class="flex align-items-center">
+                        <i class="fa-solid fa-user-doctor"></i>
+                        <span><%= user.specialty %></span>
+                      </div>
+                    </div>
+
+                    <div class="flex mt-3">
+                      <div class="flex align-items-center">
+                        <i class="fa-solid fa-quote-left"></i>
+                        <span><%= user.description %></span>
+                        <i class="fa-solid fa-quote-right"></i>
+                      </div>
+                    </div>
+                  <div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+<% end %>
