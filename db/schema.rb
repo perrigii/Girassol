@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_05_145952) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_05_183326) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,6 +31,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_145952) do
     t.datetime "updated_at", null: false
     t.bigint "patient_id"
     t.bigint "therapist_id"
+    t.string "name"
     t.index ["patient_id"], name: "index_chatrooms_on_patient_id"
     t.index ["therapist_id"], name: "index_chatrooms_on_therapist_id"
   end
@@ -41,7 +42,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_145952) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "chatroom_id", null: false
+    t.bigint "user_id"
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
