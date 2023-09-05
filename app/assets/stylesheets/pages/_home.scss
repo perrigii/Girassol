@@ -1,1 +1,17 @@
 // Specific CSS for your home-page
+.container-landing {
+  margin: 0 auto;
+  background-color: rgb(21, 58, 85);
+  h1 {
+    font-family: 'Julius Sans One', sans-serif;
+    color: #faf49b;
+  }
+  p {
+    font-family: 'Julius Sans One', sans-serif;
+    color: #faf49b;
+  }
+}
+
+.logo-landing {
+  width: 100px;
+}
