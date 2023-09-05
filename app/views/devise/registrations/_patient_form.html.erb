@@ -1,4 +1,4 @@
-<div class="container mt-3 justify-content-between">
+<div class="d-none container mt-3 justify-content-between" data-signup-target="patient">
   <h2 class="my-4">É só preencher aqui</h2>
   <div class="sub-container d-flex justify-content-between">
     <div class="signup-patient col-12 col-md-5">
@@ -22,6 +22,10 @@
                       required: true,
                       autofocus: true,
                       input_html: { placeholder: "Data de nascimento", class:"mb-3" }%>
+          <%= f.input :role, as: :hidden,
+                      required: true,
+                      autofocus: true,
+                      input_html: { value: User.roles[:patient] } %>
           <%= f.input :description,
                       required: true,
                       autofocus: true,
