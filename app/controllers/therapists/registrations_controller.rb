@@ -1,18 +1,23 @@
 # frozen_string_literal: true
 
 class Therapists::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
+  before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    @therapist = User.new
+  end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    @therapist = User.new(user_params)
+    if @therapist.save
+      redirect_to user_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 
   # GET /resource/edit
   # def edit
