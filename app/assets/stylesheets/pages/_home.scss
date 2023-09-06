@@ -27,6 +27,7 @@
 
 .card {
   margin-top: 64px;
+  position: relative;
 }
 
 .button-form {
@@ -36,6 +37,8 @@
 .button-search {
   border-radius: 2rem;
   padding: 4px 8px;
+  position: absolute;
+  right: 32px;
 }
 
 .button-choice {
