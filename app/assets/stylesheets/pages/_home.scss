@@ -38,7 +38,7 @@
   padding: 4px 8px;
   position: absolute;
   right: 32px;
-  margin-top: 4px;
+  margin-top: -2px;
 }
 
 .button-choice {
@@ -100,4 +100,14 @@
 
 .mission {
   margin-bottom: 20px;
+  color: #153A55;
+}
+
+
+.form-assignment {
+  width: 400px;
+}
+
+.form-filter {
+  width: 280px;
 }
