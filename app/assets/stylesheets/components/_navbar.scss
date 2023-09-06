@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #6B6457;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,5 +8,38 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 100px;
+  padding: 0% !important;
 }
+
+.navbar {
+  height: 120px;
+  border-radius: 16px;
+}
+
+.text-white {
+  font-size: 56px;
+}
+
+
+.login {
+  width: 6rem;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 2rem;
+  text-align: center;
+}
+
+.guia {
+  width: 180px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 2rem;
+  text-align: center;
+}
+
+.btn-guia {
+  display: flexbox;
+  justify-content: center;
+}
+
