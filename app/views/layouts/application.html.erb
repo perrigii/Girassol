@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <style>
@@ -13,7 +13,7 @@
     </style>
   </head>
 
-  <body><%= render "shared/navbar" %>
+  <body class="body"><%= render "shared/navbar" %>
 <%= render "shared/flashes" %>
 
     <%= yield %>
