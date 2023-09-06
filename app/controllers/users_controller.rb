@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       # Preventing SQL Injection and Database error for
       # unknown characters
     else
-      @users = User.all
+      @users = User.where(role: "therapist")
     end
   end
 
