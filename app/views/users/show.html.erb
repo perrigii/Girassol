@@ -1,0 +1,41 @@
+<div class="container-show-user">
+  <% if current_user.patient? %>
+    <div class="card-patient-profile flex-column p-4">
+      <%= image_tag "drauzio.jpg", class: "avatar-dr mx-auto d-block" %>
+      <h1 class="text-center my-3"><%= current_user.name.capitalize %> <%= current_user.surname.capitalize %> </h1>
+      <div></div>
+      <div class="birthdate text-center my-3">
+        <p> Data de Nascimento: <%= current_user.birthdate %> </p>
+      </div>
+      <div class="birthdate text-center my-3">
+        <p> Descrição: <%= current_user.description %> </p>
+      </div>
+      <div class="links-profile">
+        <%= link_to "Consultas", users_path, class: "btn btn-primary" %>
+        <%= link_to "Mensagens", chatrooms_path(@user_id), class: "btn btn-primary" %>
+        <%= link_to "Sair", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-primary" %>
+    </div>
+  <% else %>
+    <div class="card-therapist-profile p-4">
+      <%= image_tag "drauzio.jpg", class: "avatar-dr mx-auto d-block" %>
+      <h1 class="text-center my-3"><%= current_user.name.capitalize %> <%= current_user.surname.capitalize %> </h1>
+      <div></div>
+      <div class="birthdate text-center my-3">
+        <p> Data de Nascimento: <%= current_user.birthdate %> </p>
+      </div>
+      <div class="birthdate text-center my-3">
+        <p> Descrição: <%= current_user.description %> </p>
+      </div>
+      <div class="links-profile">
+        <%= link_to "Consultas", users_path, class: "btn btn-primary" %>
+        <%= link_to "Mensagens", chatrooms_path(@user_id), class: "btn btn-primary" %>
+        <%= link_to "Sair", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-primary" %>
+      </div>
+      <div class="appointment-btn">
+        <% if current_user.patient? %>
+        <%= link_to "Agendar Consulta", new_appointment_path(therapist_id: current_user.id), class: "btn btn-primary" %>
+      <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
