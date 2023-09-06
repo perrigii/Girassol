@@ -26,7 +26,6 @@
 
 
 .card {
-  margin-top: 64px;
   position: relative;
 }
 
@@ -39,6 +38,7 @@
   padding: 4px 8px;
   position: absolute;
   right: 32px;
+  margin-top: 4px;
 }
 
 .button-choice {
@@ -47,6 +47,8 @@
 
 .button-filter {
   border-radius: 1rem;
+  position: absolute;
+  right: 10rem;
 }
 
 .button-homepage {
@@ -80,5 +82,22 @@
 
 .articles {
   font-size: 20px;
-  width: 400px;
+  width: 100%;
+  // text-wrap: balance;
+  overflow-y: hidden;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.text-success {
+  height: 150px;
+  margin-bottom: 20px;
+}
+
+.mission {
+  margin-bottom: 20px;
 }
