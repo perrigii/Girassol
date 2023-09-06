@@ -7,7 +7,11 @@ class AppointmentsController < ApplicationController
   end
 
   def general_appointments
-    @appointments = current_user.appointments
+    if current_user.role == 'patient'
+      @appointments = current_user.appointments_as_patient
+    else
+      @appointments = current_user.appointments_as_therapist
+    end
   end
 
   def new
@@ -27,7 +31,7 @@ class AppointmentsController < ApplicationController
     @appointment.patient = @patient
     @appointment.therapist = @therapist
     if @appointment.save
-      redirect_to user_appointment_path(@therapist, @appointment)
+      redirect_to appointment_path(@appointment)
     else
       render :new, status: :unprocessable_entity
     end
