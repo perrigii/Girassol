@@ -7,10 +7,11 @@ Rails.application.routes.draw do
   end
   # Rotas para pacientes
   resources :users, only: [:index, :show] do
-    resources :appointments
+    resources :appointments, except: :show
   end
   # Defines the root path route ("/")
   # root "articles#index"
   # config/routes.rb
-
+  get "/appointments", to: "appointments#general_appointments"
+  resources :appointments, only: :show
 end
