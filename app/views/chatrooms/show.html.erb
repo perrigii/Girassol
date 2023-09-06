@@ -1,9 +1,9 @@
 <div class="container chatroom"
   data-controller="chatroom-subscription"
-  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
+  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"style='height: 400px'>
   <h1>#<%= @chatroom.name %></h1>
 
-  <div class="messages" data-chatroom-subscription-target="messages">
+  <div class="messages" id="messages" onload="scrollDown()" data-chatroom-subscription-target="messages" style='height: 400px; overflow-y: scroll;'>
     <% @chatroom.messages.each do |message| %>
       <%= render "messages/message", message: message %>
     <% end %>
@@ -22,3 +22,10 @@
     <% end %>
   </div>
 </div>
+
+<script>
+  const scrollDown = () => {
+    const messages = document.getElementById('messages');
+    messages.scrollTop = messages.scrollHeight;
+  }
+</script>
