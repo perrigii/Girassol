@@ -5,7 +5,7 @@
 }
 
 .banner {
-  width: 1728px;
+  width: auto;
   height: 480px;
   flex-shrink: 0;
   background-color: #153A55;
@@ -27,6 +27,7 @@
 
 .card {
   margin-top: 64px;
+  position: relative;
 }
 
 .button-form {
@@ -36,6 +37,8 @@
 .button-search {
   border-radius: 2rem;
   padding: 4px 8px;
+  position: absolute;
+  right: 32px;
 }
 
 .button-choice {
@@ -73,4 +76,9 @@
 
 .cards-homepage {
   padding: -64px;
+}
+
+.articles {
+  font-size: 20px;
+  width: 600px;
 }
