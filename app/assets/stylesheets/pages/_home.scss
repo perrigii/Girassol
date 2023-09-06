@@ -5,7 +5,7 @@
 }
 
 .banner {
-  width: 1728px;
+  width: auto;
   height: 480px;
   flex-shrink: 0;
   background-color: #153A55;
@@ -76,4 +76,9 @@
 
 .cards-homepage {
   padding: -64px;
+}
+
+.articles {
+  font-size: 20px;
+  width: 600px;
 }
