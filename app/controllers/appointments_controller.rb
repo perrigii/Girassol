@@ -2,6 +2,11 @@ class AppointmentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @therapist = User.find(params[:user_id])
+    @appointments = Appointment.where(patient_id: current_user.id, therapist_id: @therapist.id)
+  end
+
+  def general_appointments
     @appointments = current_user.appointments
   end
 
@@ -31,7 +36,7 @@ class AppointmentsController < ApplicationController
   def destroy
     @appointment = Appointment.find(params[:id])
     @appointment.destroy
-    redirect_to user_path(@appointment.user)
+    redirect_to user_appointments_path(user_id: params[:user_id])
   end
 
   private
