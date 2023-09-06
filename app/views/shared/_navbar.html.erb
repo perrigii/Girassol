@@ -1,9 +1,14 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
-
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon mt-5 mx-5">
+  <div class="d-flex justify-content-start">
+    <div class="container-fluid">
+      <%= link_to "#", class: "navbar-brand" do %>
+        <%= image_tag "Screenshot 2023-09-05 at 17.57.02_thumbnail.png" %>
+      <% end %>
+    </div>
+    <div class="d-flex align-items-center">
+      <p class="text-white mb-0">GIRASSOL</p>
+    </div>
+  </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,6 +16,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
+          <i class="fa-light fa-bars"></i>
           <li class="nav-item active">
             <%= link_to "Home", "#", class: "nav-link" %>
           </li>
@@ -28,9 +34,18 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
+          <div class="homepage-buttons d-flex justify-content-between">
+            <div class="btn-guia">
+              <button type="button" class="btn btn-primary btn-lg guia my-5">
+                <i class="fa-light fa-book-open-cover"></i>GUIA RÁPIDO
+              </button>
+            </div>
+            <button type="button" class="btn btn-primary mx-5 login my-5">
+              <li class="nav-item">
+                <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+              </li>
+            </button>
+          </div>
         <% end %>
       </ul>
     </div>

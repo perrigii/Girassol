@@ -1,1 +1,75 @@
 // Specific CSS for your home-page
+.body {
+  background-color: #F6E5B7;
+}
+
+.banner {
+  width: 1728px;
+  height: 480px;
+  flex-shrink: 0;
+  background-color: #153A55;
+  border-radius: 0px 0px 100px 100px;
+}
+
+.card {
+  border-radius: 15px;
+  background: rgba(217, 217, 217, 0.21);
+  color: #FFFFFF;
+  font-size: 27px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 16px;
+}
+
+
+.card {
+  margin-top: 64px;
+}
+
+.button-form {
+  border-radius: 16px;
+}
+
+.button-search {
+  border-radius: 2rem;
+  padding: 4px 8px;
+}
+
+.button-choice {
+  border-radius: 1rem;
+}
+
+.button-filter {
+  border-radius: 1rem;
+}
+
+.button-homepage {
+  margin-top: 28px;
+  width: 280px;
+  height: 74px;
+  background-color: rgba(217, 217, 217, 0.21);
+  border-radius: 16px;
+}
+
+.button-review {
+  padding: 16px 16px 16px 32px;
+  border-radius: 16px;
+}
+
+.button-appointment {
+  border-radius: 16px;
+}
+
+
+.slogan {
+  font-size: 32px;
+  color: #F6E5B7;
+  margin-top: -64px;
+  padding-top: 80px;
+}
+
+.cards-homepage {
+  padding: -64px;
+}
