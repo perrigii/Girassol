@@ -7,7 +7,7 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = Appointment.new
-    @patient = User.find(params[:user_id])
+    @patient = current_user
   end
 
   def show
