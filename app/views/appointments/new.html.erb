@@ -1,1 +1,17 @@
-<h1> Agende sua consulta </h1>
+<div class="new-appointment-container">
+  <div class="title-new text-center">
+    <h1 class="my-4">Agende sua consulta</h1>
+  </div>
+  <div class="create-form">
+    <div class="row">
+      <div class="mx-auto col-10 col-md-8 col-lg-6">
+    <%= render "form", appointment: @appointment %>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <div class="button text-center">
+    <%= link_to "Terapeutas", users_path, class: "btn btn-sm btn-primary", style: "margin-bottom: 180px;" %>
+  </div>
+</div>

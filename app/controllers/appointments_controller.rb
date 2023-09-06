@@ -8,6 +8,7 @@ class AppointmentsController < ApplicationController
   def new
     @appointment = Appointment.new
     @patient = current_user
+    @therapist = User.find(params[:user_id])
   end
 
   def show
@@ -15,13 +16,13 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    @patient = User.find(params[:patient_id])
-    @therapist = User.find(params[:therapist_id])
+    @patient = current_user
+    @therapist = User.find(params[:user_id])
     @appointment = Appointment.new(appointment_params)
     @appointment.patient = @patient
     @appointment.therapist = @therapist
     if @appointment.save
-      redirect_to appointment_path(@appointment)
+      redirect_to user_appointment_path(@therapist, @appointment)
     else
       render :new, status: :unprocessable_entity
     end
@@ -36,6 +37,6 @@ class AppointmentsController < ApplicationController
   private
 
   def appointment_params
-    params.require(:appointment).permit(:patient_id, :therapist_id)
+    params.require(:appointment).permit(:date_time, :patient_id, :therapist_id)
   end
 end
