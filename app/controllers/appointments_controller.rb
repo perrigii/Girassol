@@ -15,9 +15,11 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    @patient = User.find(params[:user_id])
+    @patient = User.find(params[:patient_id])
+    @therapist = User.find(params[:therapist_id])
     @appointment = Appointment.new(appointment_params)
     @appointment.patient = @patient
+    @appointment.therapist = @therapist
     if @appointment.save
       redirect_to appointment_path(@appointment)
     else
@@ -34,6 +36,6 @@ class AppointmentsController < ApplicationController
   private
 
   def appointment_params
-    params.require(:appointment).permit(:patient_id)
+    params.require(:appointment).permit(:patient_id, :therapist_id)
   end
 end
