@@ -119,6 +119,9 @@ GEM
       sassc (~> 2.0)
     globalid (1.2.0)
       activesupport (>= 6.1)
+    httparty (0.21.0)
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.2.1)
@@ -131,6 +134,7 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    jwt (2.7.1)
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -145,6 +149,7 @@ GEM
     mini_mime (1.1.5)
     minitest (5.19.0)
     msgpack (1.7.2)
+    multi_xml (0.6.0)
     net-imap (0.3.7)
       date
       net-protocol
@@ -161,6 +166,11 @@ GEM
       racc (~> 1.4)
     nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
+    opentok (4.0.1)
+      activesupport (>= 2.0)
+      addressable (~> 2.3)
+      httparty (>= 0.18.0)
+      jwt (>= 1.5.6)
     orm_adapter (0.5.0)
     pg (1.5.4)
     popper_js (2.11.8)
@@ -269,7 +279,6 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
-  bcrypt (~> 3.1.7)
   bootsnap
   bootstrap (~> 5.2)
   capybara
@@ -279,6 +288,7 @@ DEPENDENCIES
   font-awesome-sass (~> 6.1)
   importmap-rails
   jbuilder
+  opentok (~> 4.0.0)
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.7, >= 7.0.7.2)
