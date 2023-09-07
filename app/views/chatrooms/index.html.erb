@@ -1,3 +1,7 @@
-<% @chatrooms.each do |chatroom| %>
-  <%= link_to chatroom.name, chatroom_path(chatroom) %>
+<% if @chatroom.present? %>
+  <% @chatrooms.each do |chatroom| %>
+    <%= link_to chatroom.name, chatroom_path(chatroom) %>
+  <% end %>
+<% else %>
+  <h2>Você ainda não participa de nenhuma conversa.</h2>
 <% end %>

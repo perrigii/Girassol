@@ -58,6 +58,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_174418) do
     t.index ["therapist_id"], name: "index_reviews_on_therapist_id"
   end
 
+  create_table "rooms", force: :cascade do |t|
+    t.string "name"
+    t.string "session_token"
+    t.string "generated_token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

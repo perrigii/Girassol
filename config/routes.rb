@@ -7,10 +7,11 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
   # Rotas para pacientes
-  resources :users, only: [:index, :show] do
+  resources :users, only: [:index, :show, :profile] do
     resources :reviews
     resources :appointments
   end
+  resources :rooms, only: %i[create show]
     # Rota para as avaliações de terapeuta
 
     # Defines the root path route ("/")
@@ -20,4 +21,5 @@ Rails.application.routes.draw do
   get "/search", to: "pages#search", as: :search
 
   resources :appointments, only: :show
+
 end
