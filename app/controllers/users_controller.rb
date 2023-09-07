@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @appointment = Appointment.where(patient_id: current_user.id, therapist_id: @user.id).last
   end
 
   private
