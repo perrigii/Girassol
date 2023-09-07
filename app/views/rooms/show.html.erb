@@ -22,10 +22,11 @@
       Leave Room
     </button>
   <% end %>
-  <%= javascript_tag do %>
-    <%= render(:partial => 'video', :handlers => [:erb], :formats => [:js]) %>
-  <% end %>
-
+  <%#= javascript_tag do %>
+    <%#= render(:partial => 'video', :handlers => [:erb], :formats => [:js]) %>
+  <%#= end %>
+  <div data-controller="opentok" data-opentok-api-key-value="<%= ENV['API_KEY'] %>" data-opentok-session-id-value="<%= @room.session_token %>"
+  data-opentok-token-value="<%= @room.generated_token %>"></div>
 <% else %>
    <div class="noRoomContainer">
     <section class="noRoom">
