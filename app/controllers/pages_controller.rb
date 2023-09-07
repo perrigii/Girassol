@@ -21,4 +21,8 @@ class PagesController < ApplicationController
       @users = User.where(role: "therapist")
     end
   end
+
+  def profile
+    @user = current_user
+  end
 end
