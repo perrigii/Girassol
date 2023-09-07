@@ -1,15 +1,15 @@
 <div class="appointments-body">
  <div id="appointments-container" class="d-flex flex-column p-4">
     <div class="order-subtitle">
-      <h3 class="text-center mt-4">Consultas agendadas</h3>
+      <h3 class="text-center mt-4">Consulta agendada!</h3>
     </div>
-    <div id="card-appointments" class="row justify-content-around align-items-center p-4">
+    <div id="card-appointments" class="d-flex justify-content-center align-items-center p-4">
       <% if @appointment.present? %>
-        <div id="card-appointment" class="align-items-center col-6 col-md-4 col-lg-3 m-4">
+        <div id="card-appointment" class="mx-auto d-block align-items-center m-4">
           <p class=""><strong>Sua consulta será com: </strong><%= @appointment.therapist.name.capitalize %></p>
           <img src="<%= @appointment.therapist.picture_url %>" alt="imagem do terapeuta" class="avatar">
           <p class="pt-3"><strong>Data e Hora: </strong><%= @appointment.date_time %></p>
-          <%= link_to "Delete", user_appointment_path(@appointment, user_id: @appointment.therapist.id), data: { turbo_method: :delete, turbo_confirm: "Quer mesmo cancelar esta consulta?" }, class: "del-order text-center btn btn-danger mx-auto d-block"
+          <%= link_to "Cancelar", user_appointment_path(@appointment, user_id: @appointment.therapist.id), data: { turbo_method: :delete, turbo_confirm: "Quer mesmo cancelar esta consulta?" }, class: "del-order text-center btn btn-danger mx-auto d-block"
           %>
         </div>
       <% else %>
