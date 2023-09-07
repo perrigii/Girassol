@@ -1,4 +1,4 @@
-<% if @chatroom.present? %>
+<% if @chatrooms.present? %>
   <% @chatrooms.each do |chatroom| %>
     <%= link_to chatroom.name, chatroom_path(chatroom) %>
   <% end %>
