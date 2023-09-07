@@ -1,0 +1,11 @@
+<%# simple_form_for @review, url: new_user_appointment_review_path(user_id: @user.id, appointment_id: @appointment.id) do |f| %>
+  <%# f.input :rating, placeholder: "Leave a review..." %>
+  <%# f.text_area :comment, placeholder: "Leave a rating..." %>
+  <%# f.submit "Submit", class: "btn btn-primary" %>
+<%# end %>
+
+<%= simple_form_for [@user, @appointment, @review] do |f| %>
+  <%= f.input :rating, placeholder: "Leave a rating..." %>
+  <%= f.text_area :comment, placeholder: "Leave a review..." %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>

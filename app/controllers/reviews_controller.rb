@@ -20,9 +20,9 @@ class ReviewsController < ApplicationController
     @patient = current_user.id
     @therapist = params[:user_id]
     @review = Review.new(review_params)
-    @review.appointment_id = Appointment.where(patient_id: @patient, therapist_id: @therapist).last
+    puts @review.appointment_id = Appointment.where(patient_id: @patient, therapist_id: @therapist).last
     if @review.save
-      redirect_to review_path(@review)
+      redirect_to user_appointment_review_path
     else
       render :new, status: :unprocessable_entity
     end
