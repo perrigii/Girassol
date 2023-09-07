@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :appointments, except: :show
   end
 
-  match '/:name' => 'rooms#show', as: :room, via: :get, name: /.*/
+  #match '/:name' => 'rooms#show', as: :room, via: :get, name: /.*/
   resources :rooms, only: %i[create show]
   # Defines the root path route ("/")
   # root "articles#index"
