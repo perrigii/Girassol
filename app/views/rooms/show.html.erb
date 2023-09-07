@@ -1,0 +1,44 @@
+<% if @room %>
+  <div id="videos">
+      <div id="subscriber">
+        <section class="noSubscriber">
+          <div>
+            <span class="title">Waiting for other people to arrive</span>
+            <div class="copyLink">
+              <span class="originalUrl">
+                <%= request.original_url %>
+              </span>
+              <button id="buttonCopy" class="orangeBtn">
+              Copy
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div id="publisher"></div>
+  </div>
+  <%= link_to root_path do %>
+    <button class="orangeBtn leaveRoom">
+      Leave Room
+    </button>
+  <% end %>
+  <%= javascript_tag do %>
+    <%= render(:partial => 'video', :handlers => [:erb], :formats => [:js]) %>
+  <% end %>
+
+<% else %>
+   <div class="noRoomContainer">
+    <section class="noRoom">
+      <h1>Lost in the clouds?</h1>
+      <p>
+        The room <strong>⁨/<%= params[:name] %></strong>⁩ is nowhere to be found. Are you sure you’ve entered the correct address?
+      </p>
+      <%= link_to root_path do %>
+        <button class="greenBtn">
+          Back to homepage
+        </button>
+      <% end %>
+    </section>
+   </div>
+
+<% end %>
