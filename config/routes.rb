@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   end
   resources :rooms, only: %i[create show]
     # Rota para as avaliações de terapeuta
-
     # Defines the root path route ("/")
     # root "articles#index"
     # config/routes.rb
@@ -20,5 +19,4 @@ Rails.application.routes.draw do
   get "/search", to: "pages#search", as: :search
   get "/profile", to: "pages#profile", as: :profile
   resources :appointments, only: :show
-
 end

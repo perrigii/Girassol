@@ -2,17 +2,13 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show]
 
   def index
-    if current_user.role == 'patient'
-      if params[:query].present?
-        @query = params[:query]
-        @users = User.where("name LIKE ?", "%#{params[:query]}%")
-        # Preventing SQL Injection and Database error for
-        # unknown characters
-      else
-        @users = User.where(role: "therapist")
-      end
+    if params[:query].present?
+      @query = params[:query]
+      @users = User.where("name LIKE ?", "%#{params[:query]}%")
+      # Preventing SQL Injection and Database error for
+      # unknown characters
     else
-      @users = User.where(role: "patient")
+      @users = User.where(role: "therapist")
     end
   end
 
