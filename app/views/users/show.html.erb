@@ -1,7 +1,9 @@
 <% if @user.patient? %>
   <div class="container-show-patient">
     <div class="patient-profile flex-column p-4">
-      <%= cl_image_tag @user.photo.key, class: 'avatar' %>
+      <% if @user.photo.attached? %>
+        <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
       <div class="card-profile-patient mx-auto d-block">
         <% if @user.id == current_user.id %>
           <%= link_to "Editar perfil", edit_user_registration_path %>
@@ -25,7 +27,9 @@
 <% else %>
   <div class="container-show-therapist">
     <div class="patient-profile flex-column p-4">
-      <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+      <% if @user.photo.attached? %>
+        <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
       <div class="card-profile-therapist mx-auto d-block">
         <% if @user.id == current_user.id %>
           <%= link_to "Editar perfil", edit_user_registration_path %>
