@@ -22,6 +22,7 @@ class AppointmentsController < ApplicationController
 
   def show
     @appointment = Appointment.find(params[:id])
+    @reviews = Review.where(patient_id: @patient, therapist_id: @therapist).order("created_at DESC")
   end
 
   def create

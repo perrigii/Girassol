@@ -8,8 +8,8 @@ class ReviewsController < ApplicationController
   def new
     @review = Review.new
     @patient = current_user
-    @user = User.find(params[:user_id])
-    @appointment = Appointment.where(patient_id: @patient.id, therapist_id: @user.id).last
+    @therapist = User.find(params[:user_id])
+    @appointment = Appointment.where(patient_id: @patient.id, therapist_id: @therapist.id).last
   end
 
   def show
@@ -17,12 +17,13 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @patient = current_user.id
-    @therapist = params[:user_id]
+    @patient = current_user
+    @therapist = User.find(params[:user_id])
     @review = Review.new(review_params)
-    @review.appointment = Appointment.where(patient_id: @patient, therapist_id: @therapist).last
+    @review.therapist_id = @therapist.id
+    @review.appointments_id = Appointment.where(patient_id: @patient.id, therapist_id: @therapist.id).last.id
     if @review.save
-      redirect_to user_appointment_reviews_path
+      redirect_to user_path(@therapist), notice: 'Review was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end

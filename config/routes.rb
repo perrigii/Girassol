@@ -8,16 +8,16 @@ Rails.application.routes.draw do
   end
   # Rotas para pacientes
   resources :users, only: [:index, :show] do
-    resources :appointments do
-      resources :reviews
-    end
+    resources :reviews
+    resources :appointments
   end
-  # Rota para as avaliações de terapeuta
+    # Rota para as avaliações de terapeuta
 
-  # Defines the root path route ("/")
-  # root "articles#index"
-  # config/routes.rb
+    # Defines the root path route ("/")
+    # root "articles#index"
+    # config/routes.rb
   get "/appointments", to: "appointments#general_appointments"
   get "/search", to: "pages#search", as: :search
+
   resources :appointments, only: :show
 end

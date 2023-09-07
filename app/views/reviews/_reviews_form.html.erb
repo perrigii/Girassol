@@ -4,7 +4,7 @@
   <%# f.submit "Submit", class: "btn btn-primary" %>
 <%# end %>
 
-<%= simple_form_for [@user, @appointment, @review] do |f| %>
+<%= simple_form_for [@therapist, @review] do |f| %>
   <%= f.input :rating, placeholder: "Leave a rating..." %>
   <%= f.text_area :comment, placeholder: "Leave a review..." %>
   <%= f.submit "Submit", class: "btn btn-primary" %>
