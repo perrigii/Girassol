@@ -16,6 +16,6 @@ class User < ApplicationRecord
   before_save { self.email = email.downcase }
 
   def self.specialty
-    return ["psicólogo", "psiquiatra", "causa LGBTQI+"]
+    return ["psicólogo", "psiquiatra", "causa LGBTQI+", "suicídio", "psicologia familiar"]
   end
 end

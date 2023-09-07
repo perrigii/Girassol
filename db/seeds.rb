@@ -87,5 +87,5 @@ User.create!(
   surname: 'Girassol',
   birthdate: Date.new(199, 7, 10),
   description: 'Em busca de uma cura para a neurose através do método da individuação.',
-  specialty: 'no'
+  specialty: ''
 )
