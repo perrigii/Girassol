@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -13,5 +14,6 @@ Rails.application.routes.draw do
   # root "articles#index"
   # config/routes.rb
   get "/appointments", to: "appointments#general_appointments"
+  get "/search", to: "pages#search", as: :search
   resources :appointments, only: :show
 end

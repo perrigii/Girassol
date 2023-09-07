@@ -13,4 +13,8 @@ class User < ApplicationRecord
   validates :role, presence: true
 
   before_save { self.email = email.downcase }
+
+  def self.specialty
+    return ["psicólogo", "psiquiatra", "causa LGBTQI+"]
+  end
 end
