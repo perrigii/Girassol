@@ -1,0 +1,17 @@
+<div class="appointments-body">
+  <div id="appointments-container" class="d-flex flex-column p-4">
+    <div class="order-subtitle">
+      <h3 class="text-center mt-4">Consulta agendada!</h3>
+    </div>
+    <div id="card-appointments" class="d-flex flex-column align-items-center justify-content-center p-4">
+      <div class="card-appointment text-center">
+        <p class=""><strong>Sua consulta será com: </strong><%= @appointment.therapist.name.capitalize %></p>
+        <img src="<%= @appointment.therapist.picture_url %>" alt="imagem do terapeuta" class="avatar">
+        <p class="pt-3"><strong>Data e Hora: </strong><%= @appointment.date_time %></p>
+        <%= link_to "Cancelar", user_appointment_path(@appointment, user_id: @appointment.therapist.id), data: { turbo_method: :delete, turbo_confirm: "Quer mesmo cancelar esta consulta?" }, class: "del-order text-center btn btn-danger mx-auto d-block"
+          %>
+      </div>
+      <%= link_to "Home", root_path, class:"btn btn-success" %>
+    </div>
+  </div>
+</div>

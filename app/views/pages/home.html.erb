@@ -18,22 +18,28 @@
         <div class="card-form mb-2">
           AGENDE SUA CONSULTA AGORA
           <div class="button-form d-flex">
-            <form>
-              <div class="row">
-                <div class="col">
-                  <input type="text" class="form-control form-assignment" placeholder="Psicólogo ou Psiquiatra?">
+
+              <%= simple_form_for :search, url: search_path, method: :get, class: 'd-flex align-items-center ' do |f| %>
+                <div class="row g-2 ">
+                  <div class="col-auto prof-choice">
+                    <%= f.input :query, label: false, placeholder: 'Psicólogo ou psiquiatra?', input_html: { class: 'form-control' }, wrapper_html: {class: 'm-0'} %>
+                  </div>
+
+                  <div class="col-auto filter-choice">
+                    <%= f.input :category, label: false, collection: User.specialty.map(&:capitalize), prompt: 'Filtros', input_html: { class: 'form-control' }, wrapper_html: {class: 'm-0'} %>
+                  </div>
+
+                  <div class="col-auto">
+                    <%= f.button :submit, 'Pesquisar', class: 'btn btn-primary search-btn' %>
+                  </div>
                 </div>
-                <div class="col">
-                  <input type="text" class="form-control form-filter" placeholder="Filtros">
-                </div>
-              </div>
-            </form>
-            <button type="button" class="btn btn-danger btn-lg button-search">SEARCH</button>
+              <% end %>
+
           </div>
         </div>
       </div>
       <div class="button-homepage text-white">
-        <button type="button" class="btn btn-lg">ENCONTRE ESPECIALISTAS</button>
+        <button type="button" class="btn btn-lg"><%= link_to "ENCONTRE ESPECIALISTAS", users_path, class: "text-decoration-none" %></button>
         <button type="button" class="btn btn-lg button-appointment" style="background-color: rgba(217, 217, 217, 0.21)">MARQUE SUA CONSULTA</button>
         <button type="button" class="btn btn-lg button-review" style="background-color: rgba(217, 217, 217, 0.21)">AVALIE SUA CONSULTA</button>
       </div>
@@ -81,3 +87,4 @@
     </div>
   </div>
 </body>
+

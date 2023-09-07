@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -6,8 +7,8 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
   # Rotas para pacientes
-  resources :users, only: %i[index show] do
-    resources :appointments
+  resources :users, only: [:index, :show] do
+    resources :appointments, except: :show
   end
 
   match '/:name' => 'rooms#show', as: :room, via: :get, name: /.*/
@@ -15,4 +16,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   # config/routes.rb
+  get "/appointments", to: "appointments#general_appointments"
+  get "/search", to: "pages#search", as: :search
+  resources :appointments, only: :show
 end

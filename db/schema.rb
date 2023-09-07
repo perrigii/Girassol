@@ -16,7 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_140544) do
 
   create_table "appointments", force: :cascade do |t|
     t.datetime "date_time"
-    t.string "status"
+    t.string "status", default: "pendente"
     t.boolean "is_voluntary"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

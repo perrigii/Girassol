@@ -2,12 +2,22 @@ class AppointmentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @appointments = current_user.appointments
+    @therapist = User.find(params[:user_id])
+    @appointments = Appointment.where(patient_id: current_user.id, therapist_id: @therapist.id)
+  end
+
+  def general_appointments
+    if current_user.role == 'patient'
+      @appointments = current_user.appointments_as_patient
+    else
+      @appointments = current_user.appointments_as_therapist
+    end
   end
 
   def new
     @appointment = Appointment.new
     @patient = current_user
+    @therapist = User.find(params[:user_id])
   end
 
   def show
@@ -15,8 +25,8 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    @patient = User.find(params[:patient_id])
-    @therapist = User.find(params[:therapist_id])
+    @patient = current_user
+    @therapist = User.find(params[:user_id])
     @appointment = Appointment.new(appointment_params)
     @appointment.patient = @patient
     @appointment.therapist = @therapist
@@ -30,12 +40,12 @@ class AppointmentsController < ApplicationController
   def destroy
     @appointment = Appointment.find(params[:id])
     @appointment.destroy
-    redirect_to user_path(@appointment.user)
+    redirect_to user_appointments_path(user_id: params[:user_id])
   end
 
   private
 
   def appointment_params
-    params.require(:appointment).permit(:patient_id, :therapist_id)
+    params.require(:appointment).permit(:date_time, :patient_id, :therapist_id)
   end
 end
