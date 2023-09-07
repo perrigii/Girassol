@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   # root "articles#index"
   # config/routes.rb
   get "/appointments", to: "appointments#general_appointments"
+  get "/search", to: "pages#search", as: :search
   resources :appointments, only: :show
 end
