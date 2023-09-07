@@ -7,38 +7,47 @@
 
         <div class="form-inputs">
           <%= f.input :username,
+                      label: 'Username',
                       required: true,
                       autofocus: true,
                       input_html: { placeholder: "Escolha um username", class:"mb-3" }%>
           <%= f.input :name,
+                      label: 'Primeiro nome',
                       required: true,
                       autofocus: true,
                       input_html: { placeholder: "Primeiro nome", class:"mb-3" }%>
           <%= f.input :surname,
+                      label: 'Sobrenome',
                       required: true,
                       autofocus: true,
                       input_html: { placeholder: "Sobrenome", class:"mb-3" }%>
           <%= f.input :birthdate,
+                      label: 'Data de nascimento',
                       required: true,
                       autofocus: true,
                       input_html: { placeholder: "Data de nascimento", class:"mb-3" }%>
+          <%= f.input :photo, as: :file %>
           <%= f.input :role, as: :hidden,
                       required: true,
                       autofocus: true,
                       input_html: { value: User.roles[:patient] } %>
           <%= f.input :description,
+                      label: 'Descrição',
                       required: true,
                       autofocus: true,
                       input_html: { placeholder: "Faça uma pequena descrição de você", class:"mb-3" }%>
           <%= f.input :email,
+                      label: 'Email',
                       required: true,
                       autofocus: true,
                       input_html: { autocomplete: "email", placeholder: "Escreva seu email", class:"mb-3" }%>
           <%= f.input :password,
+                      label: 'Senha',
                       required: true,
                       hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                       input_html: { autocomplete: "new-password", placeholder: "Digite sua senha", class:"mb-3" } %>
           <%= f.input :password_confirmation,
+                      label: 'Confirmar senha',
                       required: true,
                       input_html: { autocomplete: "new-password", placeholder: "Confirme sua senha", class:"mb-3" } %>
         </div>

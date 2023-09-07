@@ -79,4 +79,5 @@ group :test do
   gem "webdrivers"
 end
 
+gem "cloudinary"
 gem 'redis', '~> 5.0', '>= 5.0.7'
