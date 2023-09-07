@@ -42,3 +42,18 @@
     </div>
   </main>
 <% end %>
+
+
+
+<% if @users.any? %>
+  <h2>Search Results:</h2>
+  <ul>
+    <% @users.each do |user| %>
+      <li><%= user.name %></li>
+      <li><%= user.specialty %></li>
+      <li><%= user.description %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No results found.</p>
+<% end %>

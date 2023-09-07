@@ -9,7 +9,6 @@
         <div class="card-form mb-2">
           AGENDE SUA CONSULTA AGORA
           <div class="button-form d-flex">
-            <form>
 
               <%= simple_form_for :search, url: users_path, method: :get, class: 'd-flex align-items-center ' do |f| %>
                 <div class="row g-2 ">
@@ -21,22 +20,12 @@
                     <%= f.input :query, label: false, placeholder: 'Filtros', input_html: { class: 'form-control' }, wrapper_html: {class: 'm-0'} %>
                   </div>
 
-                  <div class="col-auto"> <!-- Second column for search button -->
+                  <div class="col-auto">
                     <%= f.button :submit, 'Pesquisar', class: 'btn btn-primary search-btn' %>
                   </div>
                 </div>
               <% end %>
 
-              <%# <div class="row">
-                <div class="col">
-                  <input type="text" class="form-control form-assignment" placeholder="Psicólogo ou Psiquiatra?">
-                </div>
-                <div class="col">
-                  <input type="text" class="form-control form-filter" placeholder="Filtros">
-                </div>
-              </div> %>
-            </form>
-            <%# <button type="button" class="btn btn-danger btn-lg button-search">SEARCH</button> %>
           </div>
         </div>
       </div>
