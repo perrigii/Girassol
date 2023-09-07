@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :appointments_as_patient, class_name: "Appointment", foreign_key: :patient_id, dependent: :destroy
   has_many :appointments_as_therapist, class_name: "Appointment", foreign_key: :therapist_id, dependent: :destroy
   # has_many :appointments
+  has_one_attached :photo
   enum role: { patient: 'patient', therapist: 'therapist' }
   validates :name, presence: true, length: { maximum: 50 }
   validates :surname, presence: true, length: { maximum: 50 }

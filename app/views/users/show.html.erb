@@ -1,7 +1,7 @@
 <% if @user.patient? %>
   <div class="container-show-patient">
     <div class="patient-profile flex-column p-4">
-      <%= image_tag "drauzio.jpg", class: "avatar-dr mx-auto d-block m-3 col-6" %>
+      <%= cl_image_tag @user.photo.key, class: 'avatar' %>
       <div class="card-profile-patient mx-auto d-block">
         <% if @user.id == current_user.id %>
           <%= link_to "Editar perfil", edit_user_registration_path %>
