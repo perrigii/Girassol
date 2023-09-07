@@ -3,10 +3,10 @@
     <div class="order-subtitle">
       <h3 class="text-center mt-4">Consultas agendadas</h3>
     </div>
-    <div id="card-appointments" class="row justify-content-around align-items-center p-4">
+    <div id="card-general-appointments" class="row justify-content-around align-items-center p-4">
       <% unless @appointments.empty? %>
       <% @appointments.each do |appointment| %>
-        <div id="card-appointment" class="align-items-center col-6 col-md-4 col-lg-3 m-4">
+        <div class="card-appointment align-items-center col-6 col-md-4 col-lg-3 m-4">
           <p class=""><strong>Sua consulta será com: </strong><%= appointment.therapist.name.capitalize %></p>
           <img src="<%= appointment.therapist.picture_url %>" alt="imagem do terapeuta" class="avatar">
           <p class="pt-3"><strong>Data e Hora: </strong><%= appointment.date_time %></p>
