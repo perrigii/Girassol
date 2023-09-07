@@ -22,15 +22,19 @@ class AppointmentsController < ApplicationController
 
   def show
     @appointment = Appointment.find(params[:id])
+    @reviews = Review.where(patient_id: @patient, therapist_id: @therapist).order("created_at DESC")
   end
 
   def create
     @patient = current_user
     @therapist = User.find(params[:user_id])
     @appointment = Appointment.new(appointment_params)
+    @review = Review.new
     @appointment.patient = @patient
     @appointment.therapist = @therapist
     if @appointment.save
+      @review.appointment = @appointment
+      @review.save
       redirect_to appointment_path(@appointment)
     else
       render :new, status: :unprocessable_entity

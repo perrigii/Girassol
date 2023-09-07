@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_07_140544) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_07_174418) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,8 +52,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_140544) do
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "appointment_id", null: false
-    t.index ["appointment_id"], name: "index_reviews_on_appointment_id"
+    t.bigint "appointments_id"
+    t.bigint "therapist_id"
+    t.index ["appointments_id"], name: "index_reviews_on_appointments_id"
+    t.index ["therapist_id"], name: "index_reviews_on_therapist_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -90,5 +92,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_140544) do
   add_foreign_key "chatrooms", "users", column: "patient_id"
   add_foreign_key "chatrooms", "users", column: "therapist_id"
   add_foreign_key "messages", "chatrooms"
-  add_foreign_key "reviews", "appointments"
+  add_foreign_key "reviews", "users", column: "therapist_id"
 end
