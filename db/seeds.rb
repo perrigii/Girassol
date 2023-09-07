@@ -15,7 +15,7 @@ User.create!(
   surname: 'Girassol',
   birthdate: Date.new(1995, 4, 8),
   description: 'Estou tendo crises de ansiedade que ainda não descobri a causa.',
-  specialty: 'no'
+  specialty: ''
 )
 
 User.create!(
@@ -50,6 +50,42 @@ User.create!(
   name: 'André',
   surname: 'Lúcio',
   birthdate: Date.new(1995, 7, 10),
+  description: 'Em busca de uma cura para a neurose através do método da individuação.',
+  specialty: ''
+)
+
+User.create!(
+  role: 'therapist',
+  email: 'clovis@girassol.com',
+  password: '123123',
+  username: 'clovis',
+  name: 'Clóvis',
+  surname: 'Bicalho',
+  birthdate: Date.new(1910, 10, 30),
+  description: 'Não atendo às sexta-feiras',
+  specialty: 'Psicologia familiar'
+)
+
+User.create!(
+  role: 'therapist',
+  email: 'giovanni@girassol.com',
+  password: '123123',
+  username: 'giovanni',
+  name: 'Giovanni',
+  surname: 'Piovesan',
+  birthdate: Date.new(1995, 7, 10),
+  description: 'Em caso de emergência, me ligue.',
+  specialty: 'Suicídio'
+)
+
+User.create!(
+  role: 'patient',
+  email: 'pedro@girassol.com',
+  password: '123123',
+  username: 'pedro',
+  name: 'Pedro',
+  surname: 'Girassol',
+  birthdate: Date.new(199, 7, 10),
   description: 'Em busca de uma cura para a neurose através do método da individuação.',
   specialty: 'no'
 )

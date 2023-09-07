@@ -80,3 +80,4 @@ group :test do
 end
 
 gem "cloudinary"
+gem 'redis', '~> 5.0', '>= 5.0.7'

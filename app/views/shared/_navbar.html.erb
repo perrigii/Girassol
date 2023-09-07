@@ -2,7 +2,7 @@
 
   <div class="d-flex justify-content-start">
     <div class="container-fluid">
-      <%= link_to "#", class: "navbar-brand" do %>
+      <%= link_to root_path, class: "navbar-brand" do %>
         <%= image_tag "Screenshot 2023-09-05 at 17.57.02_thumbnail.png" %>
       <% end %>
     </div>
@@ -20,9 +20,8 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <i class="fa-light fa-bars"></i>
           <li class="nav-item active">
-            <%= link_to "Home", "/", class: "nav-link" %>
+            <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Messages", chatrooms_path, class: "nav-link" %>
@@ -36,8 +35,8 @@
           <% end %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Meu perfil", profile_path, class: "dropdown-item" %>
+              <%= link_to "Minhas consultas", appointments_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
@@ -55,6 +54,3 @@
     </div>
   </div>
 </div>
-
-
-<%# meu perfil, logout, minhas consultas %>
