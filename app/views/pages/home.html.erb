@@ -13,25 +13,30 @@
 
               <%= simple_form_for :search, url: users_path, method: :get, class: 'd-flex align-items-center ' do |f| %>
                 <div class="row g-2 ">
-                  <div class="col-auto ">
-                    <%= f.input :query, label: false, placeholder: 'Search', input_html: { class: 'form-control' }, wrapper_html: {class: 'm-0'} %>
+                  <div class="col-auto prof-choice">
+                    <%= f.input :query, label: false, placeholder: 'Psicólogo ou psiquiatra?', input_html: { class: 'form-control' }, wrapper_html: {class: 'm-0'} %>
                   </div>
-                    <div class="col-auto"> <!-- Second column for search button -->
-                    <%= f.button :submit, 'Search', class: 'btn btn-primary' %>
+
+                  <div class="col-auto filter-choice">
+                    <%= f.input :query, label: false, placeholder: 'Filtros', input_html: { class: 'form-control' }, wrapper_html: {class: 'm-0'} %>
+                  </div>
+
+                  <div class="col-auto"> <!-- Second column for search button -->
+                    <%= f.button :submit, 'Pesquisar', class: 'btn btn-primary search-btn' %>
                   </div>
                 </div>
               <% end %>
 
-              <div class="row">
+              <%# <div class="row">
                 <div class="col">
                   <input type="text" class="form-control form-assignment" placeholder="Psicólogo ou Psiquiatra?">
                 </div>
                 <div class="col">
                   <input type="text" class="form-control form-filter" placeholder="Filtros">
                 </div>
-              </div>
+              </div> %>
             </form>
-            <button type="button" class="btn btn-danger btn-lg button-search">SEARCH</button>
+            <%# <button type="button" class="btn btn-danger btn-lg button-search">SEARCH</button> %>
           </div>
         </div>
       </div>
@@ -84,3 +89,4 @@
     </div>
   </div>
 </body>
+<%# 400 300 150 %>
