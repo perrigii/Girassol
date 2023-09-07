@@ -52,9 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_174418) do
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "appointments_id"
     t.bigint "therapist_id"
-    t.index ["appointments_id"], name: "index_reviews_on_appointments_id"
     t.index ["therapist_id"], name: "index_reviews_on_therapist_id"
   end
 
