@@ -129,3 +129,18 @@
 .p {
   margin-top: 8px;
 }
+
+.banner-bottom {
+  width: auto;
+  height: 160px;
+  flex-shrink: 0;
+  background-color: #554f15;
+  border-radius: 0px 0px 100px 100px;
+}
+
+
+.icons {
+  margin-top: 16px;
+  margin-inline: 20%;
+  text-align: center;
+}
