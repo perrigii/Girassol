@@ -27,7 +27,7 @@ User.create!(
   surname: 'Girassol',
   birthdate: Date.new(1995, 7, 8),
   description: 'Tratamento para transtornos de ansiedade.',
-  specialty: 'Transtornos de ansiedade'
+  specialty: 'Psicanálise'
 )
 
 User.create!(
@@ -39,7 +39,7 @@ User.create!(
   surname: 'Girassol',
   birthdate: Date.new(1970, 12, 5),
   description: 'Terapeuta com foco nas causas LGBTQI+.',
-  specialty: 'Causa LGBTQI+'
+  specialty: 'Psicanálise'
 )
 
 User.create!(
@@ -63,7 +63,7 @@ User.create!(
   surname: 'Bicalho',
   birthdate: Date.new(1910, 10, 30),
   description: 'Não atendo às sexta-feiras',
-  specialty: 'Psicologia familiar'
+  specialty: 'Psicanálise'
 )
 
 User.create!(
@@ -74,8 +74,8 @@ User.create!(
   name: 'Giovanni',
   surname: 'Piovesan',
   birthdate: Date.new(1995, 7, 10),
-  description: 'Em caso de emergência, me ligue.',
-  specialty: 'Suicídio'
+  description: 'Foco em pensamentos intrusivos e tendências suicidas. Em caso de emergência, me ligue.',
+  specialty: 'Psicologia analítica'
 )
 
 User.create!(
@@ -86,6 +86,18 @@ User.create!(
   name: 'Pedro',
   surname: 'Girassol',
   birthdate: Date.new(199, 7, 10),
-  description: 'Em busca de uma cura para a neurose através do método da individuação.',
+  description: 'Estou desempregado e sem motivação para buscar um emprego.',
   specialty: ''
+)
+
+User.create!(
+  role: 'Therapist',
+  email: 'vitor@girassol.com',
+  password: '123123',
+  username: 'vitor',
+  name: 'Vitor',
+  surname: 'Girassol',
+  birthdate: Date.new(199, 7, 10),
+  description: 'Trabalho com psicologia cognitivo-comportamental em conjunto com psicanálise.',
+  specialty: 'Terapia cognitivo-comportamental'
 )

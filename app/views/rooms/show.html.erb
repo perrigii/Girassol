@@ -1,21 +1,27 @@
 <% if @room %>
-  <div id="videos">
-      <div id="subscriber">
-        <section class="noSubscriber">
-          <div>
-            <span class="title">Waiting for other people to arrive</span>
-            <div class="copyLink">
-              <span class="originalUrl">
-                <%= request.original_url %>
-              </span>
-              <button id="buttonCopy" class="orangeBtn">
-              Copy
-              </button>
+  <div id="videos" class="container">
+    <div class="row">
+      <div class="col-8">
+        <div id="subscriber" style="height: 600px;">
+          <section class="noSubscriber">
+            <div>
+              <span class="title">Waiting for other people to arrive</span>
+              <div class="copyLink">
+                <span class="originalUrl">
+                  <%= request.original_url %>
+                </span>
+                <button id="buttonCopy" class="orangeBtn">
+                Copy
+                </button>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
-      <div id="publisher"></div>
+      <div class="col-4 mt-5">
+        <div id="publisher" style="height: 300px;"></div>
+      </div>
+    </div>
   </div>
   <%= link_to root_path do %>
     <button class="orangeBtn leaveRoom">

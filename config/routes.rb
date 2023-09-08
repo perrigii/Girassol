@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   end
   # Rotas para pacientes
   resources :users, only: [:index, :show, :profile] do
-    resources :reviews
-    resources :appointments
+    resources :reviews, only: %i[new create]
+    resources :appointments, only: %i[new create]
   end
   resources :rooms, only: %i[create show]
     # Rota para as avaliações de terapeuta
@@ -20,5 +20,5 @@ Rails.application.routes.draw do
   get "/profile", to: "pages#profile", as: :profile
   get "/patients", to: "pages#patients", as: :patients
   get "/dedechat", to: "pages#dedechat", as: :dedechat
-  resources :appointments, only: :show
+  resources :appointments, only: %i[show destroy]
 end

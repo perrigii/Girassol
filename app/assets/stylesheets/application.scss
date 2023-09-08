@@ -17,3 +17,16 @@
 @import "components/button";
 
 @import "users/index";
+
+#subscriber video,
+#publisher video {
+  width: 100%; /* Set the desired width */
+  height: auto; /* Automatically adjust the height to maintain the aspect ratio */
+  max-height: 100%; /* Ensure the video does not exceed its container's height */
+}
+
+/* You can also set a maximum width for the videos if needed */
+#subscriber video,
+#publisher video {
+  max-width: 100%; /* Set the maximum width */
+}
