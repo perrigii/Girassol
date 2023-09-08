@@ -7,8 +7,9 @@ export default class extends Controller {
     new flatpickr(this.element, {
       altInput: true,
       altFormat: "j F, Y",
-      dateFormat: "d.m.Y",
+      dateFormat: "d.m. Y",
       minDate: "today",
+      inline: true,
       // plugins: [new confirmDatePlugin({})]
       // dateFormat: "l",
       // more options available on the documentation!
@@ -16,7 +17,7 @@ export default class extends Controller {
 
     flatpickr("#end_time", {
       altInput: true,
-
+      inline: true,
       enableTime: true,
       noCalendar: true,
       dateFormat: "H:i",
