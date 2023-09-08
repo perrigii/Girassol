@@ -1,14 +1,14 @@
 // Specific CSS for your home-page
 
 .body {
-  background-color: #F6E5B7;
+  background-color: #f8f3e7;
 }
 
 .banner {
   width: auto;
   height: 480px;
   flex-shrink: 0;
-  background-color: #153A55;
+  background-color: #e2c983;
   border-radius: 0px 0px 100px 100px;
 }
 
@@ -27,7 +27,7 @@
 
 .card {
   position: relative;
-  margin-top: 4rem;
+  margin-top: 0rem;
 }
 
 .button-form {
@@ -134,7 +134,7 @@
   width: auto;
   height: 160px;
   flex-shrink: 0;
-  background-color: #554f15;
+  background-color: #a2b683;
   border-radius: 0px 0px 100px 100px;
 }
 
@@ -142,5 +142,27 @@
 .icons {
   margin-top: 16px;
   margin-inline: 20%;
+  text-align: center;
+  font-weight: 100;
+}
+
+.banner-benefits {
+  width: auto;
+  height: 480px;
+  flex-shrink: 0;
+  background-color: #a2b683;
+}
+
+.fa-5x {
+  margin-top: 1rem;
+}
+
+.info-card {
+  font-size: 48px;
+  text-align: center;
+}
+
+.title-info {
+  font-size: 24px;
   text-align: center;
 }
