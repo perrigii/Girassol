@@ -23,6 +23,7 @@ class AppointmentsController < ApplicationController
   def show
     @appointment = Appointment.find(params[:id])
     @reviews = Review.where(patient_id: @patient, therapist_id: @therapist).order("created_at DESC")
+    @room = Room.new
   end
 
   def create
@@ -43,8 +44,8 @@ class AppointmentsController < ApplicationController
 
   def destroy
     @appointment = Appointment.find(params[:id])
-    @appointment.destroy
-    redirect_to user_appointments_path(user_id: params[:user_id])
+    @appointment.destroy!
+    redirect_to appointments_path
   end
 
   private
