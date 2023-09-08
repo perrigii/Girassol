@@ -18,5 +18,7 @@ Rails.application.routes.draw do
   get "/appointments", to: "appointments#general_appointments"
   get "/search", to: "pages#search", as: :search
   get "/profile", to: "pages#profile", as: :profile
+  get "/patients", to: "pages#patients", as: :patients
+  get "/dedechat", to: "pages#dedechat", as: :dedechat
   resources :appointments, only: :show
 end

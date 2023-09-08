@@ -26,6 +26,9 @@
           <li class="nav-item">
             <%= link_to "Messages", chatrooms_path, class: "nav-link" %>
           </li>
+          <li class="nav-item">
+            <%= link_to "Criar sala", dedechat_path, class: "nav-link" %>
+          </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <% if current_user.photo.attached? %>
@@ -37,6 +40,9 @@
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Meu perfil", profile_path, class: "dropdown-item" %>
               <%= link_to "Minhas consultas", appointments_path, class: "dropdown-item" %>
+                <% if current_user && current_user.role == 'therapist' %>
+                  <%= link_to "Encontre pacientes", patients_path, class: "dropdown-item" %>
+                <% end %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
