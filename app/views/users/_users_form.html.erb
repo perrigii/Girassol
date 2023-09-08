@@ -3,14 +3,14 @@
     <div class="col">
       <%= f.input :start_time, as: :string,
                   wrapper_html: { class: "mb-4" },
-                  label_html: { class: "form-label text-secondary fw-bold" },
+                  label: false,
                   input_html: { data: { controller: "flatpickr" } } %>
     </div>
 
     <div class="col">
       <%= f.input :end_time, as: :string,
                   wrapper_html: { class: "mb-4" },
-                  label_html: { class: "form-label text-secondary fw-bold" },
+                  label: false,
                   input_html: { data: { controller: "flatpickr" }, id: 'end_time' } %>
    </div>
 

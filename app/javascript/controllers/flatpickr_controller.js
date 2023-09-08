@@ -9,7 +9,6 @@ export default class extends Controller {
       altFormat: "j F, Y",
       dateFormat: "d.m.Y",
       minDate: "today",
-      inline: true,
       // plugins: [new confirmDatePlugin({})]
       // dateFormat: "l",
       // more options available on the documentation!
@@ -24,7 +23,6 @@ export default class extends Controller {
       minTime: "08:00",
       maxTime: "17:30",
       minDate: "today",
-      inline: true,
       time_24hr: true,
 
     });
