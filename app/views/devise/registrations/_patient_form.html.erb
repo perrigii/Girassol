@@ -1,7 +1,9 @@
 <div class="d-none container mt-3 justify-content-between" data-signup-target="patient">
-  <h2 class="my-4">É só preencher aqui</h2>
-  <div class="sub-container d-flex justify-content-between">
-    <div class="signup-patient col-12 col-md-5">
+  <div class="my-4">
+    <h2 class="text-center my-4">É só preencher aqui</h2>
+  </div>
+  <div class="sub-container flex-column">
+    <div class="signup-patient col-12 col-md-5 mx-auto">
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
 
@@ -52,9 +54,9 @@
                       input_html: { autocomplete: "new-password", placeholder: "Confirme sua senha", class:"mb-3" } %>
         </div>
 
-        <div class="form-actions mt-4 d-flex justify-content-between col-12 ">
-          <%= render "devise/shared/links" %>
-          <%= f.button :submit, "Sign up", class: "btn btn-success text-white px-4 mt-3" %>
+        <div class="form-actions mt-4 d-flex justify-content-evenly">
+          <%= f.button :submit, "Sign up", class: "btn-signup" %>
+          
         <% end %>
         </div>
     </div>

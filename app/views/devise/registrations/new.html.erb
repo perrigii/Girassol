@@ -1,10 +1,10 @@
 <div class="container mt-3 justify-content-center" data-controller='signup'>
   <h2 class="my-4 text-center">Junte-se a nossa comunidade</h2>
   <h4 class="mb-4 text-center">Você está à procura de apoio ou deseja oferecê-lo?</h4>
-
-  <div class="btn btn-primary" data-action="click->signup#showtherapist">Terapeuta</div>
-  <div class="btn btn-success" data-action="click->signup#showpatient">Paciente</div>
-
+  <div class="d-flex justify-content-evenly my-4">
+    <div class="btn-choose-role" data-action="click->signup#showtherapist">Terapeuta</div>
+    <div class="btn-choose-role" data-action="click->signup#showpatient">Paciente</div>
+  </div>
   <%= render 'patient_form' %>
   <%= render 'therapist_form' %>
 

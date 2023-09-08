@@ -37,3 +37,21 @@
   padding: 4px;
   border-radius: 2px;
 }
+
+.card-login {
+  margin-inline: 100px;
+  padding: 20px;
+  padding-inline: 60px;
+  border: 0.5px solid #72523793;
+  border-radius: 2px;
+  .login-form {
+    color: #725337;
+    text-decoration: none;
+    margin: 2px;
+  }
+}
+
+.login-form:hover {
+  color: #4b3523;
+  text-decoration: underline;
+}
