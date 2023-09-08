@@ -14,7 +14,9 @@
         <% end %>
         <h1 class="text-center my-3"><%= @user.name.capitalize %> <%= @user.surname.capitalize %> </h1>
         <div class="birthdate text-center my-3">
-          <p> <%= @user.role.capitalize %> </p>
+          <% if @user.role == 'patient' %>
+            <p> Paciente </p>
+          <% end %>
           <p> Data de Nascimento: <%= @user.birthdate %> </p>
         </div>
         <div class="birthdate text-center my-3">
@@ -72,7 +74,9 @@
         <% end %>
         <h1 class="text-center my-3"><%= @user.name.capitalize %> <%= @user.surname.capitalize %> </h1>
         <div class="birthdate text-center my-3">
-          <p> <%= @user.role.capitalize %> </p>
+          <% if @user.role == 'therapist' %>
+            <p> Terapeuta </p>
+          <% end %>
           <p> Data de Nascimento: <%= @user.birthdate %> </p>
         </div>
         <div class="birthdate text-center my-3">
