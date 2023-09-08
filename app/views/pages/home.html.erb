@@ -1,4 +1,13 @@
-  <body>
+<body>
+  <div class="wherebyContainer">
+    <div class="whereby">
+      <h1>Dedechat</h1>
+      <%= form_for @room do |f| %>
+        <%= f.text_field :name, required: true %>
+        <%= f.button "Join Room", class: 'greenBtn' %>
+      <% end %>
+    </div>
+  </div>
   <div class="banner">
     <div class="slogan text-white text-center">
       <p>UMA REDE DE APOIO AO SEU ALCANCE</p>

@@ -12,13 +12,13 @@ Rails.application.routes.draw do
   end
   resources :rooms, only: %i[create show]
     # Rota para as avaliações de terapeuta
-
     # Defines the root path route ("/")
     # root "articles#index"
     # config/routes.rb
   get "/appointments", to: "appointments#general_appointments"
   get "/search", to: "pages#search", as: :search
   get "/profile", to: "pages#profile", as: :profile
+  get "/patients", to: "pages#patients", as: :patients
+  get "/dedechat", to: "pages#dedechat", as: :dedechat
   resources :appointments, only: :show
-
 end
