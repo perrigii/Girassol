@@ -9,8 +9,7 @@
           <p class=""><strong>Sua consulta será com: </strong><%= @appointment.therapist.name.capitalize %></p>
           <img src="<%= @appointment.therapist.picture_url %>" alt="imagem do terapeuta" class="avatar">
           <p class="pt-3"><strong>Data e Hora: </strong><%= @appointment.date_time %></p>
-          <%= link_to "Delete", user_appointment_path(@appointment, user_id: @appointment.therapist.id), data: { turbo_method: :delete, turbo_confirm: "Quer mesmo cancelar esta consulta?" }, class: "del-order text-center btn btn-danger mx-auto d-block"
-          %>
+          <%= link_to "Ver detalhes", appointment_path(@appointment), class: "del-order text-center btn btn-danger mx-auto d-block" %>
         </div>
       <% else %>
         <div class="no-appointments row justify-content-center">
