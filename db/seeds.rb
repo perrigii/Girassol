@@ -99,7 +99,7 @@ User.create!(
   username: 'vitor',
   name: 'Vitor',
   surname: 'Girassol',
-  birthdate: Date.new(199, 7, 10),
+  birthdate: Date.new(1991, 7, 10),
   description: 'Trabalho com psicologia cognitivo-comportamental em conjunto com psicanálise.',
   specialty: 'Terapia cognitivo-comportamental'
 )
