@@ -7,7 +7,7 @@
       <div class="card" style="width: 900px; height: 160px;">
         <div class="card-form mb-2">
           <strong>AGENDE SUA CONSULTA AGORA</strong>
-          <div class="button-form d-flex">
+          <div class="button-form d-flex mt-3">
 
               <%= simple_form_for :search, url: search_path, method: :get, class: 'd-flex align-items-center ' do |f| %>
                 <div class="row g-2 ">
@@ -20,7 +20,7 @@
                   </div>
 
                   <div class="col-auto">
-                    <%= f.button :submit, 'Pesquisar', class: 'btn btn-primary search-btn' %>
+                    <%= f.button :submit, 'Pesquisar', class: 'btn btn-info search-btn mb-2' %>
                   </div>
                 </div>
               <% end %>
@@ -50,7 +50,7 @@
     <div class="card-mental d-flex">
       <div class="info-card flex-column">
         <h2>A SAÚDE MENTAL NO BRASIL</h2>
-        <p class="title-info">| Boletim de fatos e números da saúde mental do Governo Brasileiro em 2022 |</p>
+        <p class="title-info"> Boletim de fatos e números da saúde mental do Governo Brasileiro em 2022 </p>
       </div>
 
       <div class="flex-column">
