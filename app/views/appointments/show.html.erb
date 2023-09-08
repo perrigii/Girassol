@@ -6,21 +6,27 @@
           <p class=""><strong>Sua consulta será com: </strong><%= @appointment.therapist.name.capitalize %></p>
           <img src="<%= @appointment.therapist.picture_url %>" alt="imagem do terapeuta" class="avatar">
           <p class="pt-3"><strong>Data e Hora: </strong><%= @appointment.date_time %></p>
-          <%= link_to "Cancelar", appointment_path(@appointment), data: { turbo_method: :delete, turbo_confirm: "Quer mesmo cancelar esta consulta?" }, class: "del-order text-center btn btn-danger mx-auto d-block"
-          %>
+          <% if Chatroom.where(patient_id: current_user.id, therapist_id: @appointment.therapist.id).count > 0 %>
+            <%= link_to "Conversar com #{@appointment.therapist.name}", chatroom_path(id: Chatroom.where(patient_id: current_user.id, therapist_id: @appointment.therapist.id).first.id), class: "btn btn-primary col-3 m-3" %>
+          <% else %>
+            <%= link_to "Conversar com #{@appointment.therapist.name}", chatrooms_path(user_id: @appointment.therapist.id), data: { turbo_method: :post }, class: "btn btn-primary col-3 m-3" %>
+          <% end %>
+          <%= link_to "Cancelar consulta", appointment_path(@appointment), data: { turbo_method: :delete, turbo_confirm: "Quer mesmo cancelar esta consulta?" }, class: "del-order text-center btn btn-danger mx-auto d-block" %>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="wherebyContainer">
-          <div class="whereby">
-            <h1>Chat de vídeot</h1>
-            <%= form_for @room do |f| %>
-              <%= f.text_field :name, required: true %>
-              <%= f.button "Criar sala", class: 'greenBtn' %>
-            <% end %>
+      <% if current_user.role == 'therapist' %>
+        <div class="col-md-6">
+          <div class="wherebyContainer">
+            <div class="whereby">
+              <h1>Chat de vídeot</h1>
+              <%= form_for @room do |f| %>
+                <%= f.text_field :name, required: true %>
+                <%= f.button "Criar sala", class: 'greenBtn' %>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
