@@ -15,6 +15,7 @@
                     label: "Descrição",
                     required: false,
                     input_html: { placeholder: "Nova descrição" } %>
+        <%= f.input :photo, as: :file %>
         <%= f.input :password,
                     label: "Nova senha",
                     hint: "Pode deixar em branco se não quiser alterar este campo",
@@ -31,15 +32,16 @@
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Atualizar" %>
+        <%= f.button :submit, "Atualizar",  class: 'submit-edit-profile' %>
       </div>
     <% end %>
-
-    <h3>Cancelar conta</h3>
-
-    <div> Continua com problemas? <i class="fa-thin fa-face-sad-tear"></i> <%= button_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza?", turbo_confirm: "Confirma?" }, method: :delete %></div>
-
-    <%= link_to "Voltar", :back %>
+    <div class="cancelar-conta d-flex align-item-center mt-4">
+      <p class='me-3' >Deseja cancelar sua conta? </p> <i class="fa-regular fa-face-sad-tear"></i>
+    </div>
+    <div class="btn-cancelar">
+      <%= button_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza?", turbo_confirm: "Confirma?" }, method: :delete, class: 'btn-cancelar-conta my-2' %>
+      <%= link_to "Voltar", :back, style: 'color: #392d14;', class: 'my-3' %>
+    </div>
   </div>
 <% else %>
     <h2 class="text-center m-5">Editar perfil</h2>
@@ -62,6 +64,7 @@
                     label: "Especialidade",
                     required: false,
                     input_html: { placeholder: "Nova especialidade" } %>
+        <%= f.input :photo, as: :file %>
         <%= f.input :password,
                     label: "Nova senha",
                     hint: "Pode deixar em branco se não quiser alterar este campo",
@@ -78,14 +81,16 @@
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Atualizar" %>
+        <%= f.button :submit, "Atualizar", class: 'submit-edit-profile' %>
       </div>
     <% end %>
 
-    <h3>Cancelar conta</h3>
-
-    <div> Continua com problemas? <i class="fa-thin fa-face-sad-tear"></i> <%= button_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza?", turbo_confirm: "Confirma?" }, method: :delete %></div>
-
-    <%= link_to "Voltar", :back %>
+    <div class="cancelar-conta d-flex align-item-center mt-4">
+      <p class='me-3' >Deseja cancelar sua conta? </p> <i class="fa-regular fa-face-sad-tear"></i>
+    </div>
+    <div class="btn-cancelar">
+      <%= button_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza?", turbo_confirm: "Confirma?" }, method: :delete, class: 'btn-cancelar-conta my-2' %>
+      <%= link_to "Voltar", :back, style: 'color: #392d14;', class: 'my-3' %>
+    </div>
   </div>
 <% end %>
