@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon mt-5 mx-5 d-flex">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon p-3 mt-5 mx-5 d-flex">
 
   <div class="d-flex justify-content-start">
     <div class="container-fluid">
@@ -34,7 +34,7 @@
           <% if current_user.photo.attached? %>
             <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu" %>
           <% else %>
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
+            <i class="fa-solid fa-user" style='color: #392d14;', class= "avatar", alt= "dropdown menu"></i>
           <% end %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
