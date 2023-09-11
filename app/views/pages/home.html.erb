@@ -7,7 +7,7 @@
       <div class="card" style="width: 900px; height: 160px;">
         <div class="card-form mb-2">
           <strong>AGENDE SUA CONSULTA AGORA</strong>
-          <div class="button-form d-flex">
+          <div class="button-form d-flex mt-3">
 
               <%= simple_form_for :search, url: search_path, method: :get, class: 'd-flex align-items-center ' do |f| %>
                 <div class="row g-2 ">
@@ -20,7 +20,7 @@
                   </div>
 
                   <div class="col-auto">
-                    <%= f.button :submit, 'Pesquisar', class: 'btn btn-primary search-btn' %>
+                    <%= f.button :submit, 'Pesquisar', class: 'btn btn-info search-btn mb-2' %>
                   </div>
                 </div>
               <% end %>
@@ -46,27 +46,48 @@
 
   </div>
 
-  <div class="statistics mt-5">
-    <div class="card-mental d-flex">
-      <div class="info-card flex-column">
-        <h2>A SAÚDE MENTAL NO BRASIL</h2>
-        <p class="title-info">| Boletim de fatos e números da saúde mental do Governo Brasileiro em 2022 |</p>
-      </div>
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-md">
+        <div class="card card-mental">
+          <div class="card-body">
+            <div class="info-card flex-column text-info">
+              <h2>A SAÚDE MENTAL NO BRASIL</h2>
+              <p class="title-info">Boletim de fatos e números da saúde mental do Governo Brasileiro em 2022</p>
 
-      <div class="flex-column">
-        <img src="doctors.svg" alt="analysis image"/>
+                <%= render partial: 'chart' %>
+
+              <p class="body-info">
+                "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2 d-flex justify-content-center">
+        <img src="doctors.svg" class="doctors" alt="analysis image" />
       </div>
     </div>
   </div>
 
+
   <div class="banner-benefits">
-    <h2>Benefícios do cuidado com a saúde mental</h2>
-    <p class="text-benefits">
+    <div class="margin-benefits d-flex">
 
+      <div class="image-benefits flex-column">
+        <img src="meditation.svg" class="meditation" alt="meditation image">
+      </div>
 
+      <div class="text-benefits flex-column">
+        <h2 class="">Benefícios do cuidado com a saúde mental</h2>
+        <p>
+          text
+        </p>
+      </div>
 
-    </p>
+    </div>
   </div>
+
 
   <div class="container mt-5">
     <div class="card-grid">
