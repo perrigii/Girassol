@@ -48,7 +48,7 @@
                 <%= link_to "Avaliar", new_user_review_path(user_id: @user.id, appointment_id: @appointment.id), class: "btn-show btn-primary col-3 m-3" %>
               <% end %>
             <% else %>
-              <h3 class="my-4">Avaliações</h3>
+              <h3 class="mt-5">Avaliações</h3>
               <% @reviews.each do |review| %>
                 <div class="review">
                   <p class="text-start">Pontuação: <%= review.rating %></p>
