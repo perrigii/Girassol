@@ -5,10 +5,10 @@
     data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
     data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
     <div class="chat-name" style="color: white;">
-      <% if current_user.role == 'therapist' %>
-        <h1>#<%= "#{@chatroom.patient.name} #{@chatroom.patient.surname}" %></h1>
+      <% if current_user == 'therapist' %>
+        <h1><%= "#{@chatroom.patient.name} #{@chatroom.patient.surname}" %></h1>
       <% else %>
-        <h1>#<%= "#{@chatroom.therapist.name} #{@chatroom.therapist.surname}" %></h1>
+        <h1><%= "#{@chatroom.therapist.name} #{@chatroom.therapist.surname}" %></h1>
       <% end %>
     </div>
 
