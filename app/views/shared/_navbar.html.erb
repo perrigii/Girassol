@@ -26,9 +26,11 @@
           <li class="nav-item">
             <%= link_to "Mensagens", chatrooms_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Criar sala", dedechat_path, class: "nav-link" %>
-          </li>
+          <% if current_user.therapist? %>
+            <li class="nav-item">
+              <%= link_to "Criar sala", dedechat_path, class: "nav-link" %>
+            </li>
+          <% end %>
           <li class="nav-item dropdown">
           <a href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <% if current_user.photo.attached? %>
