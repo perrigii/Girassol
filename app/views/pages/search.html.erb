@@ -1,18 +1,22 @@
 <main class="container" role="main" data-id="main-content">
-  <h2 class="text-center my-4">Search Results:</h2>
+  <h2 class="text-center my-4">Resultados da Pesquisa:</h2>
   <div class="d-flex flex-column flex-md-row justify-content-between my-2 align-items-md-end">
     <% if @users.any? %>
         <div class="col-md-12">
           <% @users.each do |user| %>
             <div class="user-card card card-shadow-1 mb-1">
               <div class="card-body p-0">
-                <div class="row mx-0 d-flex" data-id="search-listing-container">
+                <div class="row mx-0" data-id="search-listing-container">
 
                   <div class="d-flex gap-2">
-                    <span class=" mb-1 avatar avatar-circle" style="background-image: url('<%= user.picture_url ? user.picture_url : "https://cdn-icons-png.flaticon.com/512/3607/3607444.png" %>')"></span>
-
-
-                    <%# <div> %>
+                    <div class="foto mx-4">
+                      <% if user.photo.attached? %>
+                        <%= cl_image_tag @user.photo.key, class:"profile-avatar" %>
+                      <% else %>
+                        <span class=" mb-1 avatar avatar-circle" style="background-image: url('<%= user.picture_url ? user.picture_url : "https://cdn-icons-png.flaticon.com/512/3607/3607444.png" %>')"></span>
+                      <% end %>
+                    </div>
+                    <div class="infos">
                       <div class="user-card-title">
                         <h4><%= link_to user.name, user_path(user) %></h4>
                       </div>
@@ -31,9 +35,9 @@
                           <i class="fa-solid fa-quote-right"></i>
                         </div>
                       </div>
-                    <%# <div> %>
-                  </div>
 
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
