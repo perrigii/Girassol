@@ -6,14 +6,19 @@
     <div id="card-appointments" class="row justify-content-around align-items-center p-4">
       <% if @appointment.present? %>
         <div id="card-appointment" class="align-items-center col-6 col-md-4 col-lg-3 m-4">
-          <p class=""><strong>Sua consulta será com: </strong><%= @appointment.therapist.name.capitalize %></p>
-          <img src="<%= @appointment.therapist.picture_url %>" alt="imagem do terapeuta" class="avatar">
+          <% if current_user.patient? %>
+            <p class=""><strong>Sua consulta será com: </strong><%= @appointment.therapist.name.capitalize %></p>
+            <img src="<%= @appointment.therapist.picture_url %>" alt="imagem do terapeuta" class="avatar">
+          <% else %>
+            <p class=""><strong>Sua consulta será com: </strong><%= @appointment.patient.name.capitalize %></p>
+            <img src="<%= @appointment.patient.picture_url %>" alt="imagem do patient" class="avatar">
+          <% end %>
           <p class="pt-3"><strong>Data e Hora: </strong><%= @appointment.date_time %></p>
           <%= link_to "Ver detalhes", appointment_path(@appointment), class: "del-order text-center btn btn-danger mx-auto d-block" %>
         </div>
       <% else %>
         <div class="no-appointments row justify-content-center">
-          <p class="text-center col-12 m-4">Você ainda não tem consultas agendadas</p>
+          <p class="text-center col-12 m-4">Você ainda não tem consultas agendadas.</p>
           <i class="fa-regular fa-face-frown-open fa-2xl text-center" style="color: #717171;"></i>
         </div>
       <% end %>

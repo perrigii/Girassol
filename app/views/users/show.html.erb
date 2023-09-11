@@ -31,7 +31,6 @@
 
           <%= link_to "Agendar consulta", new_user_appointment_path(@user.id), class: "btn btn-primary col-3 m-3" %>
 
-
           <% if Chatroom.where(patient_id: current_user.id, therapist_id: @user.id).count > 0 %>
             <%= link_to "Mensagens", chatroom_path(id: Chatroom.where(patient_id: current_user.id, therapist_id: @user.id).first.id), class: "btn btn-primary col-3 m-3" %>
           <% else %>
@@ -83,10 +82,7 @@
           <p> Descrição: <%= @user.description %> </p>
         </div>
         <div class="links-profile row mx-auto d-block">
-          <%= link_to "Consultas", user_appointments_path(@user.id), class: "btn btn-primary col-3 m-3" %>
-          <%= link_to "Mensagens", chatrooms_path(@user.id), class: "btn btn-primary col-4 m-3" %>
-          <%= link_to "Agendar consulta", new_user_appointment_path(@user.id), class: "btn btn-primary col-3 m-3" %>
-          <%= link_to "Sair", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-primary m-3 mx-auto d-block" %>
+          <%= link_to "Voltar", patients_path, class: "btn btn-primary m-3 mx-auto d-block" %>
         </div>
       </div>
     </div>
