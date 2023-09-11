@@ -1,11 +1,11 @@
 <div class="appointments-body">
   <div id="appointments-container" class="container d-flex flex-column p-4">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="card-appointment text-center">
-        <% if current_user.patient? %>
-          <p class=""><strong>Sua consulta será com: </strong><%= @appointment.therapist.name.capitalize %></p>
-          <img src="<%= @appointment.therapist.picture_url %>" alt="imagem do terapeuta" class="avatar d-block w-100">
+    <div class="">
+      <div class="">
+        <div class="card-appointment mx-auto d-block text-center">
+          <% if current_user.patient? %>
+            <p class=""><strong>Sua consulta será com: </strong><%= @appointment.therapist.name.capitalize %></p>
+            <img src="<%= @appointment.therapist.picture_url %>" alt="imagem do terapeuta" class="avatar mx-auto d-block">
           <% if Chatroom.where(patient_id: current_user.id, therapist_id: @appointment.therapist.id).count > 0 %>
             <%= link_to "Conversar com #{@appointment.therapist.name}", chatroom_path(id: Chatroom.where(patient_id: current_user.id, therapist_id: @appointment.therapist.id).first.id), class: "btn btn-primary col-3 m-3" %>
           <% else %>
