@@ -5,7 +5,7 @@
         <%= cl_image_tag @user.photo.key, class:"profile-avatar" %>
       <% else %>
         <div class="d-flex justify-content-center align-items-center" style="color: #463211;">
-          <i class="fa-light fa-user"></i>
+          <i class="fa-regular fa-user"></i>
         </div>
       <% end %>
       <div class="card-profile-patient mx-auto d-block">
@@ -43,11 +43,11 @@
 
     <% if @reviews.blank? %>
       <% if @appointment.nil? %>
-        <h3>No reviews just yet!</h3>
+        <h3>Ainda sem avaliações!</h3>
       <% else %>
 
-        <h3>No reviews just yet, would you like to add the first!</h3>
-        <%= link_to "Write Review", new_user_review_path(user_id: @user.id, appointment_id: @appointment.id), class: "btn btn-primary col-3 m-3" %>
+        <h5>Ainda não temos avaliação para este terapeuta, seja o primeiro!</h5>
+        <%= link_to "Avaliar", new_user_review_path(user_id: @user.id, appointment_id: @appointment.id), class: "btn btn-primary col-3 m-3" %>
       <% end %>
     <% else %>
       <% @reviews.each do |review| %>
