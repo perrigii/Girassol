@@ -1,6 +1,7 @@
-<div class="container chatroom"
+<div><p></p></div>
+<div class="container chatroom shadow"
   data-controller="chatroom-subscription"
-  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"style='height: 400px; width: 800px'
+  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
   data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
   <h1>#<%= @chatroom.name %></h1>
 
@@ -13,18 +14,19 @@
       </div>
     <% end %>
   </div>
-
-  <div class="">
-    <%= simple_form_for [@chatroom, @message],
-      html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
-    %>
-      <%= f.input :content,
-        label: false,
-        placeholder: "Message ##{@chatroom.name}",
-        wrapper_html: {class: "flex-grow-1"}
+  <div class="card mb-3">
+    <div class="">
+      <%= simple_form_for [@chatroom, @message],
+        html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
       %>
-      <%= f.submit "Enviar", class: "btn btn-primary mb-3" %>
-    <% end %>
+        <%= f.input :content,
+          label: false,
+          placeholder: "Envie uma menssagem para ##{@chatroom.name}",
+          wrapper_html: {class: "flex-grow-1"}
+        %>
+        <%= f.submit "Enviar", class: "btn btn-primary mb-3" %>
+      <% end %>
+    </div>
   </div>
 </div>
 
