@@ -1,4 +1,7 @@
-<%= simple_form_for @appointment do |f| %>
+<%= simple_form_for([@therapist, @appointment]) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
   <div class="row">
     <div class="col">
       <%= f.input :start_time, as: :string,
@@ -9,7 +12,7 @@
 
     <div class="col">
       <%= f.input :end_time, as: :string,
-                  wrapper_html: { class: "mb-4" },
+                  wrapper_html: { class: "mb-4 teste" },
                   label: false,
                   input_html: { data: { controller: "flatpickr" }, id: 'end_time' } %>
    </div>

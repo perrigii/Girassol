@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
 import flatpickr from "flatpickr";
+// import confirmDatePlugin from "flatpickr/plugins/confirmDate";
 // import rangePlugin from "flatpickr/dist/plugins/rangePlugin";
 
 export default class extends Controller {
@@ -10,8 +11,7 @@ export default class extends Controller {
       dateFormat: "d.m. Y",
       minDate: "today",
       inline: true,
-      // plugins: [new confirmDatePlugin({})]
-      // dateFormat: "l",
+      // plugins: [new rangePlugin({ input: "#end_time"})]
       // more options available on the documentation!
     });
 

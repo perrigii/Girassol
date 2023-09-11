@@ -1,15 +1,3 @@
-// .flatpickr-day  {
-//   color:  rgb(152, 198, 129)!important;
-// }
-
-// .flatpickr-day.flatpickr-disabled {
-//   color: rgb(255, 227, 142) !important;
-// }
-
-.flatpickr-day nextMonthDay{
-
-}
-
 .dayContainer {
   background-color: #faeecc !important;
 }
@@ -26,9 +14,13 @@
   border: #e2c983 !important;
 }
 
-// .form-control {
-//   display: none !important;
-// }
+.appointment_start_time .form-control {
+  display: none !important;
+}
+
+.appointment_end_time .form-control {
+  display: none !important;
+}
 
 .flatpickr-calendar.noCalendar.hasTime .flatpickr-time{
   background-color: #faeecc !important;

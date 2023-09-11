@@ -38,11 +38,6 @@
             <%= link_to "Conversar com #{@user.name}", chatrooms_path(user_id: @user.id), data: { turbo_method: :post }, class: "btn btn-primary col-3 m-3" %>
           <% end %>
 
-           <%# CALENDÁRIO AQUI %>
-          <div id="my_calendar">
-            <%= render 'users/calendar_form' %>
-          </div>
-
           <%= link_to "Sair", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-primary m-3 mx-auto d-block" %>
         </div>
       </div>
