@@ -148,7 +148,7 @@
 
 .banner-benefits {
   width: auto;
-  height: 480px;
+  height: 500px;
   flex-shrink: 0;
   background-color: #a2b683;
 }
@@ -169,4 +169,20 @@
 
 .card-mental {
   margin-inline: 10%;
+  margin-right: 30%;
+}
+
+
+.margin-benefits {
+  margin-inline: 20%;
+}
+
+.body-info {
+  font-size: 24px;
+}
+
+
+.meditation {
+  width: 600px;
+  height: 500px;
 }
