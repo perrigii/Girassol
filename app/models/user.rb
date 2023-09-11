@@ -20,4 +20,8 @@ class User < ApplicationRecord
   def self.specialty
     return ["terapia cognitivo-comportamental", "psicanálise", "psicologia analítica"]
   end
+
+  def therapist?
+    role == 'therapist'
+  end
 end

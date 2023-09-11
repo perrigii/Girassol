@@ -13,7 +13,11 @@ class ChatroomsController < ApplicationController
   end
 
   def create
-    @chatroom = Chatroom.new(patient_id: current_user.id, therapist_id: params[:user_id], name: "#{current_user.name}-#{User.find(params[:user_id]).name}")
+    if params[:therapist].present?
+      @chatroom = Chatroom.new(patient_id: params[:user_id], therapist_id: current_user.id, name: "#{User.find(params[:user_id]).name}")
+    else
+      @chatroom = Chatroom.new(patient_id: current_user.id, therapist_id: params[:user_id], name: "#{User.find(params[:user_id]).name}")
+    end
     if @chatroom.save
       redirect_to chatroom_path(@chatroom)
     else
