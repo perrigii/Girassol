@@ -2,16 +2,16 @@
   <div id="appointments-container" class="container d-flex flex-column p-4">
     <div class="row">
       <div class="col-md-6">
-        <div class="card-appointment text-center">
+        <div class="card-appointment mx-auto d-block text-center">
           <p class=""><strong>Sua consulta será com: </strong><%= @appointment.therapist.name.capitalize %></p>
           <img src="<%= @appointment.therapist.picture_url %>" alt="imagem do terapeuta" class="avatar">
           <p class="pt-3"><strong>Data e Hora: </strong><%= @appointment.date_time %></p>
           <% if Chatroom.where(patient_id: current_user.id, therapist_id: @appointment.therapist.id).count > 0 %>
-            <%= link_to "Conversar com #{@appointment.therapist.name}", chatroom_path(id: Chatroom.where(patient_id: current_user.id, therapist_id: @appointment.therapist.id).first.id), class: "btn btn-primary col-3 m-3" %>
+            <%= link_to "Conversar com #{@appointment.therapist.name}", chatroom_path(id: Chatroom.where(patient_id: current_user.id, therapist_id: @appointment.therapist.id).first.id), class: "btn -conversar m-3" %>
           <% else %>
-            <%= link_to "Conversar com #{@appointment.therapist.name}", chatrooms_path(user_id: @appointment.therapist.id), data: { turbo_method: :post }, class: "btn btn-primary col-3 m-3" %>
+            <%= link_to "Conversar com #{@appointment.therapist.name}", chatrooms_path(user_id: @appointment.therapist.id), data: { turbo_method: :post }, class: "btn-conversar m-3" %>
           <% end %>
-          <%= link_to "Cancelar consulta", appointment_path(@appointment), data: { turbo_method: :delete, turbo_confirm: "Quer mesmo cancelar esta consulta?" }, class: "del-order text-center btn btn-danger mx-auto d-block" %>
+          <%= link_to "Cancelar consulta", appointment_path(@appointment), data: { turbo_method: :delete, turbo_confirm: "Quer mesmo cancelar esta consulta?" }, class: "del-order text-center btn-cancelar mx-auto d-block" %>
         </div>
       </div>
       <% if current_user.role == 'therapist' %>
