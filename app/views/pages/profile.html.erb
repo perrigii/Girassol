@@ -3,7 +3,8 @@
     <div class="patient-profile flex-column">
       <div class="photo-profile-patient text-center my-4">
         <% if @user.photo.attached? %>
-          <%= cl_image_tag @user.photo.key, class:"profile-avatar" %>
+          <%= cl_image_tag @user.photo.key, transformation: [
+  {width: 80, height: 80, radius: "max", gravity: "auto", crop: "fill", fetch_format: "auto" }], class:"profile-avatar" %>
         <% else %>
           <i class="fa-solid fa-user" style='color: #392d14;'></i>
         <% end %>
@@ -50,7 +51,8 @@
     <div class="patient-profile flex-column p-4">
       <div class="photo-profile-patient text-center">
         <% if @user.photo.attached? %>
-          <%= cl_image_tag @user.photo.key, class:"profile-avatar" %>
+          <%= cl_image_tag @user.photo.key, transformation: [
+  {width: 80, height: 80, radius: "max", gravity: "auto", crop: "fill", fetch_format: "auto" }], class:"profile-avatar" %>
         <% else %>
           <i class="fa-solid fa-user" style='color: #392d14;'></i>
         <% end %>
