@@ -29,14 +29,14 @@
           <div class="btns-show d-flex justify-content-evenly align-items-center">
             <%= link_to "Agendar consulta", new_user_appointment_path(@user.id), class: "btn-show m-3" %>
             <% if Chatroom.where(patient_id: current_user.id, therapist_id: @user.id).count > 0 %>
-              <%= link_to "Mensagens", chatroom_path(id: Chatroom.where(patient_id: current_user.id, therapist_id: @user.id).first.id), class: "m-3" %>
+              <%= link_to "Mensagens", chatroom_path(id: Chatroom.where(patient_id: current_user.id, therapist_id: @user.id).first.id), class: "btn-show m-3" %>
             <% else %>
               <%= link_to "Conversar com #{@user.name}", chatrooms_path(user_id: @user.id), data: { turbo_method: :post }, class: "btn-show m-3" %>
             <% end %>
           </div>
-          <div class="btns-show-if">
+          <div class="avaliar text-center m-4">
             <% if Appointment.where(patient_id: current_user.id, therapist_id: @user.id).count > 0 %>
-            <%= link_to "Avaliar",  new_user_review_path(user_id: @user.id, appointment_id: @appointment.id), class: "btn btn-primary col-4 m-5" %>
+            <%= link_to "Avaliar",  new_user_review_path(user_id: @user.id, appointment_id: @appointment.id), class: "btn-show m-5" %>
             <% end %>
           </div>
           <div class="reviews mx-auto d-block">
