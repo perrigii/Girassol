@@ -69,3 +69,18 @@
     box-shadow: 0px 0px 3px #978150
   }
 }
+
+.btn-show {
+  padding: 4px;
+  border-radius: 4px;
+  background-color: #f1dfab;
+  color: #725237b2;
+  text-decoration: none;
+  box-shadow: 0px 0px 2px #a59465d5;
+  margin-bottom: 16px;
+  &:hover {
+    padding: 5px;
+    box-shadow: 0px 0px 3px #978150;
+    text-decoration: underline;
+  }
+}

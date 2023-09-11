@@ -16,47 +16,52 @@
         <div class="birthdate text-center my-3">
           <% if @user.role == 'patient' %>
             <p> Paciente </p>
+          <% else %>
+            <p> Terapeuta </p>
           <% end %>
           <p> Data de Nascimento: <%= @user.birthdate %> </p>
         </div>
         <div class="birthdate text-center my-3">
           <p> Descrição: <%= @user.description %> </p>
         </div>
-        <div class="links-profile row mx-auto d-block">
-          <%= link_to "Consultas", users_path, class: "btn btn-primary col-4 m-3" %>
-
-          <% if Appointment.where(patient_id: current_user.id, therapist_id: @user.id).count > 0 %>
-           <%= link_to "Avaliar",  new_user_review_path(user_id: @user.id, appointment_id: @appointment.id), class: "btn btn-primary col-4 m-3" %>
-          <% end %>
-
-          <%= link_to "Agendar consulta", new_user_appointment_path(@user.id), class: "btn btn-primary col-3 m-3" %>
-
-          <% if Chatroom.where(patient_id: current_user.id, therapist_id: @user.id).count > 0 %>
-            <%= link_to "Mensagens", chatroom_path(id: Chatroom.where(patient_id: current_user.id, therapist_id: @user.id).first.id), class: "btn btn-primary col-3 m-3" %>
-          <% else %>
-            <%= link_to "Conversar com #{@user.name}", chatrooms_path(user_id: @user.id), data: { turbo_method: :post }, class: "btn btn-primary col-3 m-3" %>
-          <% end %>
-          <%= link_to "Sair", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-primary m-3 mx-auto d-block" %>
+        <div class="links-profile mx-auto d-block">
+          <%# <%= link_to "Consultas", users_path, class: "btn btn-primary col-4 m-3" %>
+          <div class="btns-show d-flex justify-content-evenly align-items-center">
+            <%= link_to "Agendar consulta", new_user_appointment_path(@user.id), class: "btn-show m-3" %>
+            <% if Chatroom.where(patient_id: current_user.id, therapist_id: @user.id).count > 0 %>
+              <%= link_to "Mensagens", chatroom_path(id: Chatroom.where(patient_id: current_user.id, therapist_id: @user.id).first.id), class: "m-3" %>
+            <% else %>
+              <%= link_to "Conversar com #{@user.name}", chatrooms_path(user_id: @user.id), data: { turbo_method: :post }, class: "btn-show m-3" %>
+            <% end %>
+          </div>
+          <div class="btns-show-if">
+            <% if Appointment.where(patient_id: current_user.id, therapist_id: @user.id).count > 0 %>
+            <%= link_to "Avaliar",  new_user_review_path(user_id: @user.id, appointment_id: @appointment.id), class: "btn btn-primary col-4 m-5" %>
+            <% end %>
+          </div>
+          <div class="reviews mx-auto d-block">
+            <% if @reviews.blank? %>
+              <% if @appointment.nil? %>
+                <h3 class="my-3">Ainda sem avaliações!</h3>
+              <% else %>
+                <h5>Ainda não temos avaliação para este terapeuta, seja o primeiro!</h5>
+                <%= link_to "Avaliar", new_user_review_path(user_id: @user.id, appointment_id: @appointment.id), class: "btn-show btn-primary col-3 m-3" %>
+              <% end %>
+            <% else %>
+              <h3 class="my-4">Avaliações</h3>
+              <% @reviews.each do |review| %>
+                <div class="review">
+                  <p class="text-start">Pontuação: <%= review.rating %></p>
+                  <p class="text-start">Comentário: <%= review.comment %></p>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
         </div>
+          <%# <%= link_to "Sair", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-primary m-3 mx-auto d-block" %>
       </div>
     </div>
 
-    <% if @reviews.blank? %>
-      <% if @appointment.nil? %>
-        <h3>Ainda sem avaliações!</h3>
-      <% else %>
-
-        <h5>Ainda não temos avaliação para este terapeuta, seja o primeiro!</h5>
-        <%= link_to "Avaliar", new_user_review_path(user_id: @user.id, appointment_id: @appointment.id), class: "btn btn-primary col-3 m-3" %>
-      <% end %>
-    <% else %>
-      <% @reviews.each do |review| %>
-        <div class="reviews">
-          <p><%= review.rating %></p>
-          <p><%= review.comment %></p>
-        </div>
-      <% end %>
-    <% end %>
 
   </div>
 <% else %>
