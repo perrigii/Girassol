@@ -21,11 +21,16 @@ class ReviewsController < ApplicationController
     @therapist = User.find(params[:user_id])
     @review = Review.new(review_params)
     @review.therapist_id = @therapist.id
-    #@review.appointments_id = Appointment.where(patient_id: @patient.id, therapist_id: @therapist.id).last.id
-    if @review.save
-      redirect_to user_path(@therapist), notice: 'Review was successfully created.'
-    else
-      render :new, status: :unprocessable_entity
+    @review.patient_id = @patient.id
+    # @review.appointments_id = Appointment.where(patient_id: @patient.id, therapist_id: @therapist.id).last.id
+    respond_to do |format|
+      if @review.save
+        format.html { redirect_to user_path(@therapist), notice: 'Review was successfully created.' }
+        format.json { render :show, status: :created, location: @review }
+      else
+        format.html { render :new }
+        format.json { render json: @review.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -38,6 +43,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:rating, :comment)
+    params.require(:review).permit(:rating, :comment, :patient_id)
   end
 end

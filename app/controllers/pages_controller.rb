@@ -8,10 +8,7 @@ class PagesController < ApplicationController
     if params[:search][:query].present? && params[:search][:category].present?
       @name = params[:search][:query]
       @specialty = params[:search][:category]
-      # role
       @users = User.where("name ILIKE ? AND specialty ILIKE ?", "%#{@name}%", "%#{@specialty}%")
-      # Preventing SQL Injection and Database error for
-      # unknown characters
     elsif params[:search][:category].present?
       @specialty = params[:search][:category]
       @users = User.where("specialty ILIKE ?", "%#{@specialty}%")
