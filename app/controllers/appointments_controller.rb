@@ -34,8 +34,6 @@ class AppointmentsController < ApplicationController
     @appointment.patient = @patient
     @appointment.therapist = @therapist
     if @appointment.save
-      #@review.appointment = @appointment
-      #@review.save
       redirect_to appointment_path(@appointment)
     else
       render :new, status: :unprocessable_entity

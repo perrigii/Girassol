@@ -19,6 +19,8 @@ class UsersController < ApplicationController
       @appointment = Appointment.where(patient_id: current_user.id, therapist_id: @user.id).last
       @reviews = @user.reviews_as_therapist
     end
+    @patient = current_user
+    @appointment.patient = @patient
     @appointment = Appointment.new
 
   end

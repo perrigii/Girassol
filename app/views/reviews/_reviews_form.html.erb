@@ -5,7 +5,11 @@
 <%# end %>
 
 <%= simple_form_for [@therapist, @review] do |f| %>
-  <%= f.input :rating, placeholder: "Leave a rating..." %>
+  <%= f.input :rating,
+              collection: (1..5).to_a,
+              placeholder: "Leave a rating...",
+              input_html: {data: {controller: "star-rating"}} %> 
+
   <%= f.text_area :comment, placeholder: "Leave a review..." %>
   <%= f.submit "Submit", class: "btn btn-primary" %>
 <% end %>
