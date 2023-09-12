@@ -10,6 +10,7 @@
   flex-shrink: 0;
   background-color: #e2c983;
   border-radius: 0px 0px 100px 100px;
+  box-shadow: 9px 7px 10px 0px rgba(0,0,0,0.25);
 }
 
 .card {
@@ -22,12 +23,14 @@
   justify-content: center;
   flex-shrink: 0;
   padding: 16px;
+
 }
 
 
 .card {
   position: relative;
   margin-top: 0rem;
+  box-shadow: 8px 19px 13px -3px rgba(0,0,0,0.05);
 }
 
 .button-form {
