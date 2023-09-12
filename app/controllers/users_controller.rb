@@ -20,8 +20,10 @@ class UsersController < ApplicationController
       @reviews = @user.reviews_as_therapist
     end
     @patient = current_user
-    @appointment.patient = @patient
-    @appointment = Appointment.new
+    if @appointment.present?
+      @appointment.patient = @patient
+      @appointment = Appointment.new
+    end
 
   end
 
