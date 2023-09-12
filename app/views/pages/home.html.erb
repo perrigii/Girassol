@@ -4,7 +4,7 @@
       <p><strong>UMA REDE DE APOIO AO SEU ALCANCE</strong></p>
     </div>
     <div class="cards-homepage d-flex justify-content-around">
-      <div class="card" style="width: 900px; height: 160px;">
+      <div class="card-banner" style="width: 900px; height: 160px;">
         <div class="card-form mb-2">
           <strong>AGENDE SUA CONSULTA AGORA</strong>
           <div class="button-form d-flex mt-3">
@@ -12,7 +12,7 @@
               <%= simple_form_for :search, url: search_path, method: :get, class: 'd-flex align-items-center ' do |f| %>
                 <div class="row g-2 ">
                   <div class="col-auto prof-choice">
-                    <%= f.input :query, label: false, placeholder: 'Psicólogo ou psiquiatra?', input_html: { class: 'form-control' }, wrapper_html: {class: 'm-0'} %>
+                    <%= f.input :query, label: false, placeholder: 'Encontre especialistas', input_html: { class: 'form-control' }, wrapper_html: {class: 'm-0'} %>
                   </div>
 
                   <div class="col-auto filter-choice">

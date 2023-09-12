@@ -4,5 +4,16 @@
 @import "form_legend_clear";
 @import "navbar";
 @import "message";
+@import "calendar";
+
+.container-show-patient {
+  background-color: #F6E5B7;
+  padding-bottom: 100px;
+  padding-top: 24px;
+}
+
+.container-show-therapist {
+  background-color: rgb(21, 58, 85);
+}
 @import "container";
 @import "form_index";
