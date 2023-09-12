@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     else
       @users = User.where(role: "therapist")
     end
+    @appointment = Appointment.new
   end
 
   def show
@@ -18,6 +19,8 @@ class UsersController < ApplicationController
       @appointment = Appointment.where(patient_id: current_user.id, therapist_id: @user.id).last
       @reviews = @user.reviews_as_therapist
     end
+    @appointment = Appointment.new
+
   end
 
   def profile

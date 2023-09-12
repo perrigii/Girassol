@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "@opentok/client": "^2.26.1",
-    "flatpickr": "^4.6.13",
-    "opentok": "^1.0.2"
-  }
-}
