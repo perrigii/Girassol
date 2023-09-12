@@ -26,7 +26,8 @@
               </div>
             <% end %>
           <% end %>
-          <p class="text-center pt-3"><strong>Data e Hora: </strong><%= appointment.date_time %></p>
+          <p class="pt-3"><strong>Data: </strong><%= appointment.start_time.strftime('%d/%m/%Y') %></p>
+          <p class="pt-3"><strong>Hora: </strong><%= appointment.end_time.strftime('%H:%M') %></p>
           <%= link_to "Ver detalhes", appointment_path(appointment), class: "del-order text-center btn btn-danger mx-auto d-block" %>
         </div>
         <% end %>
