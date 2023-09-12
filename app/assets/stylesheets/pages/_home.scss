@@ -2,17 +2,16 @@
 
 .body {
   background-color: #F8F5E4;
-  // background: linear-gradient(163deg, rgba(252,252,247,1) 0%, rgba(255,246,225,1) 99%);
 }
 
 .banner {
   width: auto;
   background: #3F497F;
-  height: 480px;
+  height: 600px;
   flex-shrink: 0;
-  // background: linear-gradient(117deg, rgba(227,203,136,1) 0%, rgba(210,187,121,1) 100%);
   border-radius: 0px 0px 100px 100px;
   box-shadow: 9px 7px 10px 0px rgba(0,0,0,0.25);
+  margin-top: -170px;
 }
 
 .card {
@@ -88,13 +87,12 @@
 .slogan {
   font-size: 32px;
   color: #F6E5B7;
-  margin-top: -64px;
-  padding-top: 80px;
+  padding-top: 180px;
 }
 
-.cards-homepage {
-  padding: -64px;
-}
+// .cards-homepage {
+//   // padding: -64px;
+// }
 
 .articles {
   font-size: 20px;
@@ -166,7 +164,7 @@
   width: auto;
   height: 500px;
   flex-shrink: 0;
-  background-color: #a2b683;
+  background-color: #3F497F;
   box-shadow: 3px 10px 14px 4px rgba(0,0,0,0.24);
 }
 
