@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_07_234733) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_12_141121) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -83,6 +83,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_234733) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "therapist_id"
+    t.bigint "patient_id"
+    t.index ["patient_id"], name: "index_reviews_on_patient_id"
     t.index ["therapist_id"], name: "index_reviews_on_therapist_id"
   end
 
@@ -122,5 +124,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_234733) do
   add_foreign_key "chatrooms", "users", column: "patient_id"
   add_foreign_key "chatrooms", "users", column: "therapist_id"
   add_foreign_key "messages", "chatrooms"
+  add_foreign_key "reviews", "users", column: "patient_id"
   add_foreign_key "reviews", "users", column: "therapist_id"
 end

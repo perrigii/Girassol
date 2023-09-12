@@ -54,9 +54,15 @@
               <% @reviews.each do |review| %>
                 <div class="review">
                   <%# adicionar o nome do paciente aqui %>
-                  <p class="text-start"><strong> <% @patient %> </strong> </p>
-                  <p class="text-start">Pontuação: <%= review.rating %></p>
-                  <p class="text-start">Comentário: <%= review.comment %></p>
+                  <p class="text-start"><strong> <%= review.patient.name %> </strong> </p>
+                  <div>
+                    <p style="text-align:left" >
+                      <% review.rating.times do  %>
+                       <i class="fa-solid fa-star" style="color: #F4E006;"></i>
+                      <% end %>
+                    </p>
+                  </div>
+                  <p class="text-start"> <%= review.comment %></p>
                 </div>
               <% end %>
             <% end %>

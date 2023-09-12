@@ -21,6 +21,7 @@ class ReviewsController < ApplicationController
     @therapist = User.find(params[:user_id])
     @review = Review.new(review_params)
     @review.therapist_id = @therapist.id
+    @review.patient_id = @patient.id
     # @review.appointments_id = Appointment.where(patient_id: @patient.id, therapist_id: @therapist.id).last.id
     respond_to do |format|
       if @review.save
@@ -42,6 +43,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:rating, :comment)
+    params.require(:review).permit(:rating, :comment, :patient_id)
   end
 end
