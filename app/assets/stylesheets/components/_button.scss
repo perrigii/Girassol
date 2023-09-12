@@ -86,7 +86,7 @@
 }
 
 .btn-show {
-  padding: 8px;
+  padding: 12px;
   text-align: center;
   width: 170px;
   height: 65px;
@@ -100,6 +100,46 @@
   &:hover {
     padding: 12px;
     box-shadow: 0px 0px 3px #978150;
+    font-weight: bold;
+  }
+}
+
+.falar-com {
+  color: #fcf9e3 !important;
+  padding: 8px;
+  text-align: center;
+  width: 170px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: #3F497F;
+  color: #725237b2;
+  text-decoration: none;
+  box-shadow: 0px 0px 2px #a59465d5;
+  margin: 16px;
+  transition: 0.3s;
+  &:hover {
+    padding: 12px;
+    box-shadow: 0px 0px 3px #978150;
+    font-weight: bold;
+  }
+}
+
+.del-order {
+  color: #fcf9e3 !important;
+  padding: 8px;
+  align-items: center;
+  width: 170px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: #3F497F;
+  color: #725237b2;
+  text-decoration: none;
+  box-shadow: 0px 0px 2px #a59465d5;
+  margin: 16px;
+  transition: 0.3s;
+  &:hover {
+    padding: 12px;
+    box-shadow: 0px 0px 3px #816e43;
     font-weight: bold;
   }
 }
