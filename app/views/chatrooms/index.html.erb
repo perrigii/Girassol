@@ -3,7 +3,7 @@
     <% if @chatrooms.present? %>
       <% @chatrooms.each do |chatroom| %>
         <div class="col-md-4"> <!-- Adjust the column size as needed -->
-          <div class="card">
+          <div class="card-chat">
           <% if current_user.role == 'therapist' %>
             <%= link_to "#{chatroom.patient.name} #{chatroom.patient.surname}", chatroom_path(chatroom), class: "text-decoration-none" %>
           <% else %>
