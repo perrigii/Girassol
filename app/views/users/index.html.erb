@@ -28,7 +28,7 @@
                 <div class="d-flex gap-2">
                   <div class="index-foto m-4">
                     <% if user.photo.attached? %>
-                      <%= cl_image_tag @user.photo.key, class:"profile-avatar" %>
+                      <%= cl_image_tag user.photo.key, class:"profile-avatar" %>
                     <% else %>
                       <span class=" mb-1 avatar avatar-circle" style="background-image: url('<%= user.picture_url ? user.picture_url : "https://cdn-icons-png.flaticon.com/512/3607/3607444.png" %>')"></span>
                     <% end %>
