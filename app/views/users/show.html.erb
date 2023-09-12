@@ -39,6 +39,8 @@
             <%= link_to "Avaliar",  new_user_review_path(user_id: @user.id, appointment_id: @appointment.id), class: "btn-show m-5" %>
             <% end %>
           </div>
+
+          <%# REVIEWS AQUI %>
           <div class="reviews mx-auto d-block">
             <% if @reviews.blank? %>
               <% if @appointment.nil? %>
@@ -51,19 +53,26 @@
               <h3 class="mt-5">Avaliações</h3>
               <% @reviews.each do |review| %>
                 <div class="review">
-                  <p class="text-start">Pontuação: <%= review.rating %></p>
-                  <p class="text-start">Comentário: <%= review.comment %></p>
+                  <%# adicionar o nome do paciente aqui %>
+                  <p class="text-start"><strong> <%= review.patient.name %> </strong> </p>
+                  <div>
+                    <p style="text-align:left" >
+                      <% review.rating.times do  %>
+                       <i class="fa-solid fa-star" style="color: #F4E006;"></i>
+                      <% end %>
+                    </p>
+                  </div>
+                  <p class="text-start"> <%= review.comment %></p>
                 </div>
               <% end %>
             <% end %>
           </div>
         </div>
-          <%# <%= link_to "Sair", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-primary m-3 mx-auto d-block" %>
       </div>
     </div>
-
-
   </div>
+
+
 <% else %>
   <div class="container-show-therapist">
     <div class="patient-profile flex-column p-4">
