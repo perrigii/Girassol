@@ -1,28 +1,18 @@
-<div class="new-appointment-container">
-  <div class="title-new text-center">
-    <h1 class="my-4">Agende sua consulta</h1>
-
-    <%# <div class="create-form">
-      <div class="row">
-        <div class="mx-auto col-10 col-md-8 col-lg-6"> %>
-      <%# render "form", appointment: @appointment %>
-        <%# </div>
+<div class="all-new">
+  <div class="container-new-appointment">
+    <div class="card-new-appointment mx-auto d-block card-new-appointment">
+      <div class="title-new text-center my-3">
+        <h2 class="my-4">Agende sua consulta abaixo</h2>
       </div>
-    </div> %>
 
-    <%# CALENDÁRIO AQUI %>
-    <div id="my_calendar" class="container d-flex">
-      <div class="row ">
-        <div class="mx-auto col-6 justify-content-center">
-          <%= render 'appointments/calendar_form', appointment: @appointment %>
+      <%# CALENDÁRIO AQUI %>
+      <div id="my_calendar" class="">
+        <div class="">
+          <div class="d-flex justify-content-center ">
+            <%= render 'appointments/calendar_form', appointment: @appointment %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <br>
-
-  <div class="button text-center">
-    <%= link_to "Terapeutas", users_path, class: "btn btn-sm btn-primary", style: "margin-bottom: 180px;" %>
   </div>
 </div>

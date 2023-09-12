@@ -12,7 +12,6 @@ export default class extends Controller {
       minDate: "today",
       inline: true,
       // plugins: [new rangePlugin({ input: "#end_time"})]
-      // more options available on the documentation!
     });
 
     flatpickr("#end_time", {

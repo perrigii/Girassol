@@ -17,6 +17,9 @@
 @import "components/button";
 
 @import "users/index";
+@import "flatpickr/dist/flatpickr.css";
+
+@import "appointments/new";
 
 #subscriber video,
 #publisher video {
@@ -30,7 +33,6 @@
 #publisher video {
   max-width: 100%; /* Set the maximum width */
 }
-@import "flatpickr/dist/flatpickr.css";
 
 
 .chat-container {

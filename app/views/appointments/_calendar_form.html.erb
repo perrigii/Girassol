@@ -2,24 +2,31 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="row">
-    <div class="col">
-      <%= f.input :start_time, as: :string,
-                  wrapper_html: { class: "mb-4" },
-                  label: false,
-                  input_html: { data: { controller: "flatpickr" } } %>
+    <div class="row align-items-center">
+      <div class="col-sm-6 offset-sm-2 col-md-6 offset-md-2 calendar-center">
+        <div>
+          <h6><strong>Selecione a data:</strong></h6>
+        </div>
+        <div class="">
+          <%= f.input :start_time, as: :string,
+                      wrapper_html: { class: "mb-4" },
+                      label: false,
+                      input_html: { data: { controller: "flatpickr" } } %>
+        </div>
+
+        <div class="my-3">
+          <h6><strong>Insira o horário:</strong></h6>
+        </div>
+        <div class=" ">
+            <%= f.input :end_time, as: :string,
+                        wrapper_html: { class: "mb-4 teste" },
+                        label: false,
+                        input_html: { data: { controller: "flatpickr" }, id: 'end_time' } %>
+          </div>
+      </div>
+
+      <div class="form-actions text-center">
+      <%= f.button :submit, value="Marcar consulta", id: "marcar", class: "btn btn-sm btn-primary mt-3" %>
+      </div>
     </div>
-
-    <div class="col">
-      <%= f.input :end_time, as: :string,
-                  wrapper_html: { class: "mb-4 teste" },
-                  label: false,
-                  input_html: { data: { controller: "flatpickr" }, id: 'end_time' } %>
-   </div>
-
-    <div class="form-actions text-center">
-    <%= f.button :submit, id: "marcar", class: "btn btn-sm btn-primary mt-3" %>
-    </div>
-
-  </div>
 <% end %>
