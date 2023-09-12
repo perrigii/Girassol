@@ -38,14 +38,29 @@
 
 .btn-profile {
   background-color: #F6E5B7;
-  width: 100px;
-  height: 100px;
-  padding: 8px;
+  padding-inline: 16px;
+  padding-block: 14px;
   border: 0.3px solid #392d14;
   border-radius: 50%;
   box-shadow: 0px 0px 3px #392d14;
   &:hover {
-    padding: 16px;
+    padding-inline: 20px;
+    padding-block: 18px;
+    box-shadow: 0px 0px 3px #978150
+  }
+}
+
+.btn-profile-therapist {
+  background-color: #687aca;
+  padding-inline: 16px;
+  padding-block: 14px;
+  margin: 8px;
+  border: 0.3px solid #505fa5;
+  border-radius: 50%;
+  box-shadow: 0px 0px 3px #392d14;
+  &:hover {
+    padding-inline: 20px;
+    padding-block: 18px;
     box-shadow: 0px 0px 3px #978150
   }
 }
