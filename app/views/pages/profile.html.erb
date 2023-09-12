@@ -11,7 +11,7 @@
       </div>
       <div class="card-profile-patient mx-auto d-block">
         <% if @user.id == current_user.id %>
-          <%= link_to "Editar perfil", edit_user_registration_path %>
+          <%= link_to "Editar perfil", edit_user_registration_path, style: "color: #818181;" %>
         <% end %>
         <h1 class="text-center my-3"><%= @user.name.capitalize %> <%= @user.surname.capitalize %> </h1>
         <div class="birthdate text-center my-3">
@@ -59,7 +59,7 @@
       </div>
       <div class="card-profile-therapist mx-auto d-block">
         <% if @user.id == current_user.id %>
-          <%= link_to "Editar perfil", edit_user_registration_path %>
+          <%= link_to "Editar perfil", edit_user_registration_path, style: "color: #212121;" %>
         <% end %>
         <h1 class="text-center my-3"><%= @user.name.capitalize %> <%= @user.surname.capitalize %> </h1>
         <div class="birthdate text-center my-3">
