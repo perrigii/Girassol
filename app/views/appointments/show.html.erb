@@ -2,32 +2,46 @@
   <div id="appointments-container" class="container d-flex flex-column p-4">
     <div class="">
       <div class="">
-        <div class="card-appointment mx-auto d-block text-center">
+        <div class="card-appointment mt-4 mx-auto d-block text-center">
           <% if current_user.patient? %>
             <p class=""><strong>Sua consulta será com: </strong><%= @appointment.therapist.name.capitalize %></p>
-            <img src="<%= @appointment.therapist.picture_url %>" alt="imagem do terapeuta" class="avatar mx-auto d-block">
-          <% if Chatroom.where(patient_id: current_user.id, therapist_id: @appointment.therapist.id).count > 0 %>
-            <%= link_to "Conversar com #{@appointment.therapist.name}", chatroom_path(id: Chatroom.where(patient_id: current_user.id, therapist_id: @appointment.therapist.id).first.id), class: "btn btn-primary col-3 m-3" %>
+            <% if @appointment.therapist.photo.attached? %>
+              <%= cl_image_tag @appointment.therapist.photo.key, transformation: [{width: 80, height: 80, radius: "max", gravity: "auto", crop: "fill", fetch_format: "auto" }], class:"profile-avatar mx-auto d-block" %>
+            <% else %>
+              <div class="text-center">
+                <i class="fa-solid fa-user" style='color: #392d14;'></i>
+              </div>
+            <% end %>
+            <% if Chatroom.where(patient_id: current_user.id, therapist_id: @appointment.therapist.id).count > 0 %>
+              <%= link_to "Conversar com #{@appointment.therapist.name}", chatroom_path(id: Chatroom.where(patient_id: current_user.id, therapist_id: @appointment.therapist.id).first.id), class: "btn btn-primary col-3 m-3" %>
+            <% else %>
+              <%= link_to "Conversar com #{@appointment.therapist.name}", chatrooms_path(user_id: @appointment.therapist.id), data: { turbo_method: :post }, class: "btn btn-primary col-3 m-3" %>
+            <% end %>
           <% else %>
-            <%= link_to "Conversar com #{@appointment.therapist.name}", chatrooms_path(user_id: @appointment.therapist.id), data: { turbo_method: :post }, class: "btn btn-primary col-3 m-3" %>
+            <p class=""><strong>Sua consulta será com: </strong><%= @appointment.patient.name.capitalize %></p>
+            <% if @appointment.patient.photo.attached? %>
+              <%= cl_image_tag @appointment.patient.photo.key, transformation: [{width: 80, height: 80, radius: "max", gravity: "auto", crop: "fill", fetch_format: "auto" }], class:"profile-avatar mx-auto d-block" %>
+            <% else %>
+              <div class="text-center">
+                <i class="fa-solid fa-user" style='color: #392d14;'></i>
+              </div>
+            <% end %>
+            <% chatroom = Chatroom.where(patient_id: @appointment.patient.id, therapist_id: current_user.id) %>
+            <% if chatroom.count > 0 %>
+              <%= link_to "Conversar com #{@appointment.patient.name}", chatroom_path(id: chatroom.first.id), class: "btn btn-primary col-3 m-3" %>
+            <% end %>
           <% end %>
-        <% else %>
-          <p class=""><strong>Sua consulta será com: </strong><%= @appointment.patient.name.capitalize %></p>
-          <img src="<%= @appointment.patient.picture_url %>" alt="imagem do paciente" class="avatar">
-          <% chatroom = Chatroom.where(patient_id: @appointment.patient.id, therapist_id: current_user.id) %>
-          <% if chatroom.count > 0 %>
-            <%= link_to "Conversar com #{@appointment.patient.name}", chatroom_path(id: chatroom.first.id), class: "btn btn-primary col-3 m-3" %>
-          <% end %>
-        <% end %>
           <p class="pt-3"><strong>Data e Hora: </strong><%= @appointment.date_time %></p>
           <%= link_to "Cancelar consulta", appointment_path(@appointment), data: { turbo_method: :delete, turbo_confirm: "Quer mesmo cancelar esta consulta?" }, class: "del-order text-center btn btn-danger mx-auto d-block" %>
         </div>
       </div>
       <% if current_user.role == 'therapist' %>
-        <div class="card col-md-6 dedechat">
-          <div class="wherebyContainer">
-            <div class="whereby">
-              <h1>Chat de vídeo</h1>
+        <div class="dedechat">
+          <div class="wherebyContainer text-center">
+            <div class="mx-3">
+              <h3>Chat de vídeo</h3>
+            </div>
+            <div class="mx-3">
               <%= form_for @room do |f| %>
                 <%= f.text_field :name, required: true %>
                 <%= f.button "Criar sala", class: 'greenBtn dedebutton' %>

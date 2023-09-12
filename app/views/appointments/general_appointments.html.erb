@@ -12,14 +12,18 @@
               <% if appointment.therapist.photo.attached? %>
                 <%= cl_image_tag appointment.therapist.photo.key, transformation: [{width: 80, height: 80, radius: "max", gravity: "auto", crop: "fill", fetch_format: "auto" }], class:"profile-avatar mx-auto d-block" %>
               <% else %>
-                <span class=" mb-1 avatar avatar-circle" style="background-image: url('<%= user.picture_url ? user.picture_url : "https://cdn-icons-png.flaticon.com/512/3607/3607444.png" %>')"></span>
+                <div class="text-center">
+                  <i class="fa-solid fa-user" style='color: #392d14;'></i>
+                </div>
               <% end %>
           <% else %>
             <p class="text-center"><strong>Sua consulta será com: </strong><%= appointment.patient.name.capitalize %></p>
-            <% if appointment.therapist.photo.attached? %>
-              <%= cl_image_tag appointment.therapist.photo.key, transformation: [{width: 80, height: 80, radius: "max", gravity: "auto", crop: "fill", fetch_format: "auto" }], class:"profile-avatar mx-auto d-block" %>
+            <% if appointment.patient.photo.attached? %>
+              <%= cl_image_tag appointment.patient.photo.key, transformation: [{width: 80, height: 80, radius: "max", gravity: "auto", crop: "fill", fetch_format: "auto" }], class:"profile-avatar mx-auto d-block" %>
             <% else %>
-              <span class=" mb-1 avatar avatar-circle" style="background-image: url('<%= user.picture_url ? user.picture_url : "https://cdn-icons-png.flaticon.com/512/3607/3607444.png" %>')"></span>
+              <div class="text-center">
+                <i class="fa-solid fa-user" style='color: #392d14;'></i>
+              </div>
             <% end %>
           <% end %>
           <p class="text-center pt-3"><strong>Data e Hora: </strong><%= appointment.date_time %></p>
