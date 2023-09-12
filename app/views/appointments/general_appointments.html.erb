@@ -8,11 +8,23 @@
       <% @appointments.each do |appointment| %>
         <div class="card-appointment align-items-center col-6 col-md-4 col-lg-3 m-4">
           <% if current_user.patient? %>
-            <p class=""><strong>Sua consulta será com: </strong><%= appointment.therapist.name.capitalize %></p>
-            <img src="<%= appointment.therapist.picture_url %>" alt="imagem do terapeuta" class="avatar">
+            <p class="text-center"><strong>Sua consulta será com: </strong><%= appointment.therapist.name.capitalize %></p>
+              <% if appointment.therapist.photo.attached? %>
+                <%= cl_image_tag appointment.therapist.photo.key, transformation: [{width: 80, height: 80, radius: "max", gravity: "auto", crop: "fill", fetch_format: "auto" }], class:"profile-avatar mx-auto d-block" %>
+              <% else %>
+                <div class="text-center">
+                  <i class="fa-solid fa-user" style='color: #392d14;'></i>
+                </div>
+              <% end %>
           <% else %>
-            <p class=""><strong>Sua consulta será com: </strong><%= appointment.patient.name.capitalize %></p>
-            <img src="<%= appointment.patient.picture_url %>" alt="imagem do patient" class="avatar">
+            <p class="text-center"><strong>Sua consulta será com: </strong><%= appointment.patient.name.capitalize %></p>
+            <% if appointment.patient.photo.attached? %>
+              <%= cl_image_tag appointment.patient.photo.key, transformation: [{width: 80, height: 80, radius: "max", gravity: "auto", crop: "fill", fetch_format: "auto" }], class:"profile-avatar mx-auto d-block" %>
+            <% else %>
+              <div class="text-center">
+                <i class="fa-solid fa-user" style='color: #392d14;'></i>
+              </div>
+            <% end %>
           <% end %>
           <p class="pt-3"><strong>Data: </strong><%= appointment.start_time.strftime('%d/%m/%Y') %></p>
           <p class="pt-3"><strong>Hora: </strong><%= appointment.end_time.strftime('%H:%M') %></p>
