@@ -1,18 +1,19 @@
-<div><p></p></div>
-<div class="row">
-  <% if @chatrooms.present? %>
-    <% @chatrooms.each do |chatroom| %>
-      <div class="col-md-4"> <!-- Adjust the column size as needed -->
-        <div class="card">
-        <% if current_user.role == 'therapist' %>
-          <%= link_to "#{chatroom.patient.name} #{chatroom.patient.surname}", chatroom_path(chatroom), class: "text-decoration-none" %>
-        <% else %>
-          <%= link_to "#{chatroom.therapist.name} #{chatroom.therapist.surname}", chatroom_path(chatroom), class: "text-decoration-none" %>
-        <% end %>
+<div class="container">
+  <div class="row mt-3">
+    <% if @chatrooms.present? %>
+      <% @chatrooms.each do |chatroom| %>
+        <div class="col-md-4"> <!-- Adjust the column size as needed -->
+          <div class="card">
+          <% if current_user.role == 'therapist' %>
+            <%= link_to "#{chatroom.patient.name} #{chatroom.patient.surname}", chatroom_path(chatroom), class: "text-decoration-none" %>
+          <% else %>
+            <%= link_to "#{chatroom.therapist.name} #{chatroom.therapist.surname}", chatroom_path(chatroom), class: "text-decoration-none" %>
+          <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
+    <% else %>
+      <h2>Você ainda não participa de nenhuma conversa.</h2>
     <% end %>
-  <% else %>
-    <h2>Você ainda não participa de nenhuma conversa.</h2>
-  <% end %>
+  </div>
 </div>

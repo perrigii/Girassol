@@ -1,0 +1,51 @@
+#subscriber video,
+#publisher video {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+}
+
+
+#subscriber video,
+#publisher video {
+  max-width: 100%;
+}
+
+
+.chat-container {
+  background-color: rgb(225, 225, 225);
+  height: 595x;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-radius: 2%;
+  margin: auto;
+}
+
+.chat-name {
+  background-color: rgb(125, 125, 125);
+  border-top-left-radius: 10px 10px;
+  border-top-right-radius: 10px 10px;
+  width: 100%;
+  background-size: cover;
+}
+.msg-box {
+  background-image: url("https://www.housedecorinteriors.co.uk/UserFiles/wallpapers/20_william_morris_and_co/857_compendium_ii_wallpapers/MOR210477_z.jpg");
+  background-size: cover;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.filler {
+padding: 10px;
+}
+
+.dedechat {
+  background-color: #e2c983;
+  color: black;
+  box-shadow: 0cqb;
+}
+
+.dedebutton {
+  border-radius: 4px;
+  margin-top: 15px;
+}

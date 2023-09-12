@@ -10,6 +10,11 @@ class ChatroomsController < ApplicationController
   def show
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
+    if current_user.role == 'patient'
+      @chatrooms = Chatroom.where(patient_id: current_user.id)
+    else
+      @chatrooms = Chatroom.where(therapist_id: current_user.id)
+    end
   end
 
   def create
