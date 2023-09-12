@@ -2,7 +2,7 @@
   <div id="appointments-container" class="container d-flex flex-column p-4">
     <div class="">
       <div class="">
-        <div class="card-appointment mt-4 mx-auto d-block text-center">
+        <div class="card-appointment mtmx-auto d-block text-center">
           <% if current_user.patient? %>
             <p class=""><strong>Sua consulta será com: </strong><%= @appointment.therapist.name.capitalize %></p>
             <% if @appointment.therapist.photo.attached? %>
@@ -19,8 +19,9 @@
             <% end %>
             <p class="pt-3"><strong>Data: </strong><%= @appointment.start_time.strftime('%d/%m/%Y') %></p>
             <p class="pt-3"><strong>Hora: </strong><%= @appointment.end_time.strftime('%H:%M') %></p>
-          <% if Chatroom.where(patient_id: current_user.id, therapist_id: @appointment.therapist.id).count > 0 %>
-            <%= link_to "Conversar com #{@appointment.therapist.name}", chatroom_path(id: Chatroom.where(patient_id: current_user.id, therapist_id: @appointment.therapist.id).first.id), class: "btn btn-primary col-3 m-3" %>
+            <% if Chatroom.where(patient_id: current_user.id, therapist_id: @appointment.therapist.id).count > 0 %>
+              <%= link_to "Conversar com #{@appointment.therapist.name}", chatroom_path(id: Chatroom.where(patient_id: current_user.id, therapist_id: @appointment.therapist.id).first.id), class: "btn btn-primary col-3 m-3" %>
+            <% end %>
           <% else %>
             <p class=""><strong>Sua consulta será com: </strong><%= @appointment.patient.name.capitalize %></p>
             <% if @appointment.patient.photo.attached? %>
@@ -36,14 +37,11 @@
             <% end %>
           <% end %>
           <p class="pt-3"><strong>Data e Hora: </strong><%= @appointment.date_time %></p>
-        <% else %>
           <p class=""><strong>Sua consulta será com: </strong> <%= @appointment.patient.name.capitalize %></p>
-          <img src="<%= @appointment.patient.picture_url %>" alt="imagem do paciente" class="avatar">
           <% chatroom = Chatroom.where(patient_id: @appointment.patient.id, therapist_id: current_user.id) %>
           <% if chatroom.count > 0 %>
             <%= link_to "Conversar com #{@appointment.patient.name}", chatroom_path(id: chatroom.first.id), class: "btn btn-primary col-3 m-3" %>
           <% end %>
-        <% end %>
           <%= link_to "Cancelar consulta", appointment_path(@appointment), data: { turbo_method: :delete, turbo_confirm: "Quer mesmo cancelar esta consulta?" }, class: "del-order text-center btn btn-danger mx-auto d-block" %>
         </div>
       </div>
