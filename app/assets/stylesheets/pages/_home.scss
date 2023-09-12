@@ -2,6 +2,7 @@
 
 .body {
   background-color: #f8f3e7;
+  background: linear-gradient(163deg, rgba(252,252,247,1) 0%, rgba(255,246,225,1) 99%);
 }
 
 .banner {
@@ -15,7 +16,6 @@
 
 .card {
   border-radius: 15px;
-  background: rgba(217, 217, 217, 0.21);
   color: #FFFFFF;
   font-size: 27px;
   display: flex;
@@ -23,14 +23,27 @@
   justify-content: center;
   flex-shrink: 0;
   padding: 16px;
-
-}
-
-
-.card {
+  background: linear-gradient(144deg, rgba(252,252,247,1) 0%, rgba(255,249,235,1) 100%);
   position: relative;
   margin-top: 0rem;
   box-shadow: 8px 19px 13px -3px rgba(0,0,0,0.05);
+}
+
+.card-banner {
+  background: rgba(217, 217, 217, 0.21);
+  border: 0.5px solid rgb(180, 165, 137);
+  background: linear-gradient(138deg, rgba(213,188,117,1) 0%, rgba(195,172,109,1) 100%);
+  position: relative;
+  margin-top: 0rem;
+  box-shadow: 8px 19px 13px -3px rgba(0,0,0,0.05);
+  border-radius: 15px;
+  color: #FFFFFF;
+  font-size: 27px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 16px;
 }
 
 .button-form {
@@ -154,6 +167,7 @@
   height: 500px;
   flex-shrink: 0;
   background-color: #a2b683;
+  box-shadow: 3px 10px 14px 4px rgba(0,0,0,0.24);
 }
 
 .fa-5x {
