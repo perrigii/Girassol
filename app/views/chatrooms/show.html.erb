@@ -1,57 +1,71 @@
 <div class="filler"><p></p></div>
 <div class="container">
-  <div class="col-5">
-    <div class="row mt-3">
-      <% if @chatrooms.present? %>
-        <% @chatrooms.each do |chatroom| %>
-          <div class="col-md-4"> <!-- Adjust the column size as needed -->
-            <div class="card">
-            <% if current_user.role == 'therapist' %>
-              <%= link_to "#{chatroom.patient.name} #{chatroom.patient.surname}", chatroom_path(chatroom), class: "text-decoration-none" %>
+  <div class="row">
+    <div class="col-5">
+      <div class="row mt-3">
+        <% if @chatrooms.present? %>
+          <% @chatrooms.each do |chatroom| %>
+            <div class="col-12"> <!-- Adjust the column size as needed -->
+              <div class="card mb-3">
+              <% if current_user.role == 'therapist' %>
+                <%= link_to "#{chatroom.patient.name} #{chatroom.patient.surname}", chatroom_path(chatroom), class: "text-decoration-none" %>
+              <% else %>
+                <%= link_to "#{chatroom.therapist.name} #{chatroom.therapist.surname}", chatroom_path(chatroom), class: "text-decoration-none" %>
+              <% end %>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <h2>Você ainda não participa de nenhuma conversa.</h2>
+        <% end %>
+      </div>
+    </div>
+    <div class="chat-container shadow col-7 p-0"
+      data-controller="chatroom-subscription"
+      data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
+      data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
+      <div class="chat-name d-flex">
+        <% if current_user == 'therapist' %>
+          <% if @chatroom.patient.photo.attached? %>
+              <%= cl_image_tag @chatroom.patient.photo.key, transformation: [{width: 50, height: 50, radius: "max", gravity: "center", crop: "fill"}], class: "chatroom-avatar" %>
+              <h2 class="chatroom-name"><%= "#{@chatroom.patient.name} #{@chatroom.patient.surname}" %></h2>
             <% else %>
-              <%= link_to "#{chatroom.therapist.name} #{chatroom.therapist.surname}", chatroom_path(chatroom), class: "text-decoration-none" %>
+              <i class="fa-solid fa-user" style='color: #392d14;', class= "avatar"></i>
+              <h2 class="chatroom-name"><%= "#{@chatroom.patient.name} #{@chatroom.patient.surname}" %></h2>
             <% end %>
+        <% else %>
+          <% if @chatroom.therapist.photo.attached? %>
+              <%= cl_image_tag @chatroom.therapist.photo.key, transformation: [{width: 50, height: 50, radius: "max", gravity: "center", crop: "fill"}], class: "chatroom-avatar" %>
+              <h2 class="chatroom-name"><%= "#{@chatroom.therapist.name} #{@chatroom.therapist.surname}" %></h2>
+            <% else %>
+              <i class="fa-solid fa-user" style='color: #392d14;', class= "avatar"></i>
+              <h2 class="chatroom-name"><%= "#{@chatroom.therapist.name} #{@chatroom.therapist.surname}" %></h2>
+            <% end %>
+        <% end %>
+      </div>
+
+      <div class="messages px-3 mb-4" id="messages" onload="scrollDown()" data-chatroom-subscription-target="messages" style='height: 400px; width:800 px; overflow-y: scroll;'>
+        <% @chatroom.messages.each do |message| %>
+          <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+            <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+              <%= render "messages/message", message: message %>
             </div>
           </div>
         <% end %>
-      <% else %>
-        <h2>Você ainda não participa de nenhuma conversa.</h2>
-      <% end %>
-    </div>
-  </div>
-  <div class="chat-container shadow col-7"
-    data-controller="chatroom-subscription"
-    data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
-    data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
-    <div class="chat-name" style="color: white;">
-      <% if current_user == 'therapist' %>
-        <h1><%= "#{@chatroom.patient.name} #{@chatroom.patient.surname}" %></h1>
-      <% else %>
-        <h1><%= "#{@chatroom.therapist.name} #{@chatroom.therapist.surname}" %></h1>
-      <% end %>
-    </div>
-
-    <div class="messages px-3 mb-4" id="messages" onload="scrollDown()" data-chatroom-subscription-target="messages" style='height: 400px; width:800 px; overflow-y: scroll;'>
-      <% @chatroom.messages.each do |message| %>
-        <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
-          <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
-            <%= render "messages/message", message: message %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    <div class="card msg-box mb-3">
-      <div class="mt-3">
-        <%= simple_form_for [@chatroom, @message],
-          html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
-        %>
-          <%= f.input :content,
-            label: false,
-            placeholder: "Digite uma menssagem",
-            wrapper_html: {class: "flex-grow-1"}
+      </div>
+      <div class="card msg-box mb-0">
+        <div class="mt-3">
+          <%= simple_form_for [@chatroom, @message],
+            html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
           %>
-          <%= f.submit "Enviar", class: "btn btn-primary mb-3" %>
-        <% end %>
+            <%= f.input :content,
+              label: false,
+              placeholder: "Digite uma menssagem",
+              wrapper_html: {class: "flex-grow-1"}
+            %>
+            <%= f.submit "Enviar", class: "btn btn-primary mb-3" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
