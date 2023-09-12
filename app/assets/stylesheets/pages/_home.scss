@@ -1,15 +1,16 @@
 // Specific CSS for your home-page
 
 .body {
-  background-color: #f8f3e7;
-  background: linear-gradient(163deg, rgba(252,252,247,1) 0%, rgba(255,246,225,1) 99%);
+  background-color: #F8F5E4;
+  // background: linear-gradient(163deg, rgba(252,252,247,1) 0%, rgba(255,246,225,1) 99%);
 }
 
 .banner {
   width: auto;
+  background: #3F497F;
   height: 480px;
   flex-shrink: 0;
-  background: linear-gradient(117deg, rgba(227,203,136,1) 0%, rgba(210,187,121,1) 100%);
+  // background: linear-gradient(117deg, rgba(227,203,136,1) 0%, rgba(210,187,121,1) 100%);
   border-radius: 0px 0px 100px 100px;
   box-shadow: 9px 7px 10px 0px rgba(0,0,0,0.25);
 }
@@ -31,8 +32,6 @@
 
 .card-banner {
   background: rgba(217, 217, 217, 0.21);
-  border: 0.5px solid rgb(180, 165, 137);
-  background: linear-gradient(138deg, rgba(213,188,117,1) 0%, rgba(195,172,109,1) 100%);
   position: relative;
   margin-top: 0rem;
   box-shadow: 8px 19px 13px -3px rgba(0,0,0,0.05);
@@ -150,8 +149,9 @@
   width: auto;
   height: 160px;
   flex-shrink: 0;
-  background: linear-gradient(126deg, rgba(171,190,140,1) 0%, rgba(146,166,114,1) 100%);
+  background: #3F497F;
   border-radius: 0px 0px 100px 100px;
+  color: #FFFFFF;
 }
 
 
