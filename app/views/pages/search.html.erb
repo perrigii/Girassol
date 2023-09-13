@@ -8,7 +8,7 @@
             <% if user.photo.attached? %>
               <%= cl_image_tag user.photo.key, class:"profile-avatar" %>
             <% else %>
-              <span class=" me-4 avatar avatar-circle" style="background-image: url('<%= user.picture_url ? user.picture_url : "https://cdn-icons-png.flaticon.com/512/3607/3607444.png" %>')"></span>
+              <span class= "me-4 avatar avatar-circle" style="background-image: url('<%= user.picture_url ? user.picture_url : "https://cdn-icons-png.flaticon.com/512/3607/3607444.png" %>')"></span>
             <% end %>
           </div>
           <div class="infos d-flex flex-column justify-content-start">
