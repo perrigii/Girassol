@@ -1,0 +1,49 @@
+<% if room %>
+  <div id="videos" class="container">
+    <div class="row">
+      <div class="col-8">
+        <div id="subscriber" style="height: 600px;">
+          <section class="noSubscriber">
+            <div data-controller="copy-url">
+              <span class="title">Esperando outras pessoas entrarem na sala.</span>
+              <div class="copyLink">
+                <input class="originalUrl" data-copy-url-target="link" value="<%= request.original_url %>">
+                <button id="buttonCopy" class="orangeBtn" data-action="click->copy-url#clipboard">
+                Copiar
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div class="col-4 mt-5">
+        <div id="publisher" style="height: 300px;"></div>
+      </div>
+    </div>
+  </div>
+  <%= link_to root_path do %>
+    <button class="orangeBtn leaveRoom">
+      Sair da sala
+    </button>
+  <% end %>
+  <%#= javascript_tag do %>
+    <%#= render(:partial => 'video', :handlers => [:erb], :formats => [:js]) %>
+  <%#= end %>
+  <div data-controller="opentok" data-opentok-api-key-value="<%= ENV['API_KEY'] %>" data-opentok-session-id-value="<%= room.session_token %>"
+  data-opentok-token-value="<%= room.generated_token %>"></div>
+<% else %>
+   <div class="noRoomContainer">
+    <section class="noRoom">
+      <h1>Perido nas nuvens?</h1>
+      <p>
+        A sala <strong>⁨/<%= params[:name] %></strong>⁩ não foi encontrada. Você tem certeza que entrou no endereço correto?
+      </p>
+      <%= link_to root_path do %>
+        <button class="greenBtn">
+          De volta para a homepage
+        </button>
+      <% end %>
+    </section>
+   </div>
+
+<% end %>
