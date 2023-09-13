@@ -6,7 +6,7 @@
         <i class="fa-solid fa-xmark modal-close-button" data-action="click->modal#closeModal"></i>
       </div>
       <div class="mx-3">
-        <%= form_for @room do |f| %>
+        <%= form_for @room, html: {class: 'form-room'} do |f| %>
           <%= f.text_field :name, required: true %>
           <%= f.button "Criar sala", class: 'greenBtn dedebutton', data: {turbo_frame: "_top"} %>
         <% end %>

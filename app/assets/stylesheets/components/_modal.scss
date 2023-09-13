@@ -17,3 +17,15 @@
 .modal-close-button {
   cursor: pointer;
 }
+
+.form-room {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .dedebutton {
+    width: 36%;
+  }
+  input {
+    width: 97%;
+  }
+}
