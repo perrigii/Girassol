@@ -1,8 +1,8 @@
-<div class="filler"><p></p></div>
-<div class="container">
+
+<div class="container container-chat">
   <div class="row">
     <div class="col-5">
-      <div class="row mt-3">
+      <div class="row">
         <% if @chatrooms.present? %>
           <% @chatrooms.each do |chatroom| %>
             <div class="col-12"> <!-- Adjust the column size as needed -->
@@ -25,7 +25,7 @@
       data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
       data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
       <div class="chat-name d-flex align-items-center">
-        <% if current_user == 'therapist' %>
+        <% if current_user.role == 'therapist' %>
           <% if @chatroom.patient.photo.attached? %>
               <%= cl_image_tag @chatroom.patient.photo.key, transformation: [{width: 50, height: 50, radius: "max", gravity: "center", crop: "fill"}], class: "chatroom-avatar" %>
               <h2 class="chatroom-name mb-0"><%= "#{@chatroom.patient.name} #{@chatroom.patient.surname}" %></h2>
@@ -63,7 +63,7 @@
               placeholder: "Digite uma menssagem",
               wrapper_html: {class: "flex-grow-1"}
             %>
-            <%= f.submit "Enviar", class: "btn btn-primary mb-3" %>
+            <%= f.submit "Enviar", class: "btn btn-primary send-button mb-3" %>
           <% end %>
         </div>
       </div>
