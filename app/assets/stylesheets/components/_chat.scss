@@ -22,7 +22,7 @@
 }
 
 .chat-name {
-  background-color: rgb(125, 125, 125);
+  background-color: #3F497F;
   color: white;
   border-top-left-radius: 10px 10px;
   border-top-right-radius: 10px 10px;
@@ -30,7 +30,6 @@
   background-size: cover;
 }
 .msg-box {
-  background-image: url("https://www.housedecorinteriors.co.uk/UserFiles/wallpapers/20_william_morris_and_co/857_compendium_ii_wallpapers/MOR210477_z.jpg");
   background-size: cover;
   padding-top: 0px;
   padding-bottom: 0px;
@@ -57,7 +56,6 @@ padding: 10px;
 }
 
 .card-chat {
-  color: black !important;
   border-radius: 10px;
   border: 0.5px solid rgb(195, 195, 195);
   font-size: 27px;
@@ -70,23 +68,26 @@ padding: 10px;
   position: relative;
   margin-top: 0rem;
   box-shadow: 8px 19px 13px -3px rgba(0,0,0,0.05);
+  a {
+    color: rgb(71, 71, 71);
+  }
 }
 
 .card-form-chat {
   border-bottom-left-radius: 10px 10px;
   border-bottom-right-radius: 10px 10px;
-  border: 0.5px solid rgb(195, 195, 195);
   color: #FFFFFF;
   font-size: 27px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   flex-shrink: 0;
-  padding: 16px;
-  background: linear-gradient(144deg, rgba(252,252,247,1) 0%, rgba(255,249,235,1) 100%);
+  padding-right: 15px;
+  padding-left: 15px;
+  background: #3F497F;
   position: relative;
   margin-top: 0rem;
-  box-shadow: 8px 19px 13px -3px rgba(0,0,0,0.05);
+  box-shadow: 8px 19px 13px -3px rgba(0, 0, 0, 0.05);
 }
 
 .text-card-chat {
