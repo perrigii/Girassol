@@ -1,96 +1,114 @@
-<body>
-  <div class="banner">
-    <div class="slogan text-white text-center">
-      <p><strong>UMA REDE DE APOIO AO SEU ALCANCE</strong></p>
-    </div>
-    <div class="cards-homepage d-flex justify-content-around">
-      <div class="card-banner" style="width: 900px; height: 160px;">
-        <div class="card-form mb-2">
-          <strong>AGENDE SUA CONSULTA AGORA</strong>
-          <div class="button-form d-flex mt-3">
+<div class="banner">
+  <div class="slogan text-white text-center">
+    <p><strong>UMA REDE DE APOIO AO SEU ALCANCE</strong></p>
+  </div>
+  <div class="cards-homepage d-flex justify-content-around">
+    <div class="card-banner" style="width: 900px; height: 160px;">
+      <div class="card-form mb-2">
+        <strong>AGENDE SUA CONSULTA AGORA</strong>
+        <div class="button-form d-flex mt-3">
 
-              <%= simple_form_for :search, url: search_path, method: :get, class: 'd-flex align-items-center ' do |f| %>
-                <div class="row g-2 ">
-                  <div class="col-auto prof-choice">
-                    <%= f.input :query, label: false, placeholder: 'Encontre especialistas', input_html: { class: 'form-control' }, wrapper_html: {class: 'm-0'} %>
-                  </div>
-
-                  <div class="col-auto filter-choice">
-                    <%= f.input :category, label: false, collection: User.specialty.map(&:capitalize), prompt: 'Filtros', input_html: { class: 'form-control' }, wrapper_html: {class: 'm-0'} %>
-                  </div>
-
-                  <div class="col-auto">
-                    <%= f.button :submit, 'Pesquisar', class: 'btn btn-primary search-btn mb-2' %>
-                  </div>
+            <%= simple_form_for :search, url: search_path, method: :get, class: 'd-flex align-items-center ' do |f| %>
+              <div class="row g-2 ">
+                <div class="col-auto prof-choice">
+                  <%= f.input :query, label: false, placeholder: 'Encontre especialistas', input_html: { class: 'form-control' }, wrapper_html: {class: 'm-0'} %>
                 </div>
-              <% end %>
 
-          </div>
+                <div class="col-auto filter-choice">
+                  <%= f.input :category, label: false, collection: User.specialty.map(&:capitalize), prompt: 'Filtros', input_html: { class: 'form-control' }, wrapper_html: {class: 'm-0'} %>
+                </div>
+
+                <div class="col-auto">
+                  <%= f.button :submit, 'Pesquisar', class: 'btn btn-primary search-btn mb-2' %>
+                </div>
+              </div>
+            <% end %>
+
         </div>
       </div>
-    </div>
-
-    <div class="banner-bottom">
-      <div class="d-flex justify-content-between icons">
-        <div class="d-flex flex-column">
-          <i class="fa-solid fa-shield-halved fa-5x" style="color: #FFFFFF;"></i><p class="mt-3">SEGURANÇA</p>
-        </div>
-        <div class="d-flex flex-column">
-          <i class="fa-solid fa-hand-holding-heart fa-5x" style="color: #FFFFFF;"></i><p class="mt-3">EMPATIA</p>
-        </div>
-        <div class="d-flex flex-column">
-          <i class="fa-solid fa-comments fa-5x" style="color: #FFFFFF;"></i><p class="mt-3">100% ONLINE</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="container my-5">
-    <div class="w-100 d-flex justify-content-center">
-      <img src="cuidado.svg" class="cuidado mx-auto mb-5" alt="analysis image" />
-    </div>
-    <div class="w-100 d-flex justify-content-center">
-
-        <div class="info-card flex-column text-info">
-          <img src="Vector 1.svg" class="watercolor" alt="analysis image" />
-          <img src="DESACELERE E preste atenção em você.svg" class="doctors desacelere" alt="analysis image" />
-        </div>
-
-        <div class="">
-          <img src="meditation.svg" class="meditation" alt="analysis image" />
-        </div>
-
     </div>
   </div>
 
-
-  <div class="banner-benefits">
-    <div class="margin-benefits d-flex">
-
-      <div class="image-benefits flex-column">
-        <img src="undraw_meditating_re_aiqa.svg" class="meditation" alt="meditation image">
+  <div class="banner-bottom">
+    <div class="d-flex justify-content-between icons">
+      <div class="d-flex flex-column">
+        <i class="fa-solid fa-shield-halved fa-5x" style="color: #FFFFFF;"></i><p class="mt-3">SEGURANÇA</p>
       </div>
-
-      <div class="flex-column">
-        <h2 class="text-benefits mt-3">“O autocuidado é uma escolha deliberada de presentear-se com pessoas, lugares, coisas, eventos e oportunidades que recarregam nossa bateria pessoal e promovem a saúde integral: corpo, mente e espírito.”</h2>
-        <p class="author">— Laurie Buchanan</p>
+      <div class="d-flex flex-column">
+        <i class="fa-solid fa-hand-holding-heart fa-5x" style="color: #FFFFFF;"></i><p class="mt-3">EMPATIA</p>
       </div>
-
-
+      <div class="d-flex flex-column">
+        <i class="fa-solid fa-comments fa-5x" style="color: #FFFFFF;"></i><p class="mt-3">100% ONLINE</p>
+      </div>
     </div>
   </div>
 
+</div>
 
-  <div class="container mt-5">
-    <div class="card-grid">
-      <img src="undraw_time_management_re_tk5w.svg" class=" undraw-images" alt="analysis image" />
-      <img src="undraw_pilates_ltw9.svg" class=" undraw-images" alt="analysis image" />
+<div class="container my-5">
+  <div class="w-100 d-flex justify-content-center">
+    <img src="cuidado.svg" class="cuidado mx-auto mb-5" alt="analysis image" />
+  </div>
+  <div class="w-100 d-flex justify-content-center">
+
+      <div class="info-card flex-column text-info">
+        <img src="Vector 1.svg" class="watercolor" alt="analysis image" />
+        <img src="DESACELERE E preste atenção em você.svg" class="doctors desacelere" alt="analysis image" />
+      </div>
+
+      <div class="">
+        <img src="meditation.svg" class="meditation" alt="analysis image" />
+      </div>
+
+  </div>
+</div>
+
+
+<div class="banner-benefits row justify-content-center m-0">
+
+    <div class="col-sm-12 col-md-3 col-lg-4 d-flex justify-content-end">
+      <img src="undraw_meditating_re_aiqa.svg" class="meditation" alt="meditation image">
+    </div>
+
+    <div class="col-sm-12 col-md-5 col-lg-4 d-flex flex-column justify-content-center">
+      <h2 class="text-benefits mt-3">“O autocuidado é uma escolha deliberada de presentear-se com pessoas, lugares, coisas, eventos e oportunidades que recarregam nossa bateria pessoal e promovem a saúde integral: corpo, mente e espírito.”</h2>
+      <p class="author">— Laurie Buchanan</p>
+    </div>
+
+</div>
+
+
+<div class="container mt-5">
+  <div class="row m-0">
+    <div class="col-4 d-flex flex-column align-items-center">
+      <h2 class="text-grid">tenha <br> uma <br> rotina</h2>
+      <img src="undraw_time_management_re_tk5w.svg" class="undraw-images" alt="analysis image" />
+      <p class="text-grid mt-3"> O ritmo circadiano possui influência no nosso humor. É imprescindível que ele esteja regulado para um equilíbrio da saúde mental.</p>
+    </div>
+    <div class="col-4 d-flex flex-column align-items-center">
+      <h2 class="text-grid">pratique exercícios físicos</h2>
+      <img src="undraw_pilates_ltw9.svg" class="undraw-images" alt="analysis image" />
+      <p class="text-grid mt-3"> A liberação de endorfina é responsável pela sensação de bem-estar e felicidade, assim como comer uma banana</p>
+    </div>
+    <div class="col-4 d-flex flex-column align-items-center">
+      <h2 class="text-grid">desenvolva seu auto-conhecimento</h2>
       <img src="undraw_coffee_time_e8cw.svg" class="undraw-images" alt="analysis image" />
+      <p class="text-grid mt-3"> Conhecer o que você gosta de fazer é importante para reconhecer o que fazer quando não tem se sentido bem. </p>
+    </div>
+    <div class="col-4 d-flex flex-column align-items-center">
+      <h2 class="text-grid">não se isole</h2>
       <img src="undraw_love_is_in_the_air_4uud.svg" class=" undraw-images" alt="analysis image" />
+      <p class="text-grid"> Você não está sozinho! Possuímos uma equipe capacitada que pode te ajudar. </p>
+    </div>
+    <div class="col-4 d-flex flex-column align-items-center">
+      <h2 class="text-grid">durma bem</h2>
       <img src="undraw_loading_re_5axr.svg" class="undraw-images" alt="analysis image" />
+      <p class="text-grid"> Pratique a higiene do sono! Dormir é um processo regenerativo do nosso corpo, responsável pela liberação de inúmeros hormônios.</p>
+    </div>
+    <div class="col-4 d-flex flex-column align-items-center">
+      <h2>procure ajuda</h2>
       <img src="undraw_doctor_kw-5-l.svg" class="undraw-images" alt="analysis image" />
+      <p class="text-grid"> Não hesite em pedir ajuda. Não existe vergonha nenhuma em estar se sentindo mal... </p>
     </div>
   </div>
-
-</body>
+</div>
