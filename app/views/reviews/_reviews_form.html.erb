@@ -4,7 +4,7 @@
   <%# f.submit "Submit", class: "btn btn-primary" %>
 <%# end %>
 
-<%= simple_form_for [@therapist, @review] do |f| %>
+<%= simple_form_for [therapist, review] do |f| %>
   <%= f.input :rating,
               collection: (1..5).to_a,
               placeholder: "Avalie...",

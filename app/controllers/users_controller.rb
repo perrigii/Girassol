@@ -15,21 +15,23 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    if @user.role == 'therapist'
+    if @user.role == 'therapist' && current_user.role == 'patient'
       @appointment = Appointment.where(patient_id: current_user.id, therapist_id: @user.id).last
       @reviews = @user.reviews_as_therapist
+      @reviews_total = Review.where(therapist: @user)
+      @average_rating = @reviews_total.map(&:rating).sum / @reviews_total.count
+      @appointment_new = Appointment.new
+      @patient = current_user
+      @review_new = Review.new
     end
-    @patient = current_user
-    if @appointment.present?
-      @appointment.patient = @patient
-      @appointment = Appointment.new
-    end
-    # @reviews = Review.where(patient_id: @patient, therapist_id: @therapist).order("created_at DESC")
-    # if @reviews.blank?
-    #   @avg_review = 0
-    # else
-    #   @avg_review = @reviews.average(:rating).round(2)
+    # if @appointment.present?
+    #   @appointment.patient = @patient
     # end
+
+    # @appointment = Appointment.new
+    # @patient = current_user
+    # @therapist = User.find(params[:user_id])
+    # @reviews = Review.where(patient_id: @patient, therapist_id: @therapist).order("created_at DESC")
 
   end
 

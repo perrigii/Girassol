@@ -18,6 +18,7 @@
   display: inline-block;
 }
 
+
 .avatar-info {
   align-items: center;
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='80' height='80' xmlns='http:…l-rule='nonzero' mask='url(%23b)' d='M50 64h5v2h-5z'/%3E%3C/g%3E%3C/svg%3E");
@@ -54,7 +55,8 @@ padding: 1.333rem;
   margin-bottom: 0;
   padding: 1rem 1.333rem;
   color: var(--bs-card-cap-color);
-  background-color: linear-gradient(144deg, #fcfcf7 0%, #fff9eb 100%);
+  background: linear-gradient(144deg, rgba(252,252,247,1) 0%, rgba(255,249,235,1) 100%);
+
 }
 
 
