@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[new create]
     resources :appointments, only: %i[new create]
   end
-  resources :rooms, only: %i[create show]
+  resources :rooms, only: %i[create show new]
     # Rota para as avaliações de terapeuta
     # Defines the root path route ("/")
     # root "articles#index"

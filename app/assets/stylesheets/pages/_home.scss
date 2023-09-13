@@ -91,21 +91,18 @@
   font-family: "Julius Sans One";
 }
 
-// .cards-homepage {
-//   // padding: -64px;
-// }
+
 
 .articles {
   font-size: 20px;
   width: 100%;
-  // text-wrap: balance;
   overflow-y: hidden;
 }
 
 .card-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
+  gap: 40px;
 }
 
 .text-success {
@@ -201,4 +198,33 @@
 .meditation {
   width: 600px;
   height: 500px;
+}
+
+.desacelere {
+  margin-top: -360px;
+  margin-left: 64px;
+}
+
+.cuidado {
+  width: 800px;
+
+}
+
+.text-benefits {
+  color: #F6E5B7;
+  font-family: "Pacifico";
+  font-size: 48px;
+  width: 700px;
+}
+
+.author {
+  font-size: 24px !important;
+  font-family: "Pacifico";
+  color: #F6E5B7;
+
+}
+
+.undraw-images {
+  width: 300px;
+  height: 300px;
 }

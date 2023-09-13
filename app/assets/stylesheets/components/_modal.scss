@@ -1,0 +1,31 @@
+.modal {
+  max-height: 18vh;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 70%;
+  right: 0;
+  top: 20%;
+  transform: translateY(-50%, -50%);
+  z-index: 1002;
+  background-color: #F8F5E4;
+  max-width: 275px;
+  overflow: auto;
+  border-radius: 10px;
+}
+
+.modal-close-button {
+  cursor: pointer;
+}
+
+.form-room {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .dedebutton {
+    width: 36%;
+  }
+  input {
+    width: 97%;
+  }
+}

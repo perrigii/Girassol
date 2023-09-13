@@ -1,44 +1,32 @@
-<% users = User.where(role: "patient") %>
-  <% users.each do |user| %>
-    <main class="container" role="main" data-id="main-content">
-        <div class="d-flex flex-column flex-md-row justify-content-between my-2 align-items-md-end">
+<main class="container-index-patients p-3">
+  <% users = User.where(role: "patient") %>
+    <% users.each do |user| %>
+      <div class="d-flex flex-column flex-md-row justify-content-between my-1 align-items-md-end">
+          <div class="user-card-search d-flex my-2 p-3 mx-auto d-block">
+            <div class="foto me-2">
+              <% if user.photo.attached? %>
+                <%= cl_image_tag user.photo.key, transformation: [ {width: 80, height: 80, radius: "max", gravity: "auto", crop: "fill", fetch_format: "auto" }], class:"profile-avatar" %>
+              <% else %>
+                <span class="me-2 avatar avatar-circle" style="background-image: url('<%= user.picture_url ? user.picture_url : "https://cdn-icons-png.flaticon.com/512/3607/3607444.png" %>')"></span>
+              <% end %>
 
-          <div class="col-md-4">
-            <div class="user-card card card-shadow-1 mb-1">
-              <div class="card-body p-0">
-                <div class="row mx-0 d-flex" data-id="search-listing-container">
-
-                  <div class="d-flex gap-2">
-                    <span class=" mb-1 avatar avatar-circle" style="background-image: url('<%= user.picture_url ? user.picture_url : "https://cdn-icons-png.flaticon.com/512/3607/3607444.png" %>')"></span>
-
-                    <div>
-                      <div class="user-card-title">
-                        <h4><%= link_to user.name, user_path(user) %></h4>
-                      </div>
-
-                      <div class="flex">
-                        <div class="flex align-items-center">
-                          <i class="fa-solid fa-user-doctor"></i>
-                          <span><%= user.specialty %></span>
-                        </div>
-                      </div>
-
-                      <div class="flex mt-3">
-                        <div class="flex align-items-center">
-                          <i class="fa-solid fa-quote-left"></i>
-                          <span><%= user.description %></span>
-                          <i class="fa-solid fa-quote-right"></i>
-                        </div>
-                      </div>
-                    <div>
-                  </div>
-
-                </div>
-              </div>
             </div>
-          </div>
 
-        </div>
+            <div class="infos m-2 p-2">
+
+              <div class="user-card-title">
+                <h6><%= link_to user.name, user_path(user) %></h6>
+              </div>
+
+              <div class="d-flex align-items-center">
+                <i class="fa-solid fa-quote-left"></i>
+                <p><%= user.description %></p>
+                <i class="fa-solid fa-quote-right"></i>
+              </div>
+
+            </div>
+
+          </div>
       </div>
-    </main>
-  <% end %>
+    <% end %>
+</main>

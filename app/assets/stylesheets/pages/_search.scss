@@ -1,0 +1,25 @@
+.user-card-search {
+  width: 90vw;
+  height: 120px;
+  border-radius: 10px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2);
+  background-color: white;
+  color: #3c3b3b;
+  p {
+    margin: 0px;
+    margin-bottom: 0px;
+  }
+}
+
+.search-index {
+  width: 150px;
+  background-color: #3F497F;
+  border-radius: 4px;
+  color: #FFFFFF;
+  transition: 0.2s;
+  &:hover {
+    color: #FFFFFF;
+    font-weight: bold;
+    background-color: #515c9b;
+  }
+}

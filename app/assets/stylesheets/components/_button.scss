@@ -132,13 +132,13 @@
   height: 40px;
   border-radius: 4px;
   background-color: #3F497F;
-  color: #725237b2;
+  border: 0.5px solid #3F497F;
   text-decoration: none;
   box-shadow: 0px 0px 2px #a59465d5;
   margin: 16px;
   transition: 0.3s;
   &:hover {
-    padding: 12px;
+    background-color: #596191;
     box-shadow: 0px 0px 3px #816e43;
     font-weight: bold;
   }

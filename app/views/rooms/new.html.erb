@@ -1,0 +1,16 @@
+<%= turbo_frame_tag "modal_popup" do %>
+  <div class="modal" data-controller="modal">
+    <div class="wherebyContainer text-center">
+      <div class="d-flex me-1 ms-3 mt-1 justify-content-between">
+        <h3>Chat de vídeo</h3>
+        <i class="fa-solid fa-xmark modal-close-button" data-action="click->modal#closeModal"></i>
+      </div>
+      <div class="mx-3">
+        <%= form_for @room, html: {class: 'form-room'} do |f| %>
+          <%= f.text_field :name, required: true %>
+          <%= f.button "Criar sala", class: 'greenBtn dedebutton', data: {turbo_frame: "_top"} %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

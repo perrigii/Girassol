@@ -2,13 +2,13 @@
 
   <div class="d-flex justify-content-start">
     <div class="container-fluid">
-      <%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag "Screenshot 2023-09-05 at 17.57.02_thumbnail.png" %>
+      <%= link_to root_path, class: "navbar-brand m-0" do %>
+        <%= image_tag "girassol-07.JPG", class: "logotipo" %>
       <% end %>
     </div>
-    <div class="d-flex align-items-center">
+    <%# <div class="d-flex align-items-center">
       <p class="text-white mb-0 title-navbar">GIRASSOL</p>
-    </div>
+    </div> %>
   </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -25,7 +25,7 @@
           </li>
           <% if current_user.therapist? %>
             <li class="nav-item">
-              <%= link_to "Criar sala", dedechat_path, class: "nav-link" %>
+              <%= link_to "Criar sala", new_room_path, class: "nav-link", data: {turbo_frame: "modal_popup"} %>
             </li>
           <% end %>
           <li class="nav-item dropdown">
