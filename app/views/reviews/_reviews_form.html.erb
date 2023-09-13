@@ -8,7 +8,7 @@
   <%= f.input :rating,
               collection: (1..5).to_a,
               placeholder: "Avalie...",
-              input_html: {data: {controller: "star-rating"}} %>
+              input_html: {data: {controller: "star-rating"}, id: "star_rating" } %>
 
   <%= f.text_area :comment, placeholder: "Deixe um comentário..." %>
   <%= f.submit "Enviar", class: "btn btn-primary" %>

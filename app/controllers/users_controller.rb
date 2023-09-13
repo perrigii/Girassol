@@ -24,6 +24,12 @@ class UsersController < ApplicationController
       @appointment.patient = @patient
       @appointment = Appointment.new
     end
+    # @reviews = Review.where(patient_id: @patient, therapist_id: @therapist).order("created_at DESC")
+    # if @reviews.blank?
+    #   @avg_review = 0
+    # else
+    #   @avg_review = @reviews.average(:rating).round(2)
+    # end
 
   end
 

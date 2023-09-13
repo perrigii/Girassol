@@ -1,0 +1,62 @@
+.container-show-patient {
+    color: #4a463de2 !important;
+
+}
+
+.container-show-therapist {
+  background-color: rgba(28, 78, 114, 0.808);
+}
+
+.therapist-info {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.333rem;
+}
+
+.media-body{
+}
+
+.info-name {
+  display: inline-block;
+}
+
+.therapist-card {
+
+}
+
+.avatar-info {
+  align-items: center;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='80' height='80' xmlns='http:…l-rule='nonzero' mask='url(%23b)' d='M50 64h5v2h-5z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 100%;
+  border-radius: .2667rem;
+  display: flex;
+  flex-basis: 5.333rem;
+  flex-shrink: 0;
+  height: 5.333rem;
+  justify-content: center;
+  position: relative;
+  width: 5.333rem;
+}
+
+
+.btn-users {
+  padding: .534rem .8rem;
+  margin-right: 10px;
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  border-radius: .2rem;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-color: #f1dfab;
+  color: #725237b2;
+  text-decoration: none;
+  box-shadow: 0px 0px 2px #a59465d5;
+  transition: 0.5s;
+  &:hover {
+    padding: .534rem .8rem;
+    box-shadow: 0px 0px 3px #978150;
+    font-weight: bold;
+  }
+}
