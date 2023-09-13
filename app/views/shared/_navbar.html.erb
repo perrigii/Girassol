@@ -20,6 +20,9 @@
           <li class="nav-item active">
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
+          <li class="nav-item active">
+            <%= link_to "Especialistas", users_path, class: "nav-link" %>
+          </li>
           <li class="nav-item">
             <%= link_to "Mensagens", chatrooms_path, class: "nav-link" %>
           </li>
@@ -48,12 +51,11 @@
           </li>
         <% else %>
           <div class="homepage-buttons d-flex justify-content-between align-items-center">
-            <button type="button" class="btn btn-primary mx-5 login my-5">
+            <button type="button" class="btn mx-5 login my-5">
               <li class="nav-item">
                 <%= link_to "Login", new_user_session_path, class: "nav-link" %>
               </li>
             </button>
-            <i class="fa-solid fa-bars fa-xl"></i>
           </div>
         <% end %>
       </ul>
