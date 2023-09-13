@@ -1,5 +1,6 @@
 .container-show-patient {
     color: #4a463de2 !important;
+    font-size: small;
 
 }
 
@@ -13,15 +14,8 @@
   padding: 1.333rem;
 }
 
-.media-body{
-}
-
 .info-name {
   display: inline-block;
-}
-
-.therapist-card {
-
 }
 
 .avatar-info {
@@ -36,6 +30,36 @@
   justify-content: center;
   position: relative;
   width: 5.333rem;
+}
+
+.media {
+  align-items: flex-start;
+  display: flex;
+}
+.media-body{
+  flex: 1;
+}
+
+
+.card-body {
+flex: 1 1 auto;
+min-height: 1px;
+padding: 1.333rem;
+}
+
+.card-header {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: .06667rem solid rgba(0,0,0,.08);
+  margin-bottom: 0;
+  padding: 1rem 1.333rem;
+  color: var(--bs-card-cap-color);
+  background-color: linear-gradient(144deg, #fcfcf7 0%, #fff9eb 100%);
+}
+
+
+.therapist-card {
+
 }
 
 
@@ -59,4 +83,8 @@
     box-shadow: 0px 0px 3px #978150;
     font-weight: bold;
   }
+}
+
+.text-muted {
+  color: #975050df;
 }

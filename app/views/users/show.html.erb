@@ -5,7 +5,28 @@
       <div class="row">
         <%# MARCAR CONSULTAS %>
         <div class="col-sm-6 col-md-4 col-lg-5 order-md-last">
+
+          <div class="all-new">
+            <div class="w-100" style="bottom: auto; width: 227px; top: 0px;">
+              <div class="card-new-appointment mx-auto d-block card-new-appointment">
+                <div class="title-new text-center my-3">
+                  <h2 class="my-4">Agende sua consulta abaixo</h2>
+                </div>
+
+                <%# CALENDÁRIO AQUI %>
+                <div id="my_calendar" class="">
+                  <div class="">
+                    <div class="d-flex justify-content-center ">
+                      <%= render 'appointments/calendar_form', appointment: @appointment %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
+
 
         <%# PERFIL DO TERAPEUTA %>
         <div class="patient-profile col-sm-8 col-md-8 col-lg-7 order-md-first text-center">
@@ -93,7 +114,6 @@
                 <div class="pr-1">
                   <i class="fa-solid fa-address-card"></i>
                 </div>
-
                 <div class="media-body">
                   <p class="mb-0-5">
                     <span class="d-flex flex-wrap align-items-center">
@@ -106,46 +126,73 @@
                 </div>
               </div>
 
-              <div class="media-body">
-                <p class="mb-0-5">
-                  <span class="d-flex flex-wrap align-items-center">
-                    <span>Experiência em: </span>
-                  </span>
-                </p>
-                <div class="text-muted">
-                  <p> <%= @user.specialty %> </p>
+              <hr class="my-1">
+
+              <div class="media">
+                <div class="pr-1">
+                  <i class="fa-solid fa-list-check"></i>
+                </div>
+                <div class="media-body">
+                  <p class="mb-0-5">
+                    <span class="d-flex flex-wrap align-items-center">
+                      <span>Experiência em: </span>
+                    </span>
+                  </p>
+                  <div class="text-muted">
+                    <p> <%= @user.specialty %> </p>
+                  </div>
                 </div>
               </div>
+
             </div>
           </div>
 
           <%# *REVIEWS* %>
           <div class="reviews card card-shadow-1 mb-1">
-            <div class="reviews mx-auto d-block">
-              <% if @reviews.blank? %>
-                <% if @appointment.nil? %>
-                  <h3 class="my-3">Ainda sem avaliações!</h3>
+            <div class="card-header">
+              <h3 class=" mb-0"><strong> opiniões de pacientes </strong></h3>
+            </div>
+
+            <div class="card-body opinions-list">
+              <div class="reviews mx-auto d-block">
+                <% if @reviews.blank? %>
+                  <% if @appointment.nil? %>
+                    <h3 class="my-3">Ainda sem avaliações!</h3>
+                  <% else %>
+                    <h5>Ainda não temos avaliação para este terapeuta, seja o primeiro!</h5>
+                    <%= link_to "Avaliar", new_user_review_path(user_id: @user.id, appointment_id: @appointment.id), class: "btn-users btn-primary col-3 m-3" %>
+                  <% end %>
                 <% else %>
-                  <h5>Ainda não temos avaliação para este terapeuta, seja o primeiro!</h5>
-                  <%= link_to "Avaliar", new_user_review_path(user_id: @user.id, appointment_id: @appointment.id), class: "btn-users btn-primary col-3 m-3" %>
-                <% end %>
-              <% else %>
-                <h3 class="mt-5">Avaliações</h3>
-                <% @reviews.each do |review| %>
-                  <div class="review">
-                    <%# adicionar o nome do paciente aqui %>
-                    <p class="text-start"><strong> <%= review.patient.name %> </strong> </p>
-                    <div>
-                      <p style="text-align:left" >
-                        <% review.rating.times do  %>
-                        <i class="fa-solid fa-star" style="color: #F4E006;"></i>
-                        <% end %>
-                      </p>
+
+                  <% @reviews.each do |review| %>
+                    <div class="media opinion text-break">
+                      <div class="pr-1">
+                        <span class="avatar avatar-circle avatar-xs avatar-color avatar-color-primary"></span>
+                      </div>
+
+                      <div class="media-body">
+                        <div class="mb-1">
+                          <div class="row justify-content-between">
+                            <div class="col-6">
+                              <h4 class="text-base-size font-weight-normal mb-0 text-truncate"><strong> <%= review.patient.name %> </strong> </h4>
+                            </div>
+                          </div>
+                        </div>
+                        <div>
+                          <p style="text-align:left" >
+                            <% review.rating.times do  %>
+                            <i class="fa-solid fa-star" style="color: #F4E006;"></i>
+                            <% end %>
+                          </p>
+                        </div>
+                        <p class="text-break text-start"> <%= review.comment %></p>
+                      </div>
                     </div>
-                    <p class="text-start"> <%= review.comment %></p>
-                  </div>
+                    <hr class="my-1">
+                  <% end %>
                 <% end %>
-              <% end %>
+              </div>
+
             </div>
           </div>
         </div>
