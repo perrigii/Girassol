@@ -4,7 +4,7 @@
       <div class="">
         <div class="card-appointment mt-4 p-3 mx-auto d-block text-center">
           <% if current_user.patient? %>
-            <p class=""><strong>Sua consulta será com: </strong><%= @appointment.therapist.name.capitalize %></p>
+            <p class=""><strong>Sua consulta será com: </strong> <%= @appointment.therapist.name.capitalize %> <%= @appointment.therapist.surname.capitalize %></p>
             <% if @appointment.therapist.photo.attached? %>
               <%= cl_image_tag @appointment.therapist.photo.key, transformation: [{width: 80, height: 80, radius: "max", gravity: "auto", crop: "fill", fetch_format: "auto" }], class:"profile-avatar mx-auto d-block" %>
             <% else %>
@@ -25,7 +25,7 @@
               <%= link_to "Conversar com #{@appointment.therapist.name}", chatroom_path(id: Chatroom.where(patient_id: current_user.id, therapist_id: @appointment.therapist.id).first.id), class: "falar-com m-3" %>
             <% end %>
           <% else %>
-            <p class=""><strong>Sua consulta será com: </strong><%= @appointment.patient.name.capitalize %></p>
+            <p class=""><strong>Sua consulta será com: </strong><%= @appointment.patient.name.capitalize %> <%= @appointment.patient.surname.capitalize %> </p>
             <% if @appointment.patient.photo.attached? %>
               <%= cl_image_tag @appointment.patient.photo.key, transformation: [{width: 80, height: 80, radius: "max", gravity: "auto", crop: "fill", fetch_format: "auto" }], class:"profile-avatar mx-auto d-block" %>
             <% else %>
