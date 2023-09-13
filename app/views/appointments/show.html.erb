@@ -21,9 +21,6 @@
             <% else %>
               <%= link_to "Conversar com #{@appointment.therapist.name}", chatrooms_path(user_id: @appointment.therapist.id), data: { turbo_method: :post }, class: "falar-com m-5" %>
             <% end %>
-            <%# <% if Chatroom.where(patient_id: current_user.id, therapist_id: @appointment.therapist.id).count > 0 %>
-              <%# <%= link_to "Conversar com #{@appointment.therapist.name}", chatroom_path(id: Chatroom.where(patient_id: current_user.id, therapist_id: @appointment.therapist.id).first.id), class: "falar-com m-3" %>
-            <%# <% end %>
           <% else %>
             <p class=""><strong>Sua consulta será com: </strong><%= @appointment.patient.name.capitalize %> <%= @appointment.patient.surname.capitalize %> </p>
             <% if @appointment.patient.photo.attached? %>
