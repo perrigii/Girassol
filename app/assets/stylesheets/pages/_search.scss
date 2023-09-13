@@ -10,3 +10,16 @@
     margin-bottom: 0px;
   }
 }
+
+.search-index {
+  width: 150px;
+  background-color: #3F497F;
+  border-radius: 4px;
+  color: #FFFFFF;
+  transition: 0.2s;
+  &:hover {
+    color: #FFFFFF;
+    font-weight: bold;
+    background-color: #515c9b;
+  }
+}
