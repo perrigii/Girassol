@@ -91,21 +91,18 @@
   font-family: "Julius Sans One";
 }
 
-// .cards-homepage {
-//   // padding: -64px;
-// }
+
 
 .articles {
   font-size: 20px;
   width: 100%;
-  // text-wrap: balance;
   overflow-y: hidden;
 }
 
 .card-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
+  gap: 40px;
 }
 
 .text-success {
