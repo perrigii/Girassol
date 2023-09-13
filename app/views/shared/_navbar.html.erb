@@ -25,7 +25,7 @@
           </li>
           <% if current_user.therapist? %>
             <li class="nav-item">
-              <%= link_to "Criar sala", dedechat_path, class: "nav-link" %>
+              <%= link_to "Criar sala", new_room_path, class: "nav-link", data: {turbo_frame: "modal_popup"} %>
             </li>
           <% end %>
           <li class="nav-item dropdown">
