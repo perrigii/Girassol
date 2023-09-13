@@ -24,22 +24,22 @@
       data-controller="chatroom-subscription"
       data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
       data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
-      <div class="chat-name d-flex">
+      <div class="chat-name d-flex align-items-center">
         <% if current_user == 'therapist' %>
           <% if @chatroom.patient.photo.attached? %>
               <%= cl_image_tag @chatroom.patient.photo.key, transformation: [{width: 50, height: 50, radius: "max", gravity: "center", crop: "fill"}], class: "chatroom-avatar" %>
-              <h2 class="chatroom-name"><%= "#{@chatroom.patient.name} #{@chatroom.patient.surname}" %></h2>
+              <h2 class="chatroom-name mb-0"><%= "#{@chatroom.patient.name} #{@chatroom.patient.surname}" %></h2>
             <% else %>
-              <i class="fa-solid fa-user" style='color: #392d14;', class= "avatar"></i>
-              <h2 class="chatroom-name"><%= "#{@chatroom.patient.name} #{@chatroom.patient.surname}" %></h2>
+              <i class="fa-solid fa-user chatroom-avatar" style='color: #392d14;', class= "avatar"></i>
+              <h2 class="chatroom-name mb-0"><%= "#{@chatroom.patient.name} #{@chatroom.patient.surname}" %></h2>
             <% end %>
         <% else %>
           <% if @chatroom.therapist.photo.attached? %>
               <%= cl_image_tag @chatroom.therapist.photo.key, transformation: [{width: 50, height: 50, radius: "max", gravity: "center", crop: "fill"}], class: "chatroom-avatar" %>
-              <h2 class="chatroom-name"><%= "#{@chatroom.therapist.name} #{@chatroom.therapist.surname}" %></h2>
+              <h2 class="chatroom-name mb-0"><%= "#{@chatroom.therapist.name} #{@chatroom.therapist.surname}" %></h2>
             <% else %>
-              <i class="fa-solid fa-user" style='color: #392d14;', class= "avatar"></i>
-              <h2 class="chatroom-name"><%= "#{@chatroom.therapist.name} #{@chatroom.therapist.surname}" %></h2>
+              <i class="fa-solid fa-user chatroom-avatar" style='color: #392d14;', class= "avatar chatroom-avatar"></i>
+              <h2 class="chatroom-name mb-0"><%= "#{@chatroom.therapist.name} #{@chatroom.therapist.surname}" %></h2>
             <% end %>
         <% end %>
       </div>
