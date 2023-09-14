@@ -30,7 +30,8 @@
 
 .calendar-center {
   width: 100% !important;
-  right: 30px !important;
+  right: 10px !important;
+  left: 30px !important;
 }
 
 #marcar {
@@ -58,4 +59,16 @@
   width: 100%;
   top: 50%;
   margin: 0 auto;
+}
+
+.calendar-title {
+  h2 {
+    font-size: 5px;
+  }
+}
+
+.all-new {
+  background-color: #faeecc;
+  border: 0.5px solid #f3e0ab;
+  box-shadow: inset 0 10px 10px -10px rgba(49, 49, 19, 0.651);
 }

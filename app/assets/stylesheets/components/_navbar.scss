@@ -1,4 +1,5 @@
 .navbar-lewagon {
+  height: 120px !important;
   justify-content: space-between;
   background: #F7C04A;
   box-shadow: 7px 2px 5px 0px rgba(0,0,0,0.17);
@@ -62,11 +63,20 @@ a:hover {
 }
 
 .logotipo {
-  width: 250px !important;
+  width: 280px !important;
   height: 100px;
 }
 
 .about-us {
   border-radius: 8px;
+}
 
+.nav-link {
+  font-size: 20px;
+  margin: 4px;
+}
+
+.nav-avatar {
+  margin: 8px;
+  padding: 0px;
 }
