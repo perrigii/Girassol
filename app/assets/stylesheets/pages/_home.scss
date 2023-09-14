@@ -7,7 +7,7 @@
 .banner {
   width: 100%;
   background: #3F497F;
-  height: 500px;
+  height: auto;
   flex-shrink: 0;
   border-radius: 0px 0px 80px 80px;
   box-shadow: 9px 7px 10px 0px rgba(0,0,0,0.25);
@@ -87,7 +87,7 @@
 .slogan {
   font-size: 32px;
   color: #F6E5B7;
-  padding-top: 180px;
+  padding-top: 200px;
   font-family: "Julius Sans One";
 }
 

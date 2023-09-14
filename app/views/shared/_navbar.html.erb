@@ -34,7 +34,9 @@
             <%= cl_image_tag current_user.photo.key, transformation: [
   {width: 50, height: 50, radius: "max", gravity: "center", crop: "fill"}], class: "avatar", alt: "dropdown menu" %>
           <% else %>
-            <i class="fa-solid fa-user" style='color: #392d14;', class= "nav-avatar", alt= "dropdown menu"></i>
+            <div class="nav-avatar">
+              <i class="fa-solid fa-user" style='color: #392d14;', class= "nav-avatar", alt= "dropdown menu"></i>
+            </div>
           <% end %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
