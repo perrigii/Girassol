@@ -30,6 +30,19 @@
   flex-shrink: 0;
   border-radius: 2rem;
   text-align: center;
+  background: #3F497F;
+  a {
+    color: #ffffff;
+    transition: color 0.3s ease;
+  }
+}
+
+login:hover {
+  background: #535e9d;
+}
+
+a:hover {
+  color: #a6b0dd;
 }
 
 .guia {
