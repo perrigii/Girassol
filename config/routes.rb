@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   get "/patients", to: "pages#patients", as: :patients
   get "/dedechat", to: "pages#dedechat", as: :dedechat
   resources :appointments, only: %i[show destroy]
+  get 'about_us', to: 'pages#about_us'
 end

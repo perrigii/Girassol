@@ -6,9 +6,7 @@
         <%= image_tag "girassol-07.JPG", class: "logotipo" %>
       <% end %>
     </div>
-    <%# <div class="d-flex align-items-center">
-      <p class="text-white mb-0 title-navbar">GIRASSOL</p>
-    </div> %>
+
   </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -43,6 +41,7 @@
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Meu perfil", profile_path, class: "dropdown-item" %>
               <%= link_to "Minhas consultas", appointments_path, class: "dropdown-item" %>
+              <%= link_to "Sobre nós", about_us_path, class: "dropdown-item" %>
                 <% if current_user && current_user.role == 'therapist' %>
                   <%= link_to "Encontre pacientes", patients_path, class: "dropdown-item" %>
                 <% end %>
@@ -56,6 +55,13 @@
                 <%= link_to "Entrar", new_user_session_path, class: "nav-link" %>
               </li>
             </button>
+
+            <button type="button" class="btn btn-primary mx-5 login my-5">
+              <li class="nav-item">
+                <%= link_to "Sobre nós", about_us_path, class: "nav-link" %>
+              </li>
+            </button>
+            
           </div>
         <% end %>
       </ul>
