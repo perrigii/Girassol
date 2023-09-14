@@ -1,0 +1,115 @@
+.container-show-patient {
+  color: #4a463de2 !important;
+    .media-body {
+      overflow: hidden;
+    }
+    .card {
+      border-radius: 8px;
+      font-size: 23px;
+      word-wrap: break-word;
+  }
+}
+
+.container-show-therapist {
+  background-color: rgba(28, 78, 114, 0.808);
+}
+
+.therapist-info {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.333rem;
+}
+
+.info-name {
+  display: inline-block;
+}
+
+
+.avatar-info {
+  align-items: center;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='80' height='80' xmlns='http:…l-rule='nonzero' mask='url(%23b)' d='M50 64h5v2h-5z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 100%;
+  border-radius: .2667rem;
+  display: flex;
+  flex-basis: 5.333rem;
+  flex-shrink: 0;
+  height: 5.333rem;
+  justify-content: center;
+  position: relative;
+  width: 5.333rem;
+}
+
+.media {
+  align-items: flex-start;
+  display: flex;
+}
+.media-body{
+  flex: 1;
+}
+
+
+.card-body {
+flex: 1 1 auto;
+min-height: 1px;
+padding: 1.333rem;
+}
+
+.card-header {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: .06667rem solid rgba(0,0,0,.08);
+  margin-bottom: 0;
+  padding: 1rem 1.333rem;
+  color: var(--bs-card-cap-color);
+  background: linear-gradient(144deg, rgba(252,252,247,1) 0%, rgba(255,249,235,1) 100%);
+
+}
+
+
+.therapist-card {
+
+}
+
+
+.btn-users {
+  padding: .534rem .8rem;
+  margin-right: 10px;
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  border-radius: .2rem;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-color: #f1dfab;
+  color: #725237b2;
+  text-decoration: none;
+  box-shadow: 0px 0px 2px #a59465d5;
+  transition: 0.5s;
+  &:hover {
+    padding: .534rem .8rem;
+    box-shadow: 0px 0px 3px #978150;
+    font-weight: bold;
+  }
+}
+
+.text-muted {
+  color: #975050df;
+}
+
+.form-label {
+font-size: 0;
+}
+
+.form-label::after {
+content: " Deixe uma avaliação";
+font-size: 20px !important;
+}
+
+.create-appointments {
+
+}
+
+.create-review {
+
+}

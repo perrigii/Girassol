@@ -14,6 +14,7 @@ class ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
+
   end
 
   def create
@@ -25,7 +26,7 @@ class ReviewsController < ApplicationController
     # @review.appointments_id = Appointment.where(patient_id: @patient.id, therapist_id: @therapist.id).last.id
     respond_to do |format|
       if @review.save
-        format.html { redirect_to user_path(@therapist), notice: 'Review was successfully created.' }
+        format.html { redirect_to user_path(@therapist), notice: 'Sua avaliação foi postada!' }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
