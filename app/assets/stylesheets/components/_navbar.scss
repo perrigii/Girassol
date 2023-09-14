@@ -28,17 +28,16 @@
   width: 6rem;
   height: 48px;
   flex-shrink: 0;
-  border-radius: 2rem;
+  border-radius: 8px;
   text-align: center;
-  background: #3F497F;
+
   a {
-    color: #ffffff;
     transition: color 0.3s ease;
   }
 }
 
 login:hover {
-  background: #535e9d;
+  background: #6B6457;
 }
 
 a:hover {
@@ -65,4 +64,9 @@ a:hover {
 .logotipo {
   width: 250px !important;
   height: 100px;
+}
+
+.about-us {
+  border-radius: 8px;
+
 }
