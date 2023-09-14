@@ -9,7 +9,7 @@
               <%= cl_image_tag @appointment.therapist.photo.key, transformation: [{width: 80, height: 80, radius: "max", gravity: "auto", crop: "fill", fetch_format: "auto" }], class:"profile-avatar mx-auto d-block" %>
             <% else %>
               <div class="text-center">
-                <i class="fa-solid fa-user my-3" style='color: #392d14;'></i>
+                <i class="fa-solid fa-user my-3" style='color: #ffffff;'></i>
               </div>
             <% end %>
             <div class="info-consulta text-center m-4">
@@ -27,7 +27,7 @@
               <%= cl_image_tag @appointment.patient.photo.key, transformation: [{width: 80, height: 80, radius: "max", gravity: "auto", crop: "fill", fetch_format: "auto" }], class:"profile-avatar mx-auto d-block" %>
             <% else %>
               <div class="text-center">
-                <i class="fa-solid fa-user my-3" style='color: #392d14;'></i>
+                <i class="fa-solid fa-user my-3" style='color: #ffffff;'></i>
               </div>
             <% end %>
             <div class="info-consulta">
@@ -43,7 +43,7 @@
           <%= link_to "Cancelar consulta", appointment_path(@appointment), data: { turbo_method: :delete, turbo_confirm: "Quer mesmo cancelar esta consulta?" }, class: "del-order text-center mx-auto d-block" %>
         </div>
         <div class="col-12 col-md-6 m-4">
-          <img src="<%= asset_path 'undraw_Booking_re_gw4j (2).png' %>" alt="Calendario com check",  class= "img-appointment">
+          <img src='' alt="Calendario",  class= "img-appointment">
         </div>
       </div>
       <% if current_user.role == 'therapist' %>
