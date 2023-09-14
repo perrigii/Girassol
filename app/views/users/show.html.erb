@@ -4,37 +4,37 @@
     <div>
       <div class="row">
         <%# MARCAR CONSULTAS %>
-        <div class="col-sm-6 col-md-4 col-lg-5 order-md-last">
+        <div class="col-sm-3 col-md-4 col-lg-5 order-md-last">
 
           <div class="all-new">
             <div class="w-100" style="bottom: auto; width: 227px; top: 0px;">
-              <div class="card-new-appointment mx-auto d-block card-new-appointment">
-                <div class="title-new text-center my-3 calendar-title">
-                  <h2 class="my-4 ">Agende sua consulta abaixo</h2>
-                </div>
+              <div class="sidebar-menu vue-affix affix-top" style="width: 397px;">
+                <div class=" card card-new-appointment mx-auto d-block card-new-appointment">
+                  <div class="card-header py-1 bg-primary">
+                    <h3 class=" mb-0">Agende sua consulta abaixo</h3>
+                  </div>
 
-                <%# CALENDÁRIO AQUI %>
-                <div id="my_calendar" class="">
-                  <div class="">
-                    <div class="d-flex justify-content-center ">
-                      <%= (render 'appointments/calendar_form', appointment: @appointment_new, therapist: @user) if current_user.role == "patient" && @user.role == "therapist" %>
+                  <%# CALENDÁRIO AQUI %>
+                  <div id="my_calendar" class="">
+                    <div class="">
+                      <div class="d-flex justify-content-center ">
+                        <%= (render 'appointments/calendar_form', appointment: @appointment_new, therapist: @user) if current_user.role == "patient" && @user.role == "therapist" %>
+                      </div>
                     </div>
                   </div>
+
+                  <div class="reviews">
+                    <%= (render 'reviews/reviews_form', review: @review_new, therapist: @user) if current_user.role == "patient" && @user.role == "therapist" %>
+                  </div>
                 </div>
-
-                  <%= (render 'reviews/reviews_form', review: @review_new, therapist: @user) if current_user.role == "patient" && @user.role == "therapist" %>
-
               </div>
             </div>
           </div>
-
-
-
         </div>
 
 
         <%# PERFIL DO TERAPEUTA %>
-        <div class="patient-profile col-sm-8 col-md-8 col-lg-7 order-md-first text-center">
+        <div class="patient-profile col-sm-9 col-md-8 col-lg-7 order-md-first text-center">
           <div class="card therapist-card card-shadow-1 mb-1">
             <div class=" pb-0 pt-1">
               <div class="therapist-info mt-0 mt-sm-1 pt-1 pt-sm-0">
@@ -61,11 +61,10 @@
                       <% end %>
                       <h1 class="h3 m-0">
                         <div class="info-name">
-                          <span> <%= @user.name.capitalize %> <%= @user.surname.capitalize %> </span>
+                          <span> <strong><%= @user.name.capitalize %> <%= @user.surname.capitalize %> </strong></span>
                         </div>
                       </h1>
                     </div>
-
                     <div class="">
                       <% if @user.role == 'patient' %>
                         <h2 class="h4 text-muted font-weight-normal mb-0-5 d-flex"> Paciente </h2>
@@ -74,7 +73,6 @@
                       <% end %>
 
                       <%# MÉDIA DE RATINGS %>
-
                       <div>
                         <p style="text-align:left" >
                           <% @average_rating.times do  %>
@@ -82,9 +80,6 @@
                           <% end %>
                         </p>
                       </div>
-                      <%# <div class="d-inline-block text-muted mb-0-5">
-                        <div class="star-rating" data-score= <%= @avg_review ></div> %>
-                      <%# </div>
                     </div>
 
                     <%# *BOTÕES* %>
