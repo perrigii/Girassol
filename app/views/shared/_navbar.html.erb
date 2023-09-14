@@ -38,6 +38,7 @@
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Meu perfil", profile_path, class: "dropdown-item" %>
               <%= link_to "Minhas consultas", appointments_path, class: "dropdown-item" %>
+              <%= link_to "Sobre nós", about_us_path, class: "dropdown-item" %>
                 <% if current_user && current_user.role == 'therapist' %>
                   <%= link_to "Encontre pacientes", patients_path, class: "dropdown-item" %>
                 <% end %>
