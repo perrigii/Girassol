@@ -1,6 +1,13 @@
 .container-show-patient {
   color: #4a463de2 !important;
-
+    .media-body {
+      overflow: hidden;
+    }
+    .card {
+      border-radius: 8px;
+      font-size: 23px;
+      word-wrap: break-word;
+  }
 }
 
 .container-show-therapist {
@@ -99,4 +106,10 @@ content: " Deixe uma avaliação";
 font-size: 20px !important;
 }
 
+.create-appointments {
 
+}
+
+.create-review {
+
+}

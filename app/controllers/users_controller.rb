@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       @appointment = Appointment.where(patient_id: current_user.id, therapist_id: @user.id).last
       @reviews = @user.reviews_as_therapist
       @reviews_total = Review.where(therapist: @user)
-      @average_rating = @reviews_total.map(&:rating).sum / @reviews_total.count
+      @average_rating = @reviews_total.map(&:rating).sum / @reviews_total.count unless @reviews_total.empty?
       @appointment_new = Appointment.new
       @patient = current_user
       @review_new = Review.new
