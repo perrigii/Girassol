@@ -1,14 +1,14 @@
-<% if @appointments.present? %>
-      <% @appointments.each do |appointment| %>
-<div class="appointments-body mx-auto d-block ms-5 px-3 mt-4">
+<div class="appointments-container">
+  <% if @appointments.present? %>
+    <% @appointments.each do |appointment| %>
       <% if current_user.patient? %>
-        <div class="appointment-index d-flex justify-content-start my-2 px-5">
+        <div class="appointment-index d-flex justify-content-evenly p-3">
           <div class="foto">
             <% if appointment.therapist.photo.attached? %>
               <%= cl_image_tag appointment.therapist.photo.key, transformation: [{width: 80, height: 80, radius: "max", gravity: "auto", crop: "fill", fetch_format: "auto" }], class:"profile-avatar" %>
             <% else %>
               <span class=" mb-1 avatar avatar-circle" style="background-image: url( 'https://cdn-icons-png.flaticon.com/512/3607/3607444.png')"></span>
-             <% end %>
+            <% end %>
           </div>
 
           <div class="infos">
@@ -20,36 +20,36 @@
               <p><strong>Data: </strong><%= appointment.start_time.strftime('%d/%m/%Y') %></p>
               <p><strong>Hora: </strong><%= appointment.end_time.strftime('%H:%M') %></p>
             </div>
-          </div>
 
-          <div class="botao m-3">
-            <%= link_to "Ver detalhes", appointment_path(appointment), class: "del-order" %>
+            <div class="botao m-3">
+              <%= link_to "Ver detalhes", appointment_path(appointment), class: "btn-detalhes" %>
+            </div>
           </div>
         </div>
       <% else %>
-        <div class="appointment-index d-flex justify-content-evenly my-2 px-5">
-          <div class="foto mt-3">
-            <% if appointment.patient.photo.attached? %>
-              <%= cl_image_tag appointment.patient.photo.key, transformation: [{width: 80, height: 80, radius: "max", gravity: "auto", crop: "fill", fetch_format: "auto" }], class:"profile-avatar" %>
-            <% else %>
-              <span class=" mb-1 avatar avatar-circle" style="background-image: url( 'https://cdn-icons-png.flaticon.com/512/3607/3607444.png')"></span>
-             <% end %>
-          </div>
-
-          <div class="infos mt-3 d-flex flex-column justify-content-start">
-            <div class="com-quem m-1">
-              <p class=""><strong>Sua consulta será com:  </strong><%= appointment.patient.name.capitalize %> <%= appointment.patient.surname.capitalize %></p>
-             </div>
+        <div class="appointment-index d-flex justify-content-between my-2 px-2">
+          <div class="infos d-flex">
+            <div class="foto m-4">
+              <% if appointment.patient.photo.attached? %>
+                <%= cl_image_tag appointment.patient.photo.key, transformation: [{width: 80, height: 80, radius: "max", gravity: "auto", crop: "fill", fetch_format: "auto" }], class:"profile-avatar" %>
+              <% else %>
+                <span class=" mb-1 avatar avatar-circle" style="background-image: url( 'https://cdn-icons-png.flaticon.com/512/3607/3607444.png')"></span>
+              <% end %>
+            </div>
+            <div class="d-flex flex-column pt-4">
+              <div class="com-quem m-1">
+                <p class=""><strong>Sua consulta será com:  </strong><%= appointment.patient.name.capitalize %> <%= appointment.patient.surname.capitalize %></p>
+              </div>
 
               <div class="data-e-hora m-1">
                 <p><strong>Data: </strong><%= appointment.start_time.strftime('%d/%m/%Y') %></p>
                 <p><strong>Hora: </strong><%= appointment.end_time.strftime('%H:%M') %></p>
               </div>
             </div>
+          </div>
 
-            <div class="botao mt-4">
-              <%= link_to "Ver detalhes", appointment_path(appointment), class: "del-order mx-auto d-block" %>
-            </div>
+          <div class="botao mt-4">
+            <%= link_to "Ver detalhes", appointment_path(appointment), class: "btn-detalhes" %>
           </div>
         </div>
       <% end %>
