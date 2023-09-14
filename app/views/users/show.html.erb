@@ -8,7 +8,7 @@
           <div class=" card-shadow-1 create-appointments mb-1">
             <div class="w-100" style="bottom: auto; width: 227px; top: 0px;">
               <div class="sidebar-menu vue-affix affix-top" style="width: 397px;">
-                <div class=" card card-new-appointment mx-auto d-block mb-2">
+                <div id="agendar" class=" card card-new-appointment mx-auto d-block mb-2">
                   <div class="card-header py-1 bg-primary">
                     <h3 class=" mb-0">Agende sua consulta</h3>
                   </div>
@@ -93,7 +93,7 @@
 
                     <%# *BOTÕES* %>
                     <div class=" d-none d-md-flex flex-wrap mt-auto">
-                      <%= link_to new_user_appointment_path(@user.id), class: "btn-users btn-sm-block btn-lg mt-1 mr-1" do %>
+                      <%= link_to "#agendar", class: "btn-users btn-sm-block btn-lg mt-1 mr-1" do %>
                         <i class="fas fa-calendar-alt me-2"></i>
                         <span>Agendar consulta</span>
                       <% end %>
