@@ -1,5 +1,5 @@
 .navbar-lewagon {
-  margin-top: 50px;
+  height: 150px;
   justify-content: space-between;
   background: #F7C04A;
   box-shadow: 7px 2px 5px 0px rgba(0,0,0,0.17);
@@ -51,6 +51,17 @@
 }
 
 .logotipo {
-  width: 250px !important;
+  width: 280px !important;
   height: 100px;
 }
+
+.nav-link {
+  font-size: 20px;
+  margin: 4px;
+}
+
+.nav-avatar {
+  margin: 8px;
+}
+
+

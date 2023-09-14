@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon p-3 mt-5 mx-5 d-flex">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon p-3 mt-4 mx-4 d-flex">
 
   <div class="d-flex justify-content-start">
     <div class="container-fluid">
@@ -28,13 +28,13 @@
               <%= link_to "Criar sala", new_room_path, class: "nav-link", data: {turbo_frame: "modal_popup"} %>
             </li>
           <% end %>
-          <li class="nav-item dropdown">
-          <a href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <li class="nav-item dropdown p-2 align-items-center">
+            <a href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <% if current_user.photo.attached? %>
             <%= cl_image_tag current_user.photo.key, transformation: [
   {width: 50, height: 50, radius: "max", gravity: "center", crop: "fill"}], class: "avatar", alt: "dropdown menu" %>
           <% else %>
-            <i class="fa-solid fa-user" style='color: #392d14;', class= "avatar", alt= "dropdown menu"></i>
+            <i class="fa-solid fa-user" style='color: #392d14;', class= "nav-avatar", alt= "dropdown menu"></i>
           <% end %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
