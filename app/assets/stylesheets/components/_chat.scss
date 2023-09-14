@@ -1,7 +1,6 @@
 #subscriber video,
 #publisher video {
   width: 100%;
-  height: auto;
   max-height: 100%;
 }
 
@@ -118,4 +117,12 @@ a:hover {
 
 .container-chat {
   margin-top: 40px;
+}
+
+.subscriber-video {
+  margin-top: 86px;
+}
+
+.leaveRoom {
+  
 }
