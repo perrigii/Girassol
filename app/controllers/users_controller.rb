@@ -24,15 +24,6 @@ class UsersController < ApplicationController
       @patient = current_user
       @review_new = Review.new
     end
-    # if @appointment.present?
-    #   @appointment.patient = @patient
-    # end
-
-    # @appointment = Appointment.new
-    # @patient = current_user
-    # @therapist = User.find(params[:user_id])
-    # @reviews = Review.where(patient_id: @patient, therapist_id: @therapist).order("created_at DESC")
-
   end
 
   def profile

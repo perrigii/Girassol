@@ -1,19 +1,23 @@
 .dayContainer {
-  background-color: #faeecc !important;
+  background-color: #fff0d3 !important;
 }
 
 .flatpickr-weekdays {
-  background-color: #a2b683 !important;
-  color: #6b6457 !important;
+  background-color: #3F497F !important;
+  color: #fff0d3 !important;
+}
+
+span.flatpickr-weekday {
+  color: #fff0d3 !important;
 }
 
 .flatpickr-months .flatpickr-month {
-  background-color: #a2b683 !important;
-  color: #4a463de2 !important;
+  background-color: #3F497F !important;
+  color: #fff0d3 !important;
 }
 
 .flatpickr-calendar.inline {
-  border: #e2c983 !important;
+  border: #fff0d3 !important;
 }
 
 .appointment_start_time .form-control {
@@ -25,7 +29,7 @@
 }
 
 .flatpickr-calendar.noCalendar.hasTime .flatpickr-time{
-  background-color:  #faeecc !important;
+  background-color:  #fff0d3!important;
 }
 
 .calendar-center {
