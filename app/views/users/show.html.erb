@@ -1,78 +1,223 @@
+<%# *PERSPECTIVA DO PACIENTE* %>
 <% if current_user.patient? %>
-  <div class="container-show-patient">
-    <div class="patient-profile flex-column p-4 text-center">
-      <% if @user.photo.attached? %>
-        <%= cl_image_tag @user.photo.key, class:"profile-avatar" %>
-      <% else %>
-        <div class="d-flex justify-content-center align-items-center" style="color: #463211;">
-          <i class="fa-regular fa-user"></i>
-        </div>
-      <% end %>
-      <div class="card-profile-patient mx-auto d-block">
-        <% if @user.id == current_user.id %>
-          <%= link_to "Editar perfil", edit_user_registration_path %>
-        <% end %>
-        <h1 class="text-center my-3"><%= @user.name.capitalize %> <%= @user.surname.capitalize %> </h1>
-        <div class="birthdate text-center my-3">
-          <% if @user.role == 'patient' %>
-            <p> Paciente </p>
-          <% else %>
-            <p> Terapeuta </p>
-          <% end %>
-          <p> Data de Nascimento: <%= @user.birthdate %> </p>
-        </div>
-        <div class="birthdate text-center my-3">
-          <p> Descrição: <%= @user.description %> </p>
-        </div>
-        <div class="links-profile mx-auto d-block">
-          <%# <%= link_to "Consultas", users_path, class: "btn btn-primary col-4 m-3" %>
-          <div class="btns-show d-flex justify-content-evenly align-items-center">
-            <%= link_to "Agendar consulta", new_user_appointment_path(@user.id), class: "btn-show m-3" %>
-            <% if Chatroom.where(patient_id: current_user.id, therapist_id: @user.id).count > 0 %>
-              <%= link_to "Conversar com #{@user.name}", chatroom_path(id: Chatroom.where(patient_id: current_user.id, therapist_id: @user.id).first.id), class: "btn-show m-3" %>
-            <% else %>
-              <%= link_to "Conversar com #{@user.name}", chatrooms_path(user_id: @user.id), data: { turbo_method: :post }, class: "btn-show m-3" %>
-            <% end %>
+  <div class="container-show-patient ps-2">
+    <div class="container">
+      <div class="row" style="margin: 0 auto;">
+        <%# MARCAR CONSULTAS %>
+        <div class="col-sm-3 col-md-4 col-lg-5 order-md-last">
+          <div class=" card-shadow-1 create-appointments mb-1">
+            <div class="w-100" style="bottom: auto; width: 227px; top: 0px;">
+              <div class="sidebar-menu vue-affix affix-top" style="width: 397px;">
+                <div class=" card card-new-appointment mx-auto d-block mb-2">
+                  <div class="card-header py-1 bg-primary">
+                    <h3 class=" mb-0">Agende sua consulta</h3>
+                  </div>
+
+                  <%# CALENDÁRIO AQUI %>
+                  <div id="my_calendar" class="mt-4">
+                    <div class="">
+                      <div class="d-flex justify-content-center ">
+                        <%= (render 'appointments/calendar_form', appointment: @appointment_new, therapist: @user) if current_user.role == "patient" && @user.role == "therapist" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <%# CRIAR REVIEW %>
+                <div id="avaliar" class="card card-shadow-1 create-reviews mb-4 mt-4">
+                  <div class="reviews">
+                    <%= (render 'reviews/reviews_form', review: @review_new, therapist: @user) if current_user.role == "patient" && @user.role == "therapist" %>
+                  </div>
+                </div>
+
+              </div>
+            </div>
           </div>
-          <div class="avaliar text-center m-4">
-            <% if Appointment.where(patient_id: current_user.id, therapist_id: @user.id).count > 0 %>
-            <%= link_to "Avaliar",  new_user_review_path(user_id: @user.id, appointment_id: @appointment.id), class: "btn-show m-5" %>
-            <% end %>
+        </div>
+
+
+        <%# PERFIL DO TERAPEUTA %>
+        <div class="patient-profile col-sm-9 col-md-8 col-lg-6 offset-lg-1  order-md-first text-center">
+          <div class="card therapist-card card-shadow-1 mb-1">
+            <div class=" pb-0 pt-1">
+              <div class="therapist-info mt-0 mt-sm-1 pt-1 pt-sm-0">
+                <div class=" media mb-1 pb-2 pb-md-1 align-items-stretch">
+
+                  <%# AVATAR %>
+                  <div class="pr-2">
+                    <div class="avatar-info">
+                      <% if @user.photo.attached? %>
+                        <%= cl_image_tag @user.photo.key, class:"profile-avatar" %>
+                      <% else %>
+                        <div class="pr-2" style="color: #463211;">
+                          <i class="fa-regular fa-user"></i>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+
+                  <%# INFO %>
+                  <div class=" media-body d-flex flex-column overflow-hidden">
+                    <div class="d-flex justify-content-between align-items-center mb-0-5">
+                      <% if @user.id == current_user.id %>
+                        <%= link_to "Editar perfil", edit_user_registration_path %>
+                      <% end %>
+                      <h1 class="h3 m-0">
+                        <div class="info-name">
+                          <span> <strong><%= @user.name.capitalize %> <%= @user.surname.capitalize %> </strong></span>
+                        </div>
+                      </h1>
+                    </div>
+                    <div class="">
+                      <% if @user.role == 'patient' %>
+                        <h2 class="h4 text-muted font-weight-normal mb-0-5 d-flex"> Paciente </h2>
+                      <% else %>
+                        <h2 class="h4 text-muted font-weight-normal mb-0-5 d-flex"> Terapeuta </h2>
+                      <% end %>
+
+                      <%# MÉDIA DE RATINGS %>
+                      <div>
+                        <p style="text-align:left" >
+                          <% if @average_rating %>
+                            <% @average_rating.times do  %>
+                              <i class="fa-solid fa-star" style="color: #F4E006;"></i>
+                            <% end %>
+                          <% else %>
+                            <% 5.times do  %>
+                              <i class="fa-regular fa-star" style="color: #F4E006;"></i>
+                            <% end %>
+                          <% end  %>
+                        </p>
+                      </div>
+                    </div>
+
+                    <%# *BOTÕES* %>
+                    <div class=" d-none d-md-flex flex-wrap mt-auto">
+                      <%= link_to new_user_appointment_path(@user.id), class: "btn-users btn-sm-block btn-lg mt-1 mr-1" do %>
+                        <i class="fas fa-calendar-alt me-2"></i>
+                        <span>Agendar consulta</span>
+                      <% end %>
+
+                      <% if Chatroom.where(patient_id: current_user.id, therapist_id: @user.id).count > 0 %>
+                        <%= link_to chatroom_path(id: Chatroom.where(patient_id: current_user.id, therapist_id: @user.id).first.id), class: "btn-users mt-1 mr-3" do %>
+                          <i class="fa-solid fa-message me-2"></i> Mensagens
+                        <% end %>
+                      <% else %>
+                        <%= link_to chatrooms_path(user_id: @user.id), data: { turbo_method: :post }, class: "btn-users mt-1 mr-1" do %>
+                          <i class="fa-solid fa-message me-2"></i> Enviar mensagem
+                        <% end %>
+                      <% end %>
+
+                      <% if Appointment.where(patient_id: current_user.id, therapist_id: @user.id).count > 0 %>
+                        <%= link_to "#avaliar", class: "btn-users mt-1 mr-1" do %>
+                          <i class="fa-regular fa-star me-2"></i> <span class="">Avaliar</span>
+                        <% end %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <%# REVIEWS AQUI %>
-          <div class="reviews mx-auto d-block">
-            <% if @reviews.blank? %>
-              <% if @appointment.nil? %>
-                <h3 class="my-3">Ainda sem avaliações!</h3>
-              <% else %>
-                <h5>Ainda não temos avaliação para este terapeuta, seja o primeiro!</h5>
-                <%= link_to "Avaliar", new_user_review_path(user_id: @user.id, appointment_id: @appointment.id), class: "btn-show btn-primary col-3 m-3" %>
-              <% end %>
-            <% else %>
-              <h3 class="mt-5">Avaliações</h3>
-              <% @reviews.each do |review| %>
-                <div class="review">
-                  <%# adicionar o nome do paciente aqui %>
-                  <p class="text-start"><strong> <%= review.patient.name %> </strong> </p>
-                  <div>
-                    <p style="text-align:left" >
-                      <% review.rating.times do  %>
-                       <i class="fa-solid fa-star" style="color: #F4E006;"></i>
-                      <% end %>
-                    </p>
-                  </div>
-                  <p class="text-start"> <%= review.comment %></p>
+          <%# DESCRIÇAO %>
+          <div class="description card card-shadow-1 mb-4 mt-4">
+            <div class="card-header">
+              <h3>Experiência</h3>
+            </div>
+
+            <div class="card-body">
+              <div class="media">
+                <div class="media-body">
+                  <p class="mb-0-5">
+                    <div class="d-flex flex-wrap align-items-center">
+                      <i class="fa-solid fa-address-card size-16 me-4"></i>
+                      <span>Sobre mim</span>
+                    </div>
+                  </p>
+                  <ul class="text-muted pl-2">
+                    <div class="ps-5">
+                      <li style="text-align: start;" > <%= @user.description %> </li>
+                    </div>
+                  </ul>
                 </div>
-              <% end %>
-            <% end %>
+              </div>
+
+              <hr class="my-1">
+
+              <div class="media">
+                <div class="media-body">
+                  <p class="mb-0-5">
+                    <span class="d-flex flex-wrap align-items-center">
+                      <i class="fa-solid fa-list-check me-4"></i>
+                      <span>Experiência em: </span>
+                    </span>
+                  </p>
+                  <ul class="text-muted pl-2">
+                    <div class="ps-5">
+                     <li style="text-align: start;"> <%= @user.specialty %> </li>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <%# *REVIEWS* %>
+          <div class="reviews card card-shadow-1 mb-1">
+            <div class="card-header">
+              <h3 class=" mb-0"><strong> opiniões de pacientes </strong></h3>
+            </div>
+
+            <div class="card-body opinions-list">
+              <div class="reviews mx-auto d-block">
+                <% if @reviews.blank? %>
+                  <% if @appointment.nil? %>
+                    <h3 class="my-3">Ainda sem avaliações!</h3>
+                  <% else %>
+                    <h5>Ainda não temos avaliação para este terapeuta, seja o primeiro!</h5>
+                    <%= link_to "Avaliar", new_user_review_path(user_id: @user.id, appointment_id: @appointment.id), class: "btn-users btn-primary col-3 m-3" %>
+                  <% end %>
+                <% else %>
+
+                  <% @reviews.each do |review| %>
+                    <div class="media opinion text-break">
+                      <div class="pr-1">
+                        <span class="avatar avatar-circle avatar-xs avatar-color avatar-color-primary"></span>
+                      </div>
+
+                      <div class="media-body">
+                        <div class="mb-1">
+                          <div class="row justify-content-between">
+                            <div class="col-6">
+                              <h4 class="text-base-size font-weight-normal mb-0 text-truncate"><strong> <%= review.patient.name %> </strong> </h4>
+                            </div>
+                          </div>
+                        </div>
+                        <div>
+                          <p style="text-align:left" >
+                            <% review.rating.times do  %>
+                            <i class="fa-solid fa-star" style="color: #F4E006;"></i>
+                            <% end %>
+                          </p>
+                        </div>
+                        <p class="text-break text-start"> <%= review.comment %></p>
+                      </div>
+                    </div>
+                    <hr class="my-1">
+                  <% end %>
+                <% end %>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-
+<%# *PERSPECTIVA DO TERAPEUTA* %>
 <% else %>
   <div class="container-show-therapist">
     <div class="patient-profile flex-column p-4">
@@ -95,6 +240,8 @@
         <div class="birthdate text-center my-3">
           <p> Descrição: <%= @user.description %> </p>
         </div>
+
+        <%# *BOTÕES* %>
         <div class="links-profile row mx-auto d-block">
           <%= link_to "Voltar", patients_path, class: "btn btn-primary m-3 mx-auto d-block" %>
         </div>

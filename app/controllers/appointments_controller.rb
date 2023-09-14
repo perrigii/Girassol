@@ -30,7 +30,7 @@ class AppointmentsController < ApplicationController
     @patient = current_user
     @therapist = User.find(params[:user_id])
     @appointment = Appointment.new(appointment_params)
-    #@review = Review.new
+    @review = Review.new
     @appointment.patient = @patient
     @appointment.therapist = @therapist
     if @appointment.save

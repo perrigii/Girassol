@@ -16,7 +16,6 @@
   background-color: rgb(225, 225, 225);
   height: 595x;
   margin-bottom: 20px;
-  margin-top: 20px;
   border-radius: 10px;
   border: 0.5px solid rgb(195, 195, 195);
 }
@@ -101,4 +100,22 @@ a:hover {
 
 .text-card-form:hover {
   color: rgb(23, 23, 23);
+}
+
+.receiver-style {
+  background: #A8B2E6;
+  border: 0.5px solid rgb(167, 167, 167);
+}
+
+.sender-style {
+  border: 0.5px solid rgb(197, 197, 197);
+  background: #FFD988;
+}
+
+.send-button {
+  margin-left: 15px;
+}
+
+.container-chat {
+  margin-top: 40px;
 }
