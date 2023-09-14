@@ -45,9 +45,6 @@
 
           <%= link_to "Cancelar consulta", appointment_path(@appointment), data: { turbo_method: :delete, turbo_confirm: "Quer mesmo cancelar esta consulta?" }, class: "del-order text-center mx-auto d-block" %>
         </div>
-        <div class="">
-          <img src="booking.svg" class="booking" alt="booking"/>
-        </div>
       </div>
       <% if current_user.role == 'therapist' %>
         <div class="dedechat">
