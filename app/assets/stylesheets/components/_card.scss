@@ -66,4 +66,18 @@
 .info-consulta {
   border: 0.1px dotted #aaaa898c;
   border-radius: 2px;
+  margin: 24px;
+}
+
+.appointment-index {
+  width: 90vw;
+  height: 120px;
+  border-radius: 10px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2);
+  background-color: white;
+  color: #3c3b3b;
+  p {
+    margin: 0px;
+    margin-bottom: 0px;
+  }
 }
