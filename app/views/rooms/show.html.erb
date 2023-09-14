@@ -4,28 +4,34 @@
       <div class="col-8">
         <div id="subscriber" style="height: 600px;">
           <section class="noSubscriber">
-            <div data-controller="copy-url">
-              <span class="title">Esperando outras pessoas entrarem na sala.</span>
-              <div class="copyLink">
-                <input class="originalUrl" data-copy-url-target="link" value="<%= request.original_url %>">
-                <button id="buttonCopy" class="orangeBtn" data-action="click->copy-url#clipboard">
-                Copiar
-                </button>
+            <div class="mt-3 mb-3 card-video-chat"data-controller="copy-url">
+              <div class="w-100 pb-2">
+                <span class="title">Esperando outras pessoas entrarem na sala.</span>
+                <div class="copyLink d-flex justify-content-between">
+                  <div>
+                    <input class="originalUrl" data-copy-url-target="link" value="<%= request.original_url %>">
+                    <button id="buttonCopy" class="orangeBtn" data-action="click->copy-url#clipboard">
+                      Copiar
+                    </button>
+                  </div>
+                  <div class="pe-5">
+                    <%= link_to root_path do %>
+                      <button class="orangeBtn leaveRoom">
+                        Sair da sala
+                      </button>
+                    <% end %>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
         </div>
       </div>
-      <div class="col-4 mt-5">
+      <div class="subscriber-video col-4">
         <div id="publisher" style="height: 300px;"></div>
       </div>
     </div>
   </div>
-  <%= link_to root_path do %>
-    <button class="orangeBtn leaveRoom">
-      Sair da sala
-    </button>
-  <% end %>
   <%#= javascript_tag do %>
     <%#= render(:partial => 'video', :handlers => [:erb], :formats => [:js]) %>
   <%#= end %>
