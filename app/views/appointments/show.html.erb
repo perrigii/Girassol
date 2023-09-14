@@ -1,7 +1,7 @@
 <div class="appointments-body">
   <div id="appointments-container" class="container d-flex flex-column p-4">
     <div class="">
-      <div class="">
+      <div class="d-flex">
         <div class="card-appointment mt-4 p-3 mx-auto d-block text-center">
           <% if current_user.patient? %>
             <p class=""><strong>Sua consulta será com: </strong><%= @appointment.therapist.name.capitalize %></p>
@@ -44,6 +44,9 @@
           <% end %>
 
           <%= link_to "Cancelar consulta", appointment_path(@appointment), data: { turbo_method: :delete, turbo_confirm: "Quer mesmo cancelar esta consulta?" }, class: "del-order text-center mx-auto d-block" %>
+        </div>
+        <div class="">
+          <img src="booking.svg" class="booking" alt="booking"/>
         </div>
       </div>
       <% if current_user.role == 'therapist' %>
