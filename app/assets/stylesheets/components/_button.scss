@@ -142,3 +142,27 @@
     font-weight: bold;
   }
 }
+
+.btn-detalhes {
+  color: #5B280B;
+  padding: 8px;
+  text-align: center;
+  align-items: center;
+  width: 140px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: #F7C04A;
+  border: 0.5px solid #F7C04A;
+  text-decoration: none;
+  box-shadow: 0px 0px 2px #a59465d5;
+  // margin-bottom: 36px;
+  margin-right: 16px;
+  transition: 0.3s;
+  &:hover {
+    color: #5B280B;
+    padding: 10px;
+    background-color: #F7C04A;
+    box-shadow: 0px 0px 3px #816e43;
+    font-weight: bold;
+  }
+}
