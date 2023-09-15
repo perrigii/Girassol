@@ -47,11 +47,10 @@
                   <div class="pr-2">
                     <div class="avatar-info">
                       <% if @user.photo.attached? %>
-                        <%= cl_image_tag @user.photo.key, class:"profile-avatar" %>
+                        <%= cl_image_tag @user.photo.key, transformation: [
+                 {width: 80, height: 80, radius: "max", gravity: "auto", crop: "fill", fetch_format: "auto" }], class:"profile-avatar" %>
                       <% else %>
-                        <div class="pr-2" style="color: #463211;">
-                          <i class="fa-regular fa-user"></i>
-                        </div>
+                        <i class="fa-regular fa-user pr-2"></i>
                       <% end %>
                     </div>
                   </div>
@@ -93,7 +92,7 @@
 
                     <%# *BOTÕES* %>
                     <div class=" d-none d-md-flex flex-wrap mt-auto">
-                      <%= link_to "#agendar", class: "btn-users btn-sm-block btn-lg mt-1 mr-1" do %>
+                      <%= link_to "#agendar", class: "btn-users mt-1 mr-1" do %>
                         <i class="fas fa-calendar-alt me-2"></i>
                         <span>Agendar consulta</span>
                       <% end %>
@@ -121,7 +120,7 @@
           </div>
 
           <%# DESCRIÇAO %>
-          <div class="description card card-shadow-1 mb-4 mt-4">
+          <div class="description card card-shadow-1 mb-2 mt-4">
             <div class="card-header">
               <h3>Experiência</h3>
             </div>
@@ -143,9 +142,9 @@
                 </div>
               </div>
 
-              <hr class="my-1">
+              <hr class="my-2">
 
-              <div class="media">
+              <div class="media mt-5">
                 <div class="media-body">
                   <p class="mb-0-5">
                     <span class="d-flex flex-wrap align-items-center">
@@ -183,33 +182,29 @@
 
                   <% @reviews.each do |review| %>
                     <div class="media opinion text-break">
-                      <%# <div class="pr-1">
-                        <span class="avatar avatar-circle avatar-xs avatar-color avatar-color-primary"></span>
-                      </div> %>
-
                       <% if @user.photo.attached? %>
                         <%= cl_image_tag @user.photo.key, transformation: [
                  {width: 80, height: 80, radius: "max", gravity: "auto", crop: "fill", fetch_format: "auto" }], class:"profile-avatar" %>
-                       <% else %>
+                      <% else %>
                         <i class="fa-solid fa-user" style='color: #392d14;'></i>
-                       <% end %>
+                      <% end %>
 
                       <div class="media-body">
                         <div class="mb-1">
                           <div class="row justify-content-between">
                             <div class="col-6">
-                              <h4 class="text-base-size font-weight-normal mb-0 text-truncate"><strong> <%= review.patient.name %> </strong> </h4>
+                              <h4 class="text-base-size font-weight-normal text-truncate"><strong> <%= review.patient.name %> </strong> </h4>
                             </div>
                           </div>
                         </div>
                         <div>
-                          <p style="text-align:left" >
+                          <p class="" style="text-align:left" >
                             <% review.rating.times do  %>
                             <i class="fa-solid fa-star" style="color: #F4E006;"></i>
                             <% end %>
                           </p>
                         </div>
-                        <p class="text-break text-start"> <%= review.comment %></p>
+                        <p class="text-break text-start pr-2"> <%= review.comment %></p>
                       </div>
                     </div>
                     <hr class="my-1">
