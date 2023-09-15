@@ -183,7 +183,7 @@
                   <% @reviews.each do |review| %>
                     <div class="media opinion text-break">
                       <% if @user.photo.attached? %>
-                        <%= cl_image_tag @user.photo.key, transformation: [
+                        <%= cl_image_tag review.patient.photo.key, transformation: [
                  {width: 80, height: 80, radius: "max", gravity: "auto", crop: "fill", fetch_format: "auto" }], class:"profile-avatar" %>
                       <% else %>
                         <i class="fa-solid fa-user" style='color: #392d14;'></i>

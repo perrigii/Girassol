@@ -14,6 +14,12 @@
   background-color: rgba(28, 78, 114, 0.808);
 }
 
+.container-show-patient {
+  .media-body {
+    margin-left: 15px;
+ }
+}
+
 .therapist-info {
   flex: 1 1 auto;
   min-height: 1px;
