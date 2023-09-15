@@ -103,3 +103,249 @@ User.create!(
   description: 'Trabalho com psicologia cognitivo-comportamental em conjunto com psicanálise.',
   specialty: 'Terapia cognitivo-comportamental'
 )
+
+User.create!(
+  role: 'therapist',
+  email: 'juliana@girassol.com',
+  password: '123123',
+  username: 'juliana',
+  name: 'Juliana',
+  surname: 'Girassol',
+  birthdate: Date.new(1988, 8, 8),
+  description: 'Terapia cognitivo-comportamental com foco em episódios traumáticos.',
+  specialty: 'Terapia cognitivo-comportamental'
+)
+
+User.create!(
+  role: 'patient',
+  email: 'ana@girassol.com',
+  password: '123123',
+  username: 'ana',
+  name: 'Ana',
+  surname: 'Girassol',
+  birthdate: Date.new(2000, 7, 3),
+  description: 'Estou tendo crises terríveis de insônia.',
+  specialty: ''
+)
+
+User.create!(
+  role: 'therapist',
+  email: 'bruna@girassol.com',
+  password: '123123',
+  username: 'bruna',
+  name: 'Bruna',
+  surname: 'Girassol',
+  birthdate: Date.new(1990, 9, 2),
+  description: 'Terapia com foco em transtornos de personalidade',
+  specialty: 'Psicologia analítica'
+)
+
+User.create!(
+  role: 'patient',
+  email: 'miguel@girassol.com',
+  password: '123123',
+  username: 'miguel',
+  name: 'Miguel',
+  surname: 'Girassol',
+  birthdate: Date.new(1997, 12, 5),
+  description: 'Comecei a tomar antidepressivos e piorei',
+  specialty: ''
+)
+
+User.create!(
+  role: 'therapist',
+  email: 'alice@girassol.com',
+  password: '123123',
+  username: 'alice',
+  name: 'Alice',
+  surname: 'Girassol',
+  birthdate: Date.new(1971, 11, 7),
+  description: 'Terapia com comprovações científicas positivas para o tratamento de Transtorno Afetivo Bipolar (TAB)',
+  specialty: 'Terapia cognitivo-comportamental'
+)
+
+User.create!(
+  role: 'patient',
+  email: 'helena@girassol.com',
+  password: '123123',
+  username: 'helena',
+  name: 'Helena',
+  surname: 'Girassol',
+  birthdate: Date.new(2001, 3, 13),
+  description: 'Tenho questões que envolvem validação externa sobre tudo o que faço',
+  specialty: ''
+)
+
+User.create!(
+  role: 'therapist',
+  email: 'adriana@girassol.com',
+  password: '123123',
+  username: 'adriana',
+  name: 'Adriana',
+  surname: 'Girassol',
+  birthdate: Date.new(1988, 10, 5),
+  description: 'Terapia cognitivo-comportamental com foco em fobia social',
+  specialty: 'Terapia cognitivo-comportamental'
+)
+
+User.create!(
+  role: 'therapist',
+  email: 'francisco@girassol.com',
+  password: '123123',
+  username: 'francisco',
+  name: 'Francisco',
+  surname: 'Girassol',
+  birthdate: Date.new(1989, 6, 21),
+  description: 'Terapia para tratamento do transtorno de ansiedade generalizada (TAG)',
+  specialty: 'Terapia cognitivo-comportamental'
+)
+
+User.create!(
+  role: 'patient',
+  email: 'camila@girassol.com',
+  password: '123123',
+  username: 'camila',
+  name: 'Camila',
+  surname: 'Girassol',
+  birthdate: Date.new(1997, 12, 23),
+  description: 'Tenho em sentido completamente vazia.',
+  specialty: ''
+)
+
+User.create!(
+  role: 'therapist',
+  email: 'elisa@girassol.com',
+  password: '123123',
+  username: 'elisa',
+  name: 'Elisa',
+  surname: 'Girassol',
+  birthdate: Date.new(1970, 12, 5),
+  description: 'Terapia com foco no tratamento da Distimia',
+  specialty: 'Psicologia analítica'
+)
+
+User.create!(
+  role: 'therapist',
+  email: 'hugo@girassol.com',
+  password: '123123',
+  username: 'hugo',
+  name: 'Hugo',
+  surname: 'Girassol',
+  birthdate: Date.new(1981, 8, 25),
+  description: 'Atendo pessoas com problemas com dependência química.',
+  specialty: 'Terapia cognitivo-comportamental'
+)
+
+
+User.create!(
+  role: 'therapist',
+  email: 'afonso@girassol.com',
+  password: '123123',
+  username: 'afonso',
+  name: 'Afonso',
+  surname: 'Girassol',
+  birthdate: Date.new(1996, 11, 9),
+  description: 'Atendo conflitos familiares com abordagem analítica sobre a situação.',
+  specialty: 'Psicanálise'
+)
+
+
+User.create!(
+  role: 'therapist',
+  email: 'gabriela@girassol.com',
+  password: '123123',
+  username: 'gabriela',
+  name: 'Gabriela',
+  surname: 'Girassol',
+  birthdate: Date.new(1993, 1, 21),
+  description: 'Atendo pessoas que portam transtornos psicóticos',
+  specialty: 'Psicologia analítica'
+)
+
+
+User.create!(
+  role: 'therapist',
+  email: 'isabela@girassol.com',
+  password: '123123',
+  username: 'isabela',
+  name: 'Isabela',
+  surname: 'Girassol',
+  birthdate: Date.new(1990, 3, 3),
+  description: 'Posso lhe ajudar com tratamento para transtorno de déficit de atenção e hiperatividade (TDAH).',
+  specialty: 'Psicologia analítica'
+)
+
+
+User.create!(
+  role: 'therapist',
+  email: 'heitor@girassol.com',
+  password: '123123',
+  username: 'heitor',
+  name: 'Heitor',
+  surname: 'Girassol',
+  birthdate: Date.new(1986, 4, 5),
+  description: 'Sou especializado para atender pessoas no espectro autista.',
+  specialty: 'Terapia cognitivo-comportamental'
+)
+
+
+User.create!(
+  role: 'therapist',
+  email: 'sonia@girassol.com',
+  password: '123123',
+  username: 'sonia',
+  name: 'Sonia',
+  surname: 'Girassol',
+  birthdate: Date.new(1968, 5, 31),
+  description: 'Ofereço tratamento para demência.',
+  specialty: 'Psicologia analítica'
+)
+
+
+User.create!(
+  role: 'therapist',
+  email: 'madalena@girassol.com',
+  password: '123123',
+  username: 'madalena',
+  name: 'Madalena',
+  surname: 'Girassol',
+  birthdate: Date.new(1974, 7, 5),
+  description: 'Terapeuta capacitada para o tratamento do transtorno obsessivo-compulsivo (TOC).',
+  specialty: 'Terapia cognitivo-comportamental'
+)
+
+User.create!(
+  role: 'therapist',
+  email: 'benjamin@girassol.com',
+  password: '123123',
+  username: 'benjamin',
+  name: 'Benjamin',
+  surname: 'Girassol',
+  birthdate: Date.new(1992, 9, 30),
+  description: 'Terapeuta qualificado para tratamento da Depressão Maior.',
+  specialty: 'Terapia cognitivo-comportamental'
+)
+
+User.create!(
+  role: 'therapist',
+  email: 'bernardo@girassol.com',
+  password: '123123',
+  username: 'bernardo',
+  name: 'Bernardo',
+  surname: 'Girassol',
+  birthdate: Date.new(1995, 3, 1),
+  description: 'Tratamento para o transtorno de personalidade Borderline (TPB).',
+  specialty: 'Psicologia analítica'
+)
+
+User.create!(
+  role: 'therapist',
+  email: 'lorena@girassol.com',
+  password: '123123',
+  username: 'lorena',
+  name: 'Lorena',
+  surname: 'Girassol',
+  birthdate: Date.new(1991, 8, 2),
+  description: 'Terapeuta especializada em transtornos do humor.',
+  specialty: 'Psicologia analítica'
+)
